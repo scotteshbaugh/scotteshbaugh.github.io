@@ -159,16 +159,16 @@
   --color-text-default-tertiary: var(--color-primitive-gray-500);
   --color-text-neutral-default: var(--color-primitive-gray-900);
   --color-text-neutral-secondary: var(--color-primitive-gray-700);
-  --color-text-neutral-tertiary: var(--color-primitive-gray-600);
+  --color-text-neutral-tertiary: var(--color-primitive-gray-500);
   --color-text-neutral-on-neutral: var(--color-primitive-gray-100);
   --color-text-neutral-on-neutral-secondary: var(--color-primitive-gray-900);
   --color-text-neutral-on-neutral-tertiary: var(--color-primitive-gray-800);
-  --color-text-brand-default: var(--color-primitive-brand-800);
+  --color-text-brand-default: var(--color-primitive-brand-500);
   --color-text-brand-secondary: var(--color-primitive-brand-600);
-  --color-text-brand-tertiary: var(--color-primitive-brand-500);
+  --color-text-brand-tertiary: var(--color-primitive-brand-300);
   --color-text-brand-on-brand: var(--color-primitive-brand-100);
   --color-text-brand-on-brand-secondary: var(--color-primitive-brand-900);
-  --color-text-brand-on-brand-tertiary: var(--color-primitive-brand-800);
+  --color-text-brand-on-brand-tertiary: var(--color-primitive-brand-700);
   --color-text-positive-default: var(--color-primitive-green-800);
   --color-text-positive-secondary: var(--color-primitive-green-600);
   --color-text-positive-tertiary: var(--color-primitive-green-500);
@@ -187,11 +187,15 @@
   --color-text-danger-on-danger: var(--color-primitive-red-100);
   --color-text-danger-on-danger-secondary: var(--color-primitive-red-700);
   --color-text-danger-on-danger-tertiary: var(--color-primitive-red-700);
-  --color-text-disabled-default: var(--color-primitive-gray-400);
-  --color-text-disabled-on-disabled: var(--color-primitive-gray-400);
+  --color-text-disabled-default: var(--color-primitive-gray-500);
+  --color-text-disabled-on-disabled: var(--color-primitive-gray-500);
   --color-text-utilities-text-on-overlay: var(--color-primitive-black-1000);
   --color-text-utilities-text-on-measurement: var(--color-primitive-magenta-800);
-  --color-border-default-default: var(--color-primitive-gray-300);
+  --color-text-link-default: var(--color-primitive-gray-900);
+  --color-text-link-hover: var(--color-primitive-brand-500);
+  --color-text-link-pressed: var(--color-primitive-brand-600);
+  --color-text-link-disabled: var(--color-primitive-gray-500);
+  --color-border-default-default: var(--color-primitive-gray-200);
   --color-border-default-secondary: var(--color-primitive-gray-500);
   --color-border-default-tertiary: var(--color-primitive-gray-700);
   --color-border-neutral-default: var(--color-primitive-gray-900);
@@ -211,7 +215,7 @@
   --color-border-danger-tertiary: var(--color-primitive-red-500);
   --color-border-disabled-default: var(--color-primitive-gray-400);
   --color-border-utilities-measurement: var(--color-primitive-magenta-400);
-  --color-border-utilities-swatch: #0000003d;
+  --color-border-utilities-swatch: #000000NaN;
   --color-icon-default-default: var(--color-primitive-gray-900);
   --color-icon-default-secondary: var(--color-primitive-gray-500);
   --color-icon-default-tertiary: var(--color-primitive-gray-400);
@@ -250,9 +254,39 @@
   --color-icon-utilities-icon: var(--color-primitive-magenta-600);
   --color-icon-utilities-icon-on-measurement: var(--color-primitive-magenta-800);
 
+  /* collection-1 */
+  --collection-1-white: #ffffff;
+  --collection-1-grey-10: #f4f4f4;
+  --collection-1-grey-20: #e0e0e0;
+  --collection-1-grey-70: #393939;
+  --collection-1-grey-90: #161616;
+  --collection-1-purple-50: #a56eff;
+
+  /* typography-primitives */
+  --typography-primitives-family-sans-regular: FF Good Pro;
+  --typography-primitives-family-sans-wide: FF Good Pro Wide;
+  --typography-primitives-family-sans-extended: FF Good Pro Extd;
+  --typography-primitives-family-sans-narrow: FF Good Pro Narr;
+  --typography-primitives-family-brand: Brauer Neue Black;
+  --typography-primitives-family-mono: IBM Plex Mono;
+  --typography-primitives-scale-scale-01: 12px;
+  --typography-primitives-scale-scale-02: 14px;
+  --typography-primitives-scale-scale-03: 16px;
+  --typography-primitives-scale-scale-04: 21px;
+  --typography-primitives-scale-scale-05: 28px;
+  --typography-primitives-scale-scale-06: 38px;
+  --typography-primitives-scale-scale-07: 50px;
+  --typography-primitives-scale-scale-08: 68px;
+  --typography-primitives-scale-scale-09: 90px;
+  --typography-primitives-scale-scale-10: 120px;
+  --typography-primitives-weight-regular: Regular;
+  --typography-primitives-weight-medium: Medium;
+  --typography-primitives-weight-bold: Bold;
+
   /* responsive */
   --responsive-device: desktop;
-  --responsive-device-width: 1280;
+  --responsive-device-width: 1280px;
+  --responsive-root-font-size: var(--typography-primitives-scale-scale-03);
   --responsive-scale: 1;
 
   /* size */
@@ -297,4 +331,39 @@
   --size-icon-small: 24px;
   --size-icon-medium: 32px;
   --size-icon-large: 40px;
+
+  /* typography */
+  --typography-title-hero-font-family: var(--typography-primitives-family-brand);
+  --typography-title-hero-size: var(--typography-primitives-scale-scale-08);
+  --typography-title-hero-string: var(--typography-primitives-weight-regular);
+  --typography-heading-font-family: var(--typography-primitives-family-sans-wide);
+  --typography-heading-header-1: var(--typography-primitives-scale-scale-08);
+  --typography-heading-header-2: var(--typography-primitives-scale-scale-07);
+  --typography-heading-header-3: var(--typography-primitives-scale-scale-06);
+  --typography-heading-header-4: var(--typography-primitives-scale-scale-05);
+  --typography-heading-header-5: var(--typography-primitives-scale-scale-04);
+  --typography-heading-header-6: var(--typography-primitives-scale-scale-03);
+  --typography-heading-font-weight: var(--typography-primitives-weight-medium);
+  --typography-overline-font-family: var(--typography-primitives-family-sans-extended);
+  --typography-overline-size: var(--typography-primitives-scale-scale-03);
+  --typography-overline-font-weight: var(--typography-primitives-weight-regular);
+  --typography-body-font-family: var(--typography-primitives-family-sans-regular);
+  --typography-body-body-1: var(--typography-primitives-scale-scale-03);
+  --typography-body-body-2: var(--typography-primitives-scale-scale-02);
+  --typography-body-font-weight: var(--typography-primitives-weight-regular);
+  --typography-code-font-family: var(--typography-primitives-family-mono);
+  --typography-code-size: var(--typography-primitives-scale-scale-02);
+  --typography-code-font-weight: var(--typography-primitives-weight-regular);
+  --typography-caption-title-font-family: var(--typography-primitives-family-sans-regular);
+  --typography-caption-title-size: var(--typography-primitives-scale-scale-01);
+  --typography-caption-title-font-weight: var(--typography-primitives-weight-bold);
+  --typography-caption-body-font-family: var(--typography-primitives-family-sans-regular);
+  --typography-caption-body-size: var(--typography-primitives-scale-scale-01);
+  --typography-caption-body-font-weight: var(--typography-primitives-weight-regular);
+  --typography-navigation-font-family: var(--typography-primitives-family-sans-wide);
+  --typography-navigation-size: var(--typography-primitives-scale-scale-03);
+  --typography-navigation-font-weight: var(--typography-primitives-weight-medium);
+  --typography-button-font-family: var(--typography-primitives-family-sans-regular);
+  --typography-button-size: var(--typography-primitives-scale-scale-02);
+  --typography-button-font-weight: Regular;
 }

@@ -1,0 +1,51 @@
+/* @font-face declarations for the families referenced in tokens.css
+   (--typography-primitives-family-*). Family names here match the token
+   values exactly so var(--typography-*-font-family) resolves correctly. */
+
+@font-face {
+  font-family: "FF Good Pro";
+  src: url("../assets/fonts/FFGoodPro-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FF Good Pro";
+  src: url("../assets/fonts/FFGoodPro-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FF Good Pro Wide";
+  src: url("../assets/fonts/FFGoodProWide-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FF Good Pro Extd";
+  src: url("../assets/fonts/FFGoodProExtd-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brauer Neue Black";
+  src: url("../assets/fonts/BrauerNeue-Black.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

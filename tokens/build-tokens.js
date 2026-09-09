@@ -141,6 +141,17 @@ function main() {
   fs.writeFileSync(TOKENS_OUT, JSON.stringify(tokensRoot, null, 2) + '\n');
 
   const lines = [];
+  // Which numeric tokens are px dimensions vs. bare multipliers/ratios.
+  // - Size/* (color/border widths, space, radius, blur, depth) -- always px.
+  // - Typography Primitives Scale/* (font sizes) -- always px.
+  // - Responsive/Device Width -- a breakpoint value in px.
+  // NOT px: Responsive/Scale (a unitless ratio multiplier).
+  function isPxDimension(pathArr) {
+    if (pathArr[0] === 'size') return true;
+    if (pathArr[0] === 'typography-primitives' && pathArr[1] === 'scale') return true;
+    if (pathArr[0] === 'responsive' && pathArr[1] === 'device-width') return true;
+    return false;
+  }
   function walk(node, pathArr) {
     if (node && typeof node.$value !== 'undefined') {
       const varName = '--' + pathArr.join('-');
@@ -148,8 +159,7 @@ function main() {
       if (typeof cssValue === 'string') {
         const refMatch = /^\{(.+)\}$/.exec(cssValue);
         if (refMatch) cssValue = `var(--${refMatch[1].split('.').join('-')})`;
-      } else if (node.$type === 'number' && pathArr[0] === 'size') {
-        // Every Size/* primitive is a px dimension (space, radius, blur, depth, stroke widths).
+      } else if (node.$type === 'number' && isPxDimension(pathArr)) {
         cssValue = `${cssValue}px`;
       }
       lines.push(`  ${varName}: ${cssValue};`);

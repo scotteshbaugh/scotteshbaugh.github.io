@@ -1,4 +1,129 @@
 {
+  "Collection 1": {
+    "id": "VariableCollectionId:1:37",
+    "modes": [
+      {
+        "name": "Mode 1",
+        "modeId": "1:0"
+      }
+    ],
+    "variables": {
+      "White": {
+        "id": "VariableID:1:42",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "hex": "#ffffff",
+            "rgba": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Grey 10": {
+        "id": "VariableID:1:43",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "hex": "#f4f4f4",
+            "rgba": {
+              "r": 244,
+              "g": 244,
+              "b": 244,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Grey 20": {
+        "id": "VariableID:1:41",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "hex": "#e0e0e0",
+            "rgba": {
+              "r": 224,
+              "g": 224,
+              "b": 224,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Grey 70": {
+        "id": "VariableID:1:39",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "hex": "#393939",
+            "rgba": {
+              "r": 57,
+              "g": 57,
+              "b": 57,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Grey 90": {
+        "id": "VariableID:1:44",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "hex": "#161616",
+            "rgba": {
+              "r": 22,
+              "g": 22,
+              "b": 22,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Purple 50": {
+        "id": "VariableID:1:38",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "hex": "#a56eff",
+            "rgba": {
+              "r": 165,
+              "g": 110,
+              "b": 255,
+              "a": 1
+            }
+          }
+        }
+      }
+    }
+  },
   "Color Primitives": {
     "id": "VariableCollectionId:36:1757",
     "modes": [
@@ -3016,7 +3141,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Gray/600"
+              "name": "Gray/500"
             }
           },
           "SDS Dark": {
@@ -3104,7 +3229,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Brand/800"
+              "name": "Brand/500"
             }
           },
           "SDS Dark": {
@@ -3148,7 +3273,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Brand/500"
+              "name": "Brand/300"
             }
           },
           "SDS Dark": {
@@ -3214,7 +3339,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Brand/800"
+              "name": "Brand/700"
             }
           },
           "SDS Dark": {
@@ -3632,7 +3757,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Gray/400"
+              "name": "Gray/500"
             }
           },
           "SDS Dark": {
@@ -3698,7 +3823,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Gray/400"
+              "name": "Gray/500"
             }
           },
           "SDS Dark": {
@@ -3720,7 +3845,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Gray/300"
+              "name": "Gray/200"
             }
           },
           "SDS Dark": {
@@ -3753,7 +3878,7 @@
           }
         }
       },
-      "Border/Default/tertiary": {
+      "Border/Default/Tertiary": {
         "id": "VariableID:36:1939",
         "type": "COLOR",
         "description": "",
@@ -3819,7 +3944,7 @@
           }
         }
       },
-      "Border/Neutral/tertiary": {
+      "Border/Neutral/Tertiary": {
         "id": "VariableID:36:1942",
         "type": "COLOR",
         "description": "",
@@ -4017,7 +4142,7 @@
           }
         }
       },
-      "Border/Warning/tertiary": {
+      "Border/Warning/Tertiary": {
         "id": "VariableID:36:1951",
         "type": "COLOR",
         "description": "",
@@ -4105,7 +4230,7 @@
           }
         }
       },
-      "Border/Disabled/default": {
+      "Border/Disabled/Default": {
         "id": "VariableID:36:1955",
         "type": "COLOR",
         "description": "",
@@ -4158,21 +4283,19 @@
         ],
         "valuesByMode": {
           "SDS Light": {
-            "hex": "#000000",
+            "hex": "#NaNNaNNaN",
             "rgba": {
-              "r": 0,
-              "g": 0,
-              "b": 0,
-              "a": 0.23999999463558197
+              "r": null,
+              "g": null,
+              "b": null
             }
           },
           "SDS Dark": {
-            "hex": "#ffffff",
+            "hex": "#NaNNaNNaN",
             "rgba": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 0.23999999463558197
+              "r": null,
+              "g": null,
+              "b": null
             }
           }
         }
@@ -5027,6 +5150,306 @@
             }
           }
         }
+      },
+      "Text/Link/Default": {
+        "id": "VariableID:67:4419",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Gray/900"
+            }
+          },
+          "SDS Dark": {
+            "hex": "#ffffff",
+            "rgba": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Text/Link/Hover": {
+        "id": "VariableID:67:4420",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Brand/500"
+            }
+          },
+          "SDS Dark": {
+            "hex": "#ffffff",
+            "rgba": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Text/Link/Pressed": {
+        "id": "VariableID:67:4423",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Brand/600"
+            }
+          },
+          "SDS Dark": {
+            "hex": "#ffffff",
+            "rgba": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        }
+      },
+      "Text/Link/Disabled": {
+        "id": "VariableID:67:4422",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Gray/500"
+            }
+          },
+          "SDS Dark": {
+            "hex": "#ffffff",
+            "rgba": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "Typography Primitives": {
+    "id": "VariableCollectionId:36:1995",
+    "modes": [
+      {
+        "name": "Default",
+        "modeId": "36:10"
+      }
+    ],
+    "variables": {
+      "Family Sans/Regular": {
+        "id": "VariableID:36:1996",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Default": "FF Good Pro"
+        }
+      },
+      "Family Sans/Wide": {
+        "id": "VariableID:55:4390",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": "FF Good Pro Wide"
+        }
+      },
+      "Family Sans/Extended": {
+        "id": "VariableID:55:4391",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": "FF Good Pro Extd"
+        }
+      },
+      "Family Sans/Narrow": {
+        "id": "VariableID:55:4392",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": "FF Good Pro Narr"
+        }
+      },
+      "Family Brand": {
+        "id": "VariableID:55:4393",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": "Brauer Neue Black"
+        }
+      },
+      "Family Mono": {
+        "id": "VariableID:36:1998",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Default": "IBM Plex Mono"
+        }
+      },
+      "Scale/Scale 01": {
+        "id": "VariableID:36:1999",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 12
+        }
+      },
+      "Scale/Scale 02": {
+        "id": "VariableID:36:2000",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 14
+        }
+      },
+      "Scale/Scale 03": {
+        "id": "VariableID:36:2001",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 16
+        }
+      },
+      "Scale/Scale 04": {
+        "id": "VariableID:36:2002",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 21
+        }
+      },
+      "Scale/Scale 05": {
+        "id": "VariableID:36:2003",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 28
+        }
+      },
+      "Scale/Scale 06": {
+        "id": "VariableID:36:2004",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 38
+        }
+      },
+      "Scale/Scale 07": {
+        "id": "VariableID:36:2005",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 50
+        }
+      },
+      "Scale/Scale 08": {
+        "id": "VariableID:36:2006",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 68
+        }
+      },
+      "Scale/Scale 09": {
+        "id": "VariableID:36:2007",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 90
+        }
+      },
+      "Scale/Scale 10": {
+        "id": "VariableID:36:2008",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [],
+        "valuesByMode": {
+          "Default": 120
+        }
+      },
+      "Weight/Regular": {
+        "id": "VariableID:36:2010",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "valuesByMode": {
+          "Default": "Regular"
+        }
+      },
+      "Weight/Medium": {
+        "id": "VariableID:36:2012",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "valuesByMode": {
+          "Default": "Medium"
+        }
+      },
+      "Weight/Bold": {
+        "id": "VariableID:36:2014",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_STYLE"
+        ],
+        "valuesByMode": {
+          "Default": "Bold"
+        }
       }
     }
   },
@@ -5082,19 +5505,19 @@
           "Desktop": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale 03"
+              "name": "Scale/Scale 03"
             }
           },
           "Mobile": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale 03"
+              "name": "Scale/Scale 03"
             }
           },
           "Tablet": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale 03"
+              "name": "Scale/Scale 03"
             }
           }
         }
@@ -5570,6 +5993,540 @@
         ],
         "valuesByMode": {
           "Default": 40
+        }
+      }
+    }
+  },
+  "Typography": {
+    "id": "VariableCollectionId:36:2074",
+    "modes": [
+      {
+        "name": "Mode 1",
+        "modeId": "36:15"
+      }
+    ],
+    "variables": {
+      "Title Hero/Font Family": {
+        "id": "VariableID:36:2075",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Brand"
+            }
+          }
+        }
+      },
+      "Title Hero/Size": {
+        "id": "VariableID:36:2076",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 08"
+            }
+          }
+        }
+      },
+      "Title Hero/String": {
+        "id": "VariableID:55:4395",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Regular"
+            }
+          }
+        }
+      },
+      "Heading/Font Family": {
+        "id": "VariableID:36:2078",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Wide"
+            }
+          }
+        }
+      },
+      "Heading/Header 1": {
+        "id": "VariableID:36:2081",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 08"
+            }
+          }
+        }
+      },
+      "Heading/Header 2": {
+        "id": "VariableID:36:2079",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 07"
+            }
+          }
+        }
+      },
+      "Heading/Header 3": {
+        "id": "VariableID:36:2080",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 06"
+            }
+          }
+        }
+      },
+      "Heading/Header 4": {
+        "id": "VariableID:55:4403",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 05"
+            }
+          }
+        }
+      },
+      "Heading/Header 5": {
+        "id": "VariableID:55:4404",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 04"
+            }
+          }
+        }
+      },
+      "Heading/Header 6": {
+        "id": "VariableID:55:4405",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 03"
+            }
+          }
+        }
+      },
+      "Heading/Font Weight": {
+        "id": "VariableID:55:4400",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Medium"
+            }
+          }
+        }
+      },
+      "Overline/Font Family": {
+        "id": "VariableID:36:2093",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Extended"
+            }
+          }
+        }
+      },
+      "Overline/Size": {
+        "id": "VariableID:36:2094",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 03"
+            }
+          }
+        }
+      },
+      "Overline/Font Weight": {
+        "id": "VariableID:55:4402",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Regular"
+            }
+          }
+        }
+      },
+      "Body/Font Family": {
+        "id": "VariableID:36:2098",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Regular"
+            }
+          }
+        }
+      },
+      "Body/Body 1": {
+        "id": "VariableID:36:2099",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 03"
+            }
+          }
+        }
+      },
+      "Body/Body 2": {
+        "id": "VariableID:36:2100",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 02"
+            }
+          }
+        }
+      },
+      "Body/Font Weight": {
+        "id": "VariableID:55:4396",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Regular"
+            }
+          }
+        }
+      },
+      "Code/Font Family": {
+        "id": "VariableID:36:2105",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Mono"
+            }
+          }
+        }
+      },
+      "Code/Size": {
+        "id": "VariableID:36:2106",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 02"
+            }
+          }
+        }
+      },
+      "Code/Font Weight": {
+        "id": "VariableID:55:4407",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Regular"
+            }
+          }
+        }
+      },
+      "Caption Title/Font Family": {
+        "id": "VariableID:55:4397",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Regular"
+            }
+          }
+        }
+      },
+      "Caption Title/Size": {
+        "id": "VariableID:55:4399",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 01"
+            }
+          }
+        }
+      },
+      "Caption Title/Font Weight": {
+        "id": "VariableID:55:4398",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Bold"
+            }
+          }
+        }
+      },
+      "Caption Body/Font Family": {
+        "id": "VariableID:55:4408",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Regular"
+            }
+          }
+        }
+      },
+      "Caption Body/Size": {
+        "id": "VariableID:55:4410",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 01"
+            }
+          }
+        }
+      },
+      "Caption Body/Font Weight": {
+        "id": "VariableID:55:4409",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Regular"
+            }
+          }
+        }
+      },
+      "Navigation/Font Family": {
+        "id": "VariableID:55:4412",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Wide"
+            }
+          }
+        }
+      },
+      "Navigation/Size": {
+        "id": "VariableID:55:4413",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 03"
+            }
+          }
+        }
+      },
+      "Navigation/Font Weight": {
+        "id": "VariableID:55:4414",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Weight/Medium"
+            }
+          }
+        }
+      },
+      "Button/Font Family": {
+        "id": "VariableID:55:4415",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Family Sans/Regular"
+            }
+          }
+        }
+      },
+      "Button/Size": {
+        "id": "VariableID:55:4416",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Scale/Scale 02"
+            }
+          }
+        }
+      },
+      "Button/Font Weight": {
+        "id": "VariableID:55:4418",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": "Regular"
         }
       }
     }

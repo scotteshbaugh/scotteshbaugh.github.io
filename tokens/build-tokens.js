@@ -200,12 +200,12 @@ function main() {
   const lines = [];
   // Which numeric tokens are px dimensions vs. bare multipliers/ratios.
   // - Size/* (color/border widths, space, radius, blur, depth) -- always px.
-  // - Typography Primitives Scale/* (font sizes) -- always px.
+  // - Typography Primitives Size/* and Line Height/* (font sizes, line heights) -- always px.
   // - Responsive/Device Width -- a breakpoint value in px.
   // NOT px: Responsive/Scale (a unitless ratio multiplier).
   function isPxDimension(pathArr) {
     if (pathArr[0] === 'size') return true;
-    if (pathArr[0] === 'typography-primitives' && pathArr[1] === 'scale') return true;
+    if (pathArr[0] === 'typography-primitives' && (pathArr[1] === 'size' || pathArr[1] === 'line-height')) return true;
     if (pathArr[0] === 'responsive' && pathArr[1] === 'device-width') return true;
     return false;
   }

@@ -41,9 +41,13 @@ const TEMPLATE = /* html */ `
 
   :host([orientation="vertical"]) {
     display: inline-block;
-    align-self: stretch;   /* fills the cross-axis automatically in a flex row */
+    align-self: stretch;   /* fills the cross-axis automatically in a flex row --
+      this is the only sizing mechanism that works when the row's height is
+      auto/content-based (the common case). A specified height (e.g. 100%)
+      here would take priority over stretch per the flexbox spec, and would
+      resolve to 0 against a parent whose height isn't definite -- so no
+      height fallback is set; a vertical divider needs a flex row parent. */
     width: var(--divider-thickness);
-    height: 100%;          /* fallback for a block parent with explicit height */
   }
 </style>
 `;

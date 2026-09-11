@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script src="divider.js"></script>
+<script src="list-item.js"></script>
+<script src="image.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; max-width: 720px; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .stack > * + * { margin-top: 24px; }
+  .row-fill { display: flex; height: 300px; border: 1px dashed #c6c6c6; }
+  .narrow { max-width: 360px; border: 1px dashed #c6c6c6; }
+  .card { border: 1px solid #e0e0e0; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; height: 380px; max-width: 500px; }
+</style>
+</head>
+<body>
+
+<h2>Fills a flex row (dashed box = the parent's own bounds)</h2>
+<div class="row-fill">
+  <ds-image>
+    <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
+  </ds-image>
+</div>
+
+<h2>No image loaded yet — background token still shows through the gap</h2>
+<div class="row-fill">
+  <ds-image>
+    <img alt="Placeholder, no src set yet">
+  </ds-image>
+</div>
+
+<h2>Narrow / mobile (&le;480px) — fixed 300px height instead of flex-fill</h2>
+<div class="narrow">
+  <ds-image>
+    <img src="../assets/covers/cvt_cover.jpg" alt="Screenshot of another case study cover">
+  </ds-image>
+</div>
+
+<h2>Real usage — inside a case study card, with List item underneath</h2>
+<div class="card">
+  <ds-image>
+    <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of the case study cover">
+  </ds-image>
+  <ds-list-item>
+    Descriptor
+    <span slot="item-2">Descriptor</span>
+    <span slot="item-3">Descriptor</span>
+  </ds-list-item>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>List item component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script src="divider.js"></script>
+<script src="list-item.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; max-width: 480px; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .stack > * + * { margin-top: 24px; }
+  .card { border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; max-width: 320px; }
+</style>
+</head>
+<body>
+
+<h2>Row — 1, 2, 3 items</h2>
+<div class="stack">
+  <ds-list-item>2019–2021</ds-list-item>
+  <ds-list-item>
+    2019–2021
+    <span slot="item-2">Senior Product Designer</span>
+  </ds-list-item>
+  <ds-list-item>
+    2019–2021
+    <span slot="item-2">Senior Product Designer</span>
+    <span slot="item-3">IBM</span>
+  </ds-list-item>
+</div>
+
+<h2>Stack — 1, 2, 3 items</h2>
+<div class="stack">
+  <ds-list-item layout="stack">2019–2021</ds-list-item>
+  <ds-list-item layout="stack">
+    2019–2021
+    <span slot="item-2">Senior Product Designer</span>
+  </ds-list-item>
+  <ds-list-item layout="stack">
+    IBM
+    <span slot="item-2">Staff Product Designer</span>
+    <span slot="item-3">Austin, TX</span>
+  </ds-list-item>
+</div>
+
+<h2>Hugs content — long text wraps instead of clipping</h2>
+<div class="card">
+  <ds-list-item layout="stack" style="white-space: normal;">
+    <span style="white-space: normal;">Led the redesign of a multi-role clinical decision support workflow used by 40,000+ nurses</span>
+    <span slot="item-2" style="white-space: normal;">Senior Product Designer, Healthcare Platform Team</span>
+  </ds-list-item>
+</div>
+
+<h2>Real usage — metadata row in a case study card</h2>
+<div class="card">
+  <ds-list-item>
+    2019–2021
+    <span slot="item-2">Role</span>
+  </ds-list-item>
+</div>
+
+</body>
+</html>

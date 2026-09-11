@@ -7366,22 +7366,6 @@
           }
         }
       },
-      "400/Shadow 1/Color": {
-        "id": "VariableID:128:833",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Black/200"
-            }
-          }
-        }
-      },
       "400/Shadow 2/Position X": {
         "id": "VariableID:128:835",
         "type": "FLOAT",
@@ -7394,6 +7378,22 @@
             "$alias": {
               "collection": "Size",
               "name": "Depth/0"
+            }
+          }
+        }
+      },
+      "400/Shadow 1/Color": {
+        "id": "VariableID:128:833",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Black/200"
             }
           }
         }
@@ -7622,7 +7622,87 @@
           }
         }
       },
-      "600/Position X": {
+      "550/Shadow 1/Position X": {
+        "id": "VariableID:132:2092",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Depth/0"
+            }
+          }
+        }
+      },
+      "550/Shadow 1/Position Y": {
+        "id": "VariableID:132:2093",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Depth/200"
+            }
+          }
+        }
+      },
+      "550/Shadow 1/Blur": {
+        "id": "VariableID:132:2094",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Blur/400"
+            }
+          }
+        }
+      },
+      "550/Shadow 1/Spread": {
+        "id": "VariableID:132:2095",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Depth/Negative 100"
+            }
+          }
+        }
+      },
+      "550/Shadow 1/Color": {
+        "id": "VariableID:132:2096",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Black/100"
+            }
+          }
+        }
+      },
+      "550/Shadow 2/Position X": {
         "id": "VariableID:128:849",
         "type": "FLOAT",
         "description": "",
@@ -7638,7 +7718,7 @@
           }
         }
       },
-      "600/Position Y": {
+      "550/Shadow 2/Position Y": {
         "id": "VariableID:128:850",
         "type": "FLOAT",
         "description": "",
@@ -7654,7 +7734,7 @@
           }
         }
       },
-      "600/Blur": {
+      "550/Shadow 2/Blur": {
         "id": "VariableID:128:851",
         "type": "FLOAT",
         "description": "",
@@ -7670,7 +7750,7 @@
           }
         }
       },
-      "600/Spread": {
+      "550/Shadow 2/Spread": {
         "id": "VariableID:128:852",
         "type": "FLOAT",
         "description": "",
@@ -7686,8 +7766,88 @@
           }
         }
       },
-      "600/Color": {
+      "550/Shadow 2/Color": {
         "id": "VariableID:128:854",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Black/300"
+            }
+          }
+        }
+      },
+      "600/Position X": {
+        "id": "VariableID:132:2097",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Depth/0"
+            }
+          }
+        }
+      },
+      "600/Position Y": {
+        "id": "VariableID:132:2098",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Depth/400"
+            }
+          }
+        }
+      },
+      "600/Blur": {
+        "id": "VariableID:132:2099",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Blur/800"
+            }
+          }
+        }
+      },
+      "600/Spread": {
+        "id": "VariableID:132:2100",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Depth/Negative 200"
+            }
+          }
+        }
+      },
+      "600/Color": {
+        "id": "VariableID:132:2101",
         "type": "COLOR",
         "description": "",
         "scopes": [

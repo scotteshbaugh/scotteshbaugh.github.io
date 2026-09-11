@@ -126,7 +126,7 @@ const TEMPLATE = /* html */ `
     --tag-icon: var(--color-icon-neutral-on-neutral-secondary);
   }
 
-  /* Hover is never a state you set — it's implied by `interactive`. */
+  /* Hover is never a state you set — it's implied by \`interactive\`. */
   :host([interactive]) {
     cursor: pointer;
   }

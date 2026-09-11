@@ -1,0 +1,105 @@
+[
+  {
+    "title": "Self-service",
+    "tags": [
+      "Enterprise",
+      "Security"
+    ],
+    "description": "A cross-device self-service experience, shaped by administrator settings for an IAM platform.",
+    "outcome": "Turned a fuzzy, misaligned vision into something buildable within the platform's constraints, then scaled new patterns platform-wide.",
+    "year": "2025",
+    "role": [
+      "Product design lead"
+    ],
+    "descriptors": [
+      "Standards-constrained design",
+      "Complex configuration",
+      "Multi-role system"
+    ],
+    "image": "assets/covers/ss_cover.jpg"
+  },
+  {
+    "title": "Offering content reporting",
+    "tags": [
+      "Enterprise",
+      "Product operations"
+    ],
+    "description": "A decision support tool for service offering teams that helped them remain compliant and improve offering quality.",
+    "outcome": "",
+    "year": "2020",
+    "role": [
+      "Product design lead"
+    ],
+    "descriptors": [
+      "Multi-role system",
+      "Decision support",
+      "Organizational change design"
+    ],
+    "image": "assets/covers/ocd_cover.jpg"
+  },
+  {
+    "title": "Javelin Program",
+    "tags": [
+      "Enterprise",
+      "Sales enablement"
+    ],
+    "description": "A 12-week design thinking coaching program for IBM's top 80 client account teams.",
+    "outcome": "Turned an unproven pilot into a CMO-funded program, rebuilt it to scale worldwide, and adapted the framework for sellers, increasing team maturity by an average of 42% by the program's end.",
+    "year": "2017–2018",
+    "role": [
+      "Service design lead",
+      "Facilitator"
+    ],
+    "descriptors": [
+      "Behavior change design",
+      "Generative user research",
+      "Descriptor"
+    ],
+    "image": "assets/covers/jav_cover.jpg"
+  },
+  {
+    "title": "Quarter in Review",
+    "tags": [
+      "Enterprise",
+      "Product operations"
+    ],
+    "description": "A digital report for service offering leaders that provides visibility into their offering's readiness, financial performance, and consultant usage.",
+    "outcome": "Within two quarters, the report scaled from 1 offering to 28 offerings and received high engagement with offering teams.",
+    "year": "2020",
+    "role": [
+      "Product designer"
+    ],
+    "descriptors": [],
+    "image": "assets/covers/qir-cover.jpg"
+  },
+  {
+    "title": "Cloud Value Transformation",
+    "tags": [
+      "Enterprise",
+      "Sales enablement"
+    ],
+    "description": "An internal resource and content strategy for a highly visible and worldwide IBM Services sales campaign.",
+    "outcome": "The site raised standards for internal resources and scaled the campaign team's ability activate consultants globally.",
+    "year": "2020",
+    "role": [
+      "Product design lead"
+    ],
+    "descriptors": [],
+    "image": "assets/covers/cvt_cover.jpg"
+  },
+  {
+    "title": "Predictive Customer Analytics",
+    "tags": [
+      "Enterprise",
+      "Marketing"
+    ],
+    "description": "The product needed to simplify and integrate predictive analytics into the core workflows of marketing analysts.",
+    "outcome": "I brought the product from its initial user and market need framing to its limited released to clients.",
+    "year": "2016",
+    "role": [
+      "Product designer"
+    ],
+    "descriptors": [],
+    "image": "assets/covers/pca_cover.jpg"
+  }
+]

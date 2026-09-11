@@ -261,27 +261,27 @@
   --typography-primitives-family-sans-narrow: FF Good Pro Narr;
   --typography-primitives-family-brand: Brauer Neue Black;
   --typography-primitives-family-mono: IBM Plex Mono;
-  --typography-primitives-size-100: 12;
-  --typography-primitives-size-200: 14;
-  --typography-primitives-size-300: 16;
-  --typography-primitives-size-400: 21;
-  --typography-primitives-size-500: 28;
-  --typography-primitives-size-600: 38;
-  --typography-primitives-size-700: 50;
-  --typography-primitives-size-800: 68;
-  --typography-primitives-size-900: 90;
-  --typography-primitives-size-1000: 120;
+  --typography-primitives-size-100: 12px;
+  --typography-primitives-size-200: 14px;
+  --typography-primitives-size-300: 16px;
+  --typography-primitives-size-400: 21px;
+  --typography-primitives-size-500: 28px;
+  --typography-primitives-size-600: 38px;
+  --typography-primitives-size-700: 50px;
+  --typography-primitives-size-800: 68px;
+  --typography-primitives-size-900: 90px;
+  --typography-primitives-size-1000: 120px;
   --typography-primitives-weight-regular: Regular;
   --typography-primitives-weight-medium: Medium;
   --typography-primitives-weight-bold: Bold;
-  --typography-primitives-line-height-100: 22;
-  --typography-primitives-line-height-200: 22;
-  --typography-primitives-line-height-300: 24;
-  --typography-primitives-line-height-400: 28;
-  --typography-primitives-line-height-500: 36;
-  --typography-primitives-line-height-600: 46;
-  --typography-primitives-line-height-700: 58;
-  --typography-primitives-line-height-800: 76;
+  --typography-primitives-line-height-100: 22px;
+  --typography-primitives-line-height-200: 22px;
+  --typography-primitives-line-height-300: 24px;
+  --typography-primitives-line-height-400: 28px;
+  --typography-primitives-line-height-500: 36px;
+  --typography-primitives-line-height-600: 46px;
+  --typography-primitives-line-height-700: 58px;
+  --typography-primitives-line-height-800: 76px;
 
   /* responsive */
   --responsive-device: desktop;
@@ -402,5 +402,6 @@
   --elevation-300: var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-025) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-025) var(--color-primitive-black-100);
   --elevation-400: var(--size-depth-0) var(--size-depth-400) var(--size-blur-800) var(--size-depth-negative-100) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-100) var(--color-primitive-black-100);
   --elevation-500: var(--size-depth-0) var(--size-depth-400) var(--size-blur-400) var(--size-depth-negative-200) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-100) var(--color-primitive-black-100);
+  --elevation-550: var(--size-depth-0) var(--size-depth-200) var(--size-blur-400) var(--size-depth-negative-100) var(--color-primitive-black-100), var(--size-depth-0) var(--size-depth-400) var(--size-blur-800) var(--size-depth-negative-200) var(--color-primitive-black-300);
   --elevation-600: var(--size-depth-0) var(--size-depth-400) var(--size-blur-800) var(--size-depth-negative-200) var(--color-primitive-black-400);
 }

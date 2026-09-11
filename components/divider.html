@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divider component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script src="divider.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; max-width: 480px; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .stack > * + * { margin-top: 16px; }
+  .vertical-demo { display: flex; align-items: stretch; gap: 16px; height: 48px; }
+  .vertical-demo span { display: flex; align-items: center; }
+</style>
+</head>
+<body>
+
+<h2>Horizontal — small / medium / large</h2>
+<div class="stack">
+  <ds-divider size="small"></ds-divider>
+  <ds-divider size="medium"></ds-divider>
+  <ds-divider size="large"></ds-divider>
+</div>
+
+<h2>Shape — sharp vs rounded (large, so it's visible)</h2>
+<div class="stack">
+  <ds-divider size="large" shape="sharp"></ds-divider>
+  <ds-divider size="large" shape="rounded"></ds-divider>
+</div>
+
+<h2>Vertical (stretches to fill a flex row)</h2>
+<div class="vertical-demo">
+  <span>Resume</span>
+  <ds-divider orientation="vertical" size="small"></ds-divider>
+  <span>About</span>
+  <ds-divider orientation="vertical" size="medium"></ds-divider>
+  <span>Contact</span>
+</div>
+
+</body>
+</html>

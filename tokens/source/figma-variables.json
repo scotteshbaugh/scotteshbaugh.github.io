@@ -3977,7 +3977,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Brand/800"
+              "name": "Brand/500"
             }
           },
           "SDS Dark": {
@@ -4021,7 +4021,7 @@
           "SDS Light": {
             "$alias": {
               "collection": "Color Primitives",
-              "name": "Brand/500"
+              "name": "Brand/800"
             }
           },
           "SDS Dark": {
@@ -5328,7 +5328,7 @@
           "Default": "IBM Plex Mono"
         }
       },
-      "Scale/Scale 01": {
+      "Size/100": {
         "id": "VariableID:36:1999",
         "type": "FLOAT",
         "description": "",
@@ -5337,7 +5337,7 @@
           "Default": 12
         }
       },
-      "Scale/Scale 02": {
+      "Size/200": {
         "id": "VariableID:36:2000",
         "type": "FLOAT",
         "description": "",
@@ -5346,7 +5346,7 @@
           "Default": 14
         }
       },
-      "Scale/Scale 03": {
+      "Size/300": {
         "id": "VariableID:36:2001",
         "type": "FLOAT",
         "description": "",
@@ -5355,7 +5355,7 @@
           "Default": 16
         }
       },
-      "Scale/Scale 04": {
+      "Size/400": {
         "id": "VariableID:36:2002",
         "type": "FLOAT",
         "description": "",
@@ -5364,7 +5364,7 @@
           "Default": 21
         }
       },
-      "Scale/Scale 05": {
+      "Size/500": {
         "id": "VariableID:36:2003",
         "type": "FLOAT",
         "description": "",
@@ -5373,7 +5373,7 @@
           "Default": 28
         }
       },
-      "Scale/Scale 06": {
+      "Size/600": {
         "id": "VariableID:36:2004",
         "type": "FLOAT",
         "description": "",
@@ -5382,7 +5382,7 @@
           "Default": 38
         }
       },
-      "Scale/Scale 07": {
+      "Size/700": {
         "id": "VariableID:36:2005",
         "type": "FLOAT",
         "description": "",
@@ -5391,7 +5391,7 @@
           "Default": 50
         }
       },
-      "Scale/Scale 08": {
+      "Size/800": {
         "id": "VariableID:36:2006",
         "type": "FLOAT",
         "description": "",
@@ -5400,7 +5400,7 @@
           "Default": 68
         }
       },
-      "Scale/Scale 09": {
+      "Size/900": {
         "id": "VariableID:36:2007",
         "type": "FLOAT",
         "description": "",
@@ -5409,7 +5409,7 @@
           "Default": 90
         }
       },
-      "Scale/Scale 10": {
+      "Size/1000": {
         "id": "VariableID:36:2008",
         "type": "FLOAT",
         "description": "",
@@ -5449,6 +5449,94 @@
         ],
         "valuesByMode": {
           "Default": "Bold"
+        }
+      },
+      "Line Height/100": {
+        "id": "VariableID:97:785",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 22
+        }
+      },
+      "Line Height/200": {
+        "id": "VariableID:97:787",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 22
+        }
+      },
+      "Line Height/300": {
+        "id": "VariableID:97:788",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 24
+        }
+      },
+      "Line Height/400": {
+        "id": "VariableID:97:799",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 28
+        }
+      },
+      "Line Height/500": {
+        "id": "VariableID:97:796",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 36
+        }
+      },
+      "Line Height/600": {
+        "id": "VariableID:97:789",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 46
+        }
+      },
+      "Line Height/700": {
+        "id": "VariableID:97:790",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 58
+        }
+      },
+      "Line Height/800": {
+        "id": "VariableID:97:791",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 76
         }
       }
     }
@@ -5505,19 +5593,19 @@
           "Desktop": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
             }
           },
           "Mobile": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
             }
           },
           "Tablet": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
             }
           }
         }
@@ -5720,6 +5808,17 @@
           "Default": -12
         }
       },
+      "Radius/25": {
+        "id": "VariableID:88:682",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 1
+        }
+      },
       "Space/Negative 400": {
         "id": "VariableID:36:2049",
         "type": "FLOAT",
@@ -5740,6 +5839,17 @@
         ],
         "valuesByMode": {
           "Default": -24
+        }
+      },
+      "Radius/50": {
+        "id": "VariableID:88:681",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 2
         }
       },
       "Radius/100": {
@@ -5940,7 +6050,7 @@
           "Default": -48
         }
       },
-      "Stroke/Border": {
+      "Stroke/25": {
         "id": "VariableID:36:2069",
         "type": "FLOAT",
         "description": "",
@@ -5951,6 +6061,39 @@
           "Default": 1
         }
       },
+      "Stroke/50": {
+        "id": "VariableID:94:703",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 2
+        }
+      },
+      "Stroke/100": {
+        "id": "VariableID:94:704",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 4
+        }
+      },
+      "Stroke/200": {
+        "id": "VariableID:94:705",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Default": 8
+        }
+      },
       "Stroke/Focus Ring": {
         "id": "VariableID:36:2070",
         "type": "FLOAT",
@@ -5959,7 +6102,12 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Default": 2
+          "Default": {
+            "$alias": {
+              "collection": "Size",
+              "name": "Stroke/50"
+            }
+          }
         }
       },
       "Icon/Small": {
@@ -6033,7 +6181,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 08"
+              "name": "Size/800"
+            }
+          }
+        }
+      },
+      "Title Hero/Line Height": {
+        "id": "VariableID:97:812",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/800"
             }
           }
         }
@@ -6070,7 +6234,7 @@
           }
         }
       },
-      "Heading/Header 1": {
+      "Heading/Header Size 1": {
         "id": "VariableID:36:2081",
         "type": "FLOAT",
         "description": "",
@@ -6081,12 +6245,12 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 08"
+              "name": "Size/800"
             }
           }
         }
       },
-      "Heading/Header 2": {
+      "Heading/Header Size 2": {
         "id": "VariableID:36:2079",
         "type": "FLOAT",
         "description": "",
@@ -6097,12 +6261,12 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 07"
+              "name": "Size/700"
             }
           }
         }
       },
-      "Heading/Header 3": {
+      "Heading/Header Size 3": {
         "id": "VariableID:36:2080",
         "type": "FLOAT",
         "description": "",
@@ -6113,12 +6277,12 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 06"
+              "name": "Size/600"
             }
           }
         }
       },
-      "Heading/Header 4": {
+      "Heading/Header Size 4": {
         "id": "VariableID:55:4403",
         "type": "FLOAT",
         "description": "",
@@ -6129,12 +6293,12 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 05"
+              "name": "Size/500"
             }
           }
         }
       },
-      "Heading/Header 5": {
+      "Heading/Header Size 5": {
         "id": "VariableID:55:4404",
         "type": "FLOAT",
         "description": "",
@@ -6145,12 +6309,12 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 04"
+              "name": "Size/400"
             }
           }
         }
       },
-      "Heading/Header 6": {
+      "Heading/Header Size 6": {
         "id": "VariableID:55:4405",
         "type": "FLOAT",
         "description": "",
@@ -6161,7 +6325,103 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
+            }
+          }
+        }
+      },
+      "Heading/Header Line Height 1": {
+        "id": "VariableID:97:735",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/800"
+            }
+          }
+        }
+      },
+      "Heading/Header Line Height 2": {
+        "id": "VariableID:97:793",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/700"
+            }
+          }
+        }
+      },
+      "Heading/Header Line Height 3": {
+        "id": "VariableID:97:794",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/600"
+            }
+          }
+        }
+      },
+      "Heading/Header Line Height 4": {
+        "id": "VariableID:97:795",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/500"
+            }
+          }
+        }
+      },
+      "Heading/Header Line Height 5": {
+        "id": "VariableID:97:798",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/400"
+            }
+          }
+        }
+      },
+      "Heading/Header Line Height 6": {
+        "id": "VariableID:97:800",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/300"
             }
           }
         }
@@ -6209,7 +6469,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
+            }
+          }
+        }
+      },
+      "Overline/Line Height": {
+        "id": "VariableID:97:802",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/300"
             }
           }
         }
@@ -6246,7 +6522,7 @@
           }
         }
       },
-      "Body/Body 1": {
+      "Body/Body Size 1": {
         "id": "VariableID:36:2099",
         "type": "FLOAT",
         "description": "",
@@ -6257,12 +6533,12 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
             }
           }
         }
       },
-      "Body/Body 2": {
+      "Body/Body Size 2": {
         "id": "VariableID:36:2100",
         "type": "FLOAT",
         "description": "",
@@ -6273,7 +6549,39 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 02"
+              "name": "Size/200"
+            }
+          }
+        }
+      },
+      "Body/Body Line Height 1": {
+        "id": "VariableID:97:803",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/300"
+            }
+          }
+        }
+      },
+      "Body/Body Line Height 2": {
+        "id": "VariableID:97:804",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/200"
             }
           }
         }
@@ -6321,7 +6629,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 02"
+              "name": "Size/200"
+            }
+          }
+        }
+      },
+      "Code/Line Height": {
+        "id": "VariableID:97:805",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/200"
             }
           }
         }
@@ -6369,7 +6693,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 01"
+              "name": "Size/100"
+            }
+          }
+        }
+      },
+      "Caption Title/Line Height": {
+        "id": "VariableID:97:806",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/100"
             }
           }
         }
@@ -6417,7 +6757,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 01"
+              "name": "Size/100"
+            }
+          }
+        }
+      },
+      "Caption Body/Line Height": {
+        "id": "VariableID:97:808",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/100"
             }
           }
         }
@@ -6465,7 +6821,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 03"
+              "name": "Size/300"
+            }
+          }
+        }
+      },
+      "Navigation/Line Height": {
+        "id": "VariableID:97:810",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/300"
             }
           }
         }
@@ -6497,7 +6869,7 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Family Sans/Regular"
+              "name": "Family Sans/Wide"
             }
           }
         }
@@ -6513,7 +6885,23 @@
           "Mode 1": {
             "$alias": {
               "collection": "Typography Primitives",
-              "name": "Scale/Scale 02"
+              "name": "Size/200"
+            }
+          }
+        }
+      },
+      "Button/Line Height": {
+        "id": "VariableID:97:811",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Typography Primitives",
+              "name": "Line Height/200"
             }
           }
         }

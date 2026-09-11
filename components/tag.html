@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tag component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script src="tag.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #f4f4f4; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  #log { margin-top: 8px; font-family: monospace; font-size: 12px; color: #393939; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<h2>Primary — all schemes</h2>
+<div class="row">
+  <ds-tag scheme="brand">Tag</ds-tag>
+  <ds-tag scheme="danger">Tag</ds-tag>
+  <ds-tag scheme="positive">Tag</ds-tag>
+  <ds-tag scheme="warning">Tag</ds-tag>
+  <ds-tag scheme="neutral">Tag</ds-tag>
+</div>
+
+<h2>Secondary — all schemes</h2>
+<div class="row">
+  <ds-tag scheme="brand" variant="secondary">Tag</ds-tag>
+  <ds-tag scheme="danger" variant="secondary">Tag</ds-tag>
+  <ds-tag scheme="positive" variant="secondary">Tag</ds-tag>
+  <ds-tag scheme="warning" variant="secondary">Tag</ds-tag>
+  <ds-tag scheme="neutral" variant="secondary">Tag</ds-tag>
+</div>
+
+<h2>Static label — your use case (no interactive, no dismissible)</h2>
+<div class="row">
+  <ds-tag scheme="neutral">React</ds-tag>
+  <ds-tag scheme="neutral" variant="secondary">TypeScript</ds-tag>
+  <ds-tag scheme="brand" variant="secondary">Case Study</ds-tag>
+</div>
+
+<h2>Interactive (hover/focus + click, try tabbing to one and pressing Enter)</h2>
+<div class="row">
+  <ds-tag scheme="brand" interactive>Filter: All</ds-tag>
+  <ds-tag scheme="positive" interactive variant="secondary">Filter: Shipped</ds-tag>
+</div>
+
+<h2>Dismissible (X always active; click it to remove from this demo)</h2>
+<div class="row" id="dismissible-row">
+  <ds-tag scheme="danger" dismissible>Blocked</ds-tag>
+  <ds-tag scheme="warning" dismissible variant="secondary">Needs review</ds-tag>
+</div>
+
+<h2>Interactive + dismissible together</h2>
+<div class="row">
+  <ds-tag scheme="brand" interactive dismissible>Frontend</ds-tag>
+</div>
+
+<div id="log"></div>
+
+<script>
+  const log = document.getElementById('log');
+  function write(msg) {
+    log.textContent = `${msg}\n${log.textContent}`.split('\n').slice(0, 8).join('\n');
+  }
+
+  document.addEventListener('ds-tag-click', (e) => {
+    write(`ds-tag-click on "${e.target.textContent.trim()}"`);
+  });
+
+  document.addEventListener('ds-tag-dismiss', (e) => {
+    write(`ds-tag-dismiss on "${e.target.textContent.trim()}"`);
+    // Demo-only behavior: the component itself never removes anything —
+    // the host page decides. Here we just hide it.
+    e.target.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

@@ -21,7 +21,7 @@
   width: 100%;
   padding: var(--size-space-300) var(--size-space-600);
   background: var(--color-background-default-default);
-  border-bottom: var(--size-stroke-border) solid var(--color-border-default-default);
+  border-bottom: var(--size-stroke-25) solid var(--color-border-default-default);
 }
 
 .site-nav__logo {

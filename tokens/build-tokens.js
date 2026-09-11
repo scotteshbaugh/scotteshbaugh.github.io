@@ -70,6 +70,61 @@ function setDeep(root, pathArr, tokenObj) {
   node[pathArr[pathArr.length - 1]] = tokenObj;
 }
 
+// Turns a DTCG token value into the string that goes on the right-hand side of
+// a CSS custom property: `{some.ref}` -> `var(--some-ref)`, everything else
+// passes through unchanged (isPxDimension handles bare-number unit suffixing
+// elsewhere, before this ever runs on a shadow's sub-fields).
+function refToVar(value) {
+  if (typeof value === 'string') {
+    const refMatch = /^\{(.+)\}$/.exec(value);
+    if (refMatch) return `var(--${refMatch[1].split('.').join('-')})`;
+  }
+  return value;
+}
+
+// Elevation levels come in from Figma as either a flat set of fields
+// (100, 600 -- one shadow) or a set of "Shadow 1" / "Shadow 2" sub-groups
+// (200-500 -- layered shadows). Either way every field is its own DTCG leaf
+// token by the time the main loop is done with it. This folds those leaves
+// into one real `$type: "shadow"` token per level -- DTCG's shadow value is
+// a single {color, offsetX, offsetY, blur, spread} object, or an array of
+// those for a layered shadow -- instead of leaving 5 (or 10) flat siblings
+// that need hand-assembling into `box-shadow:` every time they're used.
+function buildShadowValue(fields) {
+  return {
+    color: fields['color'].$value,
+    offsetX: fields['position-x'].$value,
+    offsetY: fields['position-y'].$value,
+    blur: fields['blur'].$value,
+    spread: fields['spread'].$value,
+  };
+}
+
+function composeElevationTokens(tokensRoot) {
+  const elevationRoot = tokensRoot.elevation;
+  if (!elevationRoot) return;
+
+  for (const level of Object.keys(elevationRoot)) {
+    const node = elevationRoot[level];
+
+    // Flat: this level's own fields are the shadow (100, 600).
+    if (node['position-x']) {
+      elevationRoot[level] = { $type: 'shadow', $value: buildShadowValue(node) };
+      continue;
+    }
+
+    // Layered: "shadow-1", "shadow-2", ... sub-groups, in numeric order.
+    const shadowKeys = Object.keys(node)
+      .filter((k) => /^shadow-\d+$/.test(k))
+      .sort((a, b) => Number(a.split('-')[1]) - Number(b.split('-')[1]));
+
+    if (shadowKeys.length) {
+      const shadows = shadowKeys.map((k) => buildShadowValue(node[k]));
+      elevationRoot[level] = { $type: 'shadow', $value: shadows };
+    }
+  }
+}
+
 function main() {
   const raw = JSON.parse(fs.readFileSync(SOURCE_PATH, 'utf8'));
 
@@ -137,6 +192,8 @@ function main() {
     }
   }
 
+  composeElevationTokens(tokensRoot);
+
   fs.mkdirSync(path.dirname(TOKENS_OUT), { recursive: true });
   fs.writeFileSync(TOKENS_OUT, JSON.stringify(tokensRoot, null, 2) + '\n');
 
@@ -155,10 +212,19 @@ function main() {
   function walk(node, pathArr) {
     if (node && typeof node.$value !== 'undefined') {
       const varName = '--' + pathArr.join('-');
+
+      if (node.$type === 'shadow') {
+        const shadows = Array.isArray(node.$value) ? node.$value : [node.$value];
+        const layers = shadows.map((s) =>
+          [s.offsetX, s.offsetY, s.blur, s.spread, s.color].map(refToVar).join(' ')
+        );
+        lines.push(`  ${varName}: ${layers.join(', ')};`);
+        return;
+      }
+
       let cssValue = node.$value;
       if (typeof cssValue === 'string') {
-        const refMatch = /^\{(.+)\}$/.exec(cssValue);
-        if (refMatch) cssValue = `var(--${refMatch[1].split('.').join('-')})`;
+        cssValue = refToVar(cssValue);
       } else if (node.$type === 'number' && isPxDimension(pathArr)) {
         cssValue = `${cssValue}px`;
       }

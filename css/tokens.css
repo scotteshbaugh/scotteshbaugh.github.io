@@ -254,14 +254,6 @@
   --color-icon-utilities-icon: var(--color-primitive-magenta-600);
   --color-icon-utilities-icon-on-measurement: var(--color-primitive-magenta-800);
 
-  /* collection-1 */
-  --collection-1-white: #ffffff;
-  --collection-1-grey-10: #f4f4f4;
-  --collection-1-grey-20: #e0e0e0;
-  --collection-1-grey-70: #393939;
-  --collection-1-grey-90: #161616;
-  --collection-1-purple-50: #a56eff;
-
   /* typography-primitives */
   --typography-primitives-family-sans-regular: FF Good Pro;
   --typography-primitives-family-sans-wide: FF Good Pro Wide;
@@ -323,6 +315,15 @@
   --size-radius-400: 16px;
   --size-radius-full: 9999px;
   --size-blur-100: 4px;
+  --size-blur-200: 8px;
+  --size-blur-300: 12px;
+  --size-blur-400: 16px;
+  --size-blur-500: 20px;
+  --size-blur-600: 24px;
+  --size-blur-700: 28px;
+  --size-blur-800: 32px;
+  --size-blur-900: 36px;
+  --size-blur-1000: 40px;
   --size-depth-0: 0px;
   --size-depth-100: 4px;
   --size-depth-200: 8px;
@@ -394,4 +395,12 @@
   --typography-button-size: var(--typography-primitives-size-200);
   --typography-button-line-height: var(--typography-primitives-line-height-200);
   --typography-button-font-weight: Regular;
+
+  /* elevation */
+  --elevation-100: var(--size-depth-0) var(--size-depth-025) var(--size-blur-100) var(--size-depth-0) var(--color-primitive-black-100);
+  --elevation-200: var(--size-depth-0) var(--size-depth-025) var(--size-blur-100) var(--size-depth-0) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-025) var(--size-blur-100) var(--size-depth-0) var(--color-primitive-black-100);
+  --elevation-300: var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-025) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-025) var(--color-primitive-black-100);
+  --elevation-400: var(--size-depth-0) var(--size-depth-400) var(--size-blur-800) var(--size-depth-negative-100) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-100) var(--color-primitive-black-100);
+  --elevation-500: var(--size-depth-0) var(--size-depth-400) var(--size-blur-400) var(--size-depth-negative-200) var(--color-primitive-black-200), var(--size-depth-0) var(--size-depth-100) var(--size-blur-100) var(--size-depth-negative-100) var(--color-primitive-black-100);
+  --elevation-600: var(--size-depth-0) var(--size-depth-400) var(--size-blur-800) var(--size-depth-negative-200) var(--color-primitive-black-400);
 }

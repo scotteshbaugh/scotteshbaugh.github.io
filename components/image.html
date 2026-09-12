@@ -6,9 +6,8 @@
 <title>Image component preview</title>
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/fonts.css">
-<script src="divider.js"></script>
-<script src="list-item.js"></script>
-<script src="image.js"></script>
+<script type="module" src="image.js"></script>
+<script type="module" src="list-item.js"></script>
 <style>
   /* preview-page-only styling, not part of the component */
   body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; max-width: 720px; }
@@ -17,6 +16,10 @@
   .stack > * + * { margin-top: 24px; }
   .row-fill { display: flex; height: 300px; border: 1px dashed #c6c6c6; }
   .narrow { max-width: 360px; border: 1px dashed #c6c6c6; }
+  /* Breaks out of body's own padding/max-width just for this one demo, so a
+     row wider than the component's 1000px cap can be shown -- this is only
+     to make the side-edge purple gaps visible, not a real layout pattern. */
+  .wide { width: 1400px; margin-left: -32px; }
   .card { border: 1px solid #e0e0e0; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; height: 380px; max-width: 500px; }
 </style>
 </head>
@@ -26,6 +29,13 @@
 <div class="row-fill">
   <ds-image>
     <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
+  </ds-image>
+</div>
+
+<h2>Wide row (1400px) — past the 1000px cap, purple shows as side edges</h2>
+<div class="row-fill wide">
+  <ds-image>
+    <img src="../assets/covers/jav_cover.jpg" alt="Screenshot of another case study cover">
   </ds-image>
 </div>
 

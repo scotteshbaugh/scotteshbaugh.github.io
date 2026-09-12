@@ -51,3 +51,42 @@ body {
 .hero__highlight {
   color: var(--color-text-brand-default);
 }
+
+/* ---- Case studies section (Figma node 9:162, "case-studies") ---- */
+
+.case-studies {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* not Figma's own items-start: Figma's card-column
+    is a fixed 1280px test width (a canvas snapshot, same as .hero's 1400px
+    frame width per the note above), but every card in this codebase is
+    already fluid (:host { width: 100% }) -- stretch is what lets that
+    fluid width actually reach full container width instead of collapsing
+    to 0 under a start-aligned flex parent. */
+  gap: var(--size-space-200);
+  width: 100%;
+}
+
+.case-studies__overline {
+  margin: 0;
+  font-family: var(--typography-overline-font-family), sans-serif;
+  font-size: var(--typography-overline-size);
+  line-height: var(--typography-overline-line-height);
+  font-weight: var(--typography-overline-font-weight);
+  text-transform: uppercase;
+  /* Hardcoded on purpose: Figma's Overline text isn't bound to a color
+     variable here (get_variable_defs returns none for this node) -- it's
+     a literal black, distinct from the --color-text-default-default gray
+     (#262626) used everywhere else in the card. No token exists for it,
+     same reasoning as the other hardcoded exceptions in this file. */
+  color: #000;
+}
+
+.case-studies__list {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* see .case-studies above -- lets each fluid-width
+    ds-card-case-study fill the available width instead of hugging 0. */
+  gap: var(--size-space-1200);
+  width: 100%;
+}

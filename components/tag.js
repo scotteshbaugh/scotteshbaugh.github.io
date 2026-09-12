@@ -30,7 +30,7 @@
 //   <ds-tag scheme="danger" variant="secondary" dismissible>Blocked</ds-tag>
 //   <ds-tag scheme="brand" interactive>Filter</ds-tag>
 
-const TEMPLATE = /* html */ `
+const TAG_TEMPLATE = /* html */ `
 <style>
   :host {
     /* fallback tokens if scheme attribute isn't set yet — keeps the
@@ -188,7 +188,7 @@ class DsTag extends HTMLElement {
   constructor() {
     super();
     const root = this.attachShadow({ mode: "open" });
-    root.innerHTML = TEMPLATE;
+    root.innerHTML = TAG_TEMPLATE;
     this._dismissBtn = root.querySelector(".dismiss");
     this._slot = root.querySelector("slot");
 

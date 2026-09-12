@@ -19,7 +19,7 @@
 //     it stretches automatically (align-self: stretch is set by default);
 //     in a block layout, give it an explicit height. -->
 
-const TEMPLATE = /* html */ `
+const DIVIDER_TEMPLATE = /* html */ `
 <style>
   :host {
     box-sizing: border-box;
@@ -58,7 +58,7 @@ class DsDivider extends HTMLElement {
   constructor() {
     super();
     const root = this.attachShadow({ mode: "open" });
-    root.innerHTML = TEMPLATE;
+    root.innerHTML = DIVIDER_TEMPLATE;
   }
 
   connectedCallback() {

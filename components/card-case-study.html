@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Case Study preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="card-case-study.js"></script>
+<style>
+  body { margin: 0; padding: 32px; background: #f2f2f2; font-family: sans-serif; }
+  .frame { border: 1px dashed #c6c6c6; margin-bottom: 32px; }
+</style>
+</head>
+<body>
+
+<ds-card-case-study>
+  <ds-tag slot="tags" scheme="brand" variant="secondary">Enterprise</ds-tag>
+  <ds-tag slot="tags" scheme="brand" variant="secondary">Data viz</ds-tag>
+  <h3 slot="header">Predictive Customer Analytics</h3>
+  <p slot="description">A short one-line teaser about the case study goes here.</p>
+  <p slot="outcome">Outcome and story of the case study: led the redesign of a multi-role decision support workflow used by thousands of analysts daily, cutting time-to-insight significantly.</p>
+  <ds-list-item slot="meta">
+    2019&ndash;2021
+    <span slot="item-2">Senior Product Designer</span>
+  </ds-list-item>
+  <ds-image slot="image">
+    <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of the case study cover">
+  </ds-image>
+  <ds-list-item slot="descriptors">
+    B2B SaaS
+    <span slot="item-2">Healthcare</span>
+    <span slot="item-3">Enterprise</span>
+  </ds-list-item>
+</ds-card-case-study>
+
+</body>
+</html>

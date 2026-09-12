@@ -29,6 +29,11 @@
 //     <span slot="item-2">Staff Product Designer</span>
 //     <span slot="item-3">Austin, TX</span>
 //   </ds-list-item>
+//
+// Loaded as an ES module (type="module") -- imports its own <ds-divider>
+// dependency below, so a page only needs to load this one script.
+
+import "./divider.js";
 
 const LIST_ITEM_TEMPLATE = /* html */ `
 <style>
@@ -36,6 +41,13 @@ const LIST_ITEM_TEMPLATE = /* html */ `
     box-sizing: border-box;
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Row only, in effect: items hug their own width, but
+      when the row runs out of room the overflowing item(s) drop to a new
+      line as whole units (with their divider) instead of overflowing past
+      the edge. Matches the Figma component's row Wrap setting. Harmless
+      in stack mode too -- flex-wrap only matters on the axis items lay out
+      across, which for a column is height, and items never overflow there
+      the way they can across a row's width. */
     gap: var(--size-space-200);
     font-family: var(--typography-body-font-family), sans-serif;
     font-size: var(--typography-body-body-size-2);
@@ -49,12 +61,26 @@ const LIST_ITEM_TEMPLATE = /* html */ `
     font-weight: 400;
     color: var(--color-text-default-secondary);
     white-space: nowrap; /* inherited through the shadow boundary, so this
-      also reaches bare text slotted in with no wrapping element of its own */
+      also reaches bare text slotted in with no wrapping element of its own.
+      Row only -- stack overrides this below, since Figma's stack variant
+      wraps each item's own text instead of letting it run past the edge. */
   }
 
   :host([layout="stack"]) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch; /* was flex-start: that hugged each item to its
+      own content width (the same Hug behavior that let a long value run
+      off the edge in Row, just on the stack axis instead). Stretch gives
+      each item the full row width to wrap its text within, matching the
+      Figma component's item now being Fill/w-full instead of Hug. */
+  }
+
+  :host([layout="stack"]) slot {
+    white-space: normal; /* un-does the row's nowrap so text already given
+      a full width (from align-items: stretch above) can actually wrap. */
+    min-width: 0; /* lets the slot shrink below its content's intrinsic
+      width instead of forcing the host wider -- same idea as Figma's
+      min-w-px on this item. */
   }
 
   ds-divider {

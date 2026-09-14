@@ -65,6 +65,11 @@ body {
     to 0 under a start-aligned flex parent. */
   gap: var(--size-space-200);
   width: 100%;
+  /* Same pattern as .hero__intro above: caps the column without centering
+     it, so it stays flush left with the nav/hero content and only picks up
+     right-side whitespace past 1400px instead of drifting to the middle
+     of the viewport. */
+  max-width: 1400px;
 }
 
 .case-studies__overline {

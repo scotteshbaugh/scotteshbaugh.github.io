@@ -68,8 +68,8 @@ body {
     codebase is already fluid (:host { width: 100% }), and stretch is what
     lets that fluid width actually reach full container width instead of
     collapsing to 0 under a start-aligned flex parent. */
-  gap: var(--size-primitive-space-600); /* 24px, matches Figma exactly
-    (Space/600) between the Section Divider row and Cards. */
+  gap: var(--size-primitive-space-1200); /* 48px -- deliberately more than
+    Figma's own 24px (Space/600) here, by explicit request. */
   width: 100%;
 }
 

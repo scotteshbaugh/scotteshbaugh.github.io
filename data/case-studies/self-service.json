@@ -1,0 +1,35 @@
+{
+  "slug": "self-service",
+  "intro": {
+    "title": "Self-service portal",
+    "subtitle": "A cross-device self-service experience, shaped by administrator settings for an IAM platform.",
+    "meta": [
+      {
+        "label": "Goal",
+        "text": "The capability needed to be configurable, brandable, and balance consumer-grade usability with enterprise requirements."
+      },
+      {
+        "label": "Client and scope",
+        "text": "The internal client for this project was Thales' Identity and Access Management (IAM) organization. The engagement intermittently across 11 months in 2025."
+      },
+      {
+        "label": "Role",
+        "text": "I led the design for the Self-Service experience and two upstream application areas that it relied on."
+      },
+      {
+        "label": "Outcome",
+        "text": "The platform now has a self-service experience aligned with its capabilities and supports complex configuration without compromising usability."
+      }
+    ]
+  },
+  "context": {
+    "eyebrow": "Context",
+    "question": "How might we design a better way for admins to configure a self-service experience?",
+    "points": [
+      "IAM platforms perform many functions and Self-service is a foundational element.",
+      "Out-of-the-box self-service experiences are often limited in functionality and lag in usability.",
+      "Customers tend to build their own, but are left with the burden of maintaining them.",
+      "The vision was to make the self-service experience highly configurable and consumer grade."
+    ]
+  }
+}

@@ -8,14 +8,16 @@
 //
 // Breakpoints (real, not arbitrary -- these are the site's actual device
 // breakpoints, meant to be reused elsewhere on the site):
-//   < 768px          Mobile   -- stacked column, same grouping as Desktop
-//   768px - 959px    Tablet   -- stacked column, but the Year/Role meta
+//   < 720px          Mobile   -- stacked column, same grouping as Desktop
+//   720px - 959px    Tablet   -- stacked column, but the Year/Role meta
 //                                 list item moves up next to the tags
 //                                 instead of sitting with the outcome text
 //   >= 960px         Desktop  -- side by side, same grouping as Mobile
-// Defined once in breakpoints.js and imported below -- see that file for
-// why importing the numbers works even though native CSS can't put a
-// custom property inside an @media condition.
+// Defined in components/breakpoints.js -- GENERATED from Figma's Device
+// Breakpoints tokens by tokens/build-tokens.js, not hand-maintained -- and
+// imported below. See that file for why importing the numbers works even
+// though native CSS can't put a custom property inside an @media
+// condition.
 //
 // Why the left column is one CSS Grid instead of nested flexboxes: the
 // Year/Role meta list item is the SAME element in the markup at every

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summary component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="summary.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  .note { max-width: 900px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<p class="note">Resize the window to see all three breakpoints: &lt;720px (Mobile, stacked), 720&ndash;959px (Tablet, 2&times;2), &ge;960px (Desktop, single row).</p>
+
+<ds-summary>
+  <span slot="goal">The capability needed to be configurable, brandable, and balance consumer-grade usability with enterprise requirements.</span>
+  <span slot="outcome">The platform now has a self-service experience aligned with its capabilities and supports complex configuration without compromising usability.</span>
+  <span slot="role">I led the design for the Self-Service experience and two upstream application areas that it relied on.</span>
+  <span slot="client-scope">The internal client for this project was Thales' Identity and Access Management (IAM) organization. The engagement intermittently across 11 months in 2025.</span>
+</ds-summary>
+
+</body>
+</html>

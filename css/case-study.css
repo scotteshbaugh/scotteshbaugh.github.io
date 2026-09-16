@@ -4,6 +4,74 @@
    Pulls every value from css/tokens.css -- do not hardcode colors, sizes,
    or fonts here. */
 
+/* ---- Case Study Title (Figma node 210:925) ----
+   Plain markup + classes, not a <ds-*> component: it's a single heading +
+   description that appears exactly once per case-study page (same reason
+   Section Divider above is plain classes, not a component). Content comes
+   straight from that case study's data/case-studies/<slug>.json
+   (intro.title / intro.subtitle).
+
+   <div class="case-study-title">
+     <h1 class="case-study-title__heading">Self-service portal</h1>
+     <p class="case-study-title__body">A cross-device self-service...</p>
+   </div>
+*/
+
+.case-study-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-400);
+  width: 100%;
+}
+
+.case-study-title__heading {
+  margin: 0;
+  max-width: var(--size-primitive-container-2000); /* 1600px, matches
+    Figma's Header block (w-full + this cap) */
+  font-family: var(--typography-heading-font-family), sans-serif;
+  /* Same 3-tier type-scale swap as main.css's .content__intro-heading --
+     Header 3 on Mobile (the default below), Header 2 at Tablet, Header 1
+     at Desktop. Bosco: should be the same pattern as the homepage intro. */
+  font-size: var(--typography-heading-header-size-3);
+  line-height: var(--typography-heading-header-line-height-3);
+  /* No font-weight token here on purpose -- FF Good Pro Wide only has one
+     weight registered (500/Medium) in fonts.css, same reasoning Tag and
+     Summary's labels document for themselves. */
+  color: var(--color-text-default-default);
+}
+
+@media (min-width: 720px) {
+  /* 720/960 here match breakpoints.js's BREAKPOINTS.tablet/desktop --
+     this file is plain CSS (not a JS template literal), so it can't
+     import those numbers directly; see breakpoints.js for why. */
+  .case-study-title__heading {
+    font-size: var(--typography-heading-header-size-2);
+    line-height: var(--typography-heading-header-line-height-2);
+  }
+}
+
+@media (min-width: 960px) {
+  .case-study-title__heading {
+    font-size: var(--typography-heading-header-size-1);
+    line-height: var(--typography-heading-header-line-height-1);
+  }
+}
+
+.case-study-title__body {
+  margin: 0;
+  max-width: var(--size-primitive-container-900); /* 720px, matches
+    Figma's Body block (w-full + this cap) -- caps the description's
+    measure for readability, same value as BREAKPOINTS.tablet
+    (coincidence of reusing the same token, not a breakpoint reference). */
+  font-family: var(--typography-body-font-family), sans-serif;
+  font-size: var(--typography-body-body-size-1);
+  line-height: var(--typography-body-body-line-height-1);
+  color: var(--color-text-default-default); /* not secondary -- Figma
+    sets this description to the same default/dark text color as the
+    heading, unlike Summary's slotted descriptions which use secondary. */
+}
+
 /* ---- Section Divider (Figma node 210:939) ----
    An overline label + a horizontal <ds-divider> filling the remaining
    width. This reuses the existing Divider component as-is -- Figma's own
@@ -47,4 +115,61 @@
      flex-basis is auto; setting flex-basis to 0 here overrides that, so
      this fills correctly regardless of how wide the label is. */
   flex: 1 0 0;
+}
+
+/* ---- Case Study Context row (Figma node 31:1143) ----
+   The Context section's own local grouping: the Section Divider above,
+   plus a two-column row pairing a <ds-callout> with the numbered
+   <ds-list-item> points. This wrapper's 48px gap is one level deeper than
+   .content's own 96px between top-level sections -- Title, Summary, and
+   this whole Context block sit as .content's direct children already
+   spaced by that value, so this class isn't a duplicate of .content.
+
+   <section class="case-study-context">
+     <div class="section-divider">...</div>
+     <div class="case-study-context__grid">
+       <ds-callout><span slot="header">...</span></ds-callout>
+       <ds-list-item layout="stack" variant="primary" numbered>...</ds-list-item>
+     </div>
+   </section>
+*/
+
+.case-study-context {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-1200); /* 48px -- confirmed directly
+    against Figma after flagging it as unbound; Bosco bound it there too. */
+  width: 100%;
+}
+
+.case-study-context__grid {
+  display: grid;
+  /* Figma builds this row as a native CSS Grid (not flex): two Fill
+     columns at 0.5fr / 1fr -- an approximate ~33/67 split, not a precise
+     40/60. Bosco: "I wanted like a 40/60% look so I did the best I could"
+     using Figma's Grid columns feature -- matching Figma's actual column
+     definition here rather than inventing a rounder ratio. Default grid
+     stretch (no align-items override) is intentional: Figma's Callout box
+     stretches to the row's full (List-driven) height too. */
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
+  gap: var(--size-primitive-space-1600); /* 64px -- same reasoning as the
+    48px above: matches the token even though Figma's own Grid gap wasn't
+    bound to a variable. */
+  width: 100%;
+}
+
+.case-study-context__grid ds-list-item {
+  max-width: var(--size-primitive-container-900); /* 720px -- caps the
+    list column's measure, matching Figma's List instance in this row. */
+}
+
+@media (max-width: 719px) {
+  .case-study-context__grid {
+    /* Figma doesn't define a Mobile/Tablet variant of this row yet -- a
+       single stacked column below Tablet is the same fallback every
+       other not-yet-designed-smaller breakpoint in this codebase uses,
+       not a guess unique to this page. */
+    grid-template-columns: 1fr;
+  }
 }

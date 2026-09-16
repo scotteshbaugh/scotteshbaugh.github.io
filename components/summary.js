@@ -111,6 +111,9 @@ const SUMMARY_TEMPLATE = /* html */ `
     box-sizing: border-box;
     display: grid;
     width: 100%;
+    max-width: var(--size-primitive-container-2000); /* 1600px, matches
+      Figma's own cap on the Summary frame -- same value/token as
+      case-study-title__heading's cap in case-study.css. */
 
     /* The gap track a divider sits in: a full --size-primitive-space-800
        of clearance on *each* side of the 1px hairline (not 32px split

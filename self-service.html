@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-service portal — Scott Eshbaugh</title>
+<link rel="icon" type="image/svg+xml" href="assets/se-logomark.svg">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/case-study.css">
+<script type="module" src="components/summary.js"></script>
+<script type="module" src="components/callout.js"></script>
+<script type="module" src="components/list-item.js"></script>
+</head>
+<body>
+
+<header class="site-nav">
+  <a class="site-nav__logo" href="/" aria-label="Home">
+    <img src="assets/se-logomark.svg" alt="" width="44" height="44">
+  </a>
+  <nav class="site-nav__links" aria-label="Primary">
+    <a class="link" href="/resume">Resume</a>
+    <a class="link" href="/about">About</a>
+  </nav>
+</header>
+
+<main class="content">
+  <div class="case-study-title">
+    <h1 class="case-study-title__heading">Self-service portal</h1>
+    <p class="case-study-title__body">A cross-device self-service experience, shaped by administrator settings for an IAM platform.</p>
+  </div>
+
+  <ds-summary>
+    <span slot="goal">The capability needed to be configurable, brandable, and balance consumer-grade usability with enterprise requirements.</span>
+    <span slot="outcome">The platform now has a self-service experience aligned with its capabilities and supports complex configuration without compromising usability.</span>
+    <span slot="role">I led the design for the Self-Service experience and two upstream application areas that it relied on.</span>
+    <span slot="client-scope">The internal client for this project was Thales' Identity and Access Management (IAM) organization. The engagement intermittently across 11 months in 2025.</span>
+  </ds-summary>
+
+  <section class="case-study-context">
+    <div class="section-divider">
+      <p class="section-divider__label">Context</p>
+      <ds-divider size="medium"></ds-divider>
+    </div>
+    <div class="case-study-context__grid">
+      <ds-callout>
+        <span slot="header">How might we design a better way for admins to configure a self-service experience?</span>
+      </ds-callout>
+      <ds-list-item layout="stack" variant="primary" numbered>
+        IAM platforms perform many functions and Self-service is a foundational element.
+        <span slot="item-2">Out-of-the-box self-service experiences are often limited in functionality and lag in usability.</span>
+        <span slot="item-3">Customers tend to build their own, but are left with the burden of maintaining them.</span>
+        <span slot="item-4">The vision was to make the self-service experience highly configurable and consumer grade.</span>
+      </ds-list-item>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

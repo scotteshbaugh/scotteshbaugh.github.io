@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Section Divider preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/case-study.css">
+<script type="module" src="divider.js"></script>
+<style>
+  /* preview-page-only styling, not part of the pattern */
+  body { margin: 0; padding: 32px; background: #f4f4f4; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .wrap { max-width: 900px; }
+</style>
+</head>
+<body>
+
+<h2>Section Divider -- this is plain CSS classes, not a web component</h2>
+<div class="wrap">
+  <div class="section-divider">
+    <p class="section-divider__label">Context</p>
+    <ds-divider size="medium"></ds-divider>
+  </div>
+</div>
+
+<h2>A second one, different label length, to confirm it still fills correctly</h2>
+<div class="wrap">
+  <div class="section-divider">
+    <p class="section-divider__label">Outcome</p>
+    <ds-divider size="medium"></ds-divider>
+  </div>
+</div>
+
+<h2>Narrower container, to confirm it shrinks gracefully</h2>
+<div class="wrap" style="max-width: 300px;">
+  <div class="section-divider">
+    <p class="section-divider__label">Section</p>
+    <ds-divider size="medium"></ds-divider>
+  </div>
+</div>
+
+</body>
+</html>

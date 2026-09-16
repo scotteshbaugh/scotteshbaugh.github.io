@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bubble Number component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="bubble-number.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #f4f4f4; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+</style>
+</head>
+<body>
+
+<h2>Large — Brand</h2>
+<div class="row">
+  <ds-bubble-number color="brand" size="large">1</ds-bubble-number>
+  <ds-bubble-number color="brand" size="large">2</ds-bubble-number>
+  <ds-bubble-number color="brand" size="large">3</ds-bubble-number>
+  <ds-bubble-number color="brand" size="large">4</ds-bubble-number>
+</div>
+
+<h2>Large — Neutral</h2>
+<div class="row">
+  <ds-bubble-number color="neutral" size="large">1</ds-bubble-number>
+  <ds-bubble-number color="neutral" size="large">2</ds-bubble-number>
+  <ds-bubble-number color="neutral" size="large">3</ds-bubble-number>
+  <ds-bubble-number color="neutral" size="large">4</ds-bubble-number>
+</div>
+
+<h2>Medium — Brand</h2>
+<div class="row">
+  <ds-bubble-number color="brand" size="medium">1</ds-bubble-number>
+  <ds-bubble-number color="brand" size="medium">2</ds-bubble-number>
+  <ds-bubble-number color="brand" size="medium">3</ds-bubble-number>
+  <ds-bubble-number color="brand" size="medium">4</ds-bubble-number>
+</div>
+
+<h2>Medium — Neutral</h2>
+<div class="row">
+  <ds-bubble-number color="neutral" size="medium">1</ds-bubble-number>
+  <ds-bubble-number color="neutral" size="medium">2</ds-bubble-number>
+  <ds-bubble-number color="neutral" size="medium">3</ds-bubble-number>
+  <ds-bubble-number color="neutral" size="medium">4</ds-bubble-number>
+</div>
+
+<h2>Defaults (no attributes set — should fall back to neutral / medium)</h2>
+<div class="row">
+  <ds-bubble-number>1</ds-bubble-number>
+</div>
+
+</body>
+</html>

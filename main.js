@@ -10,7 +10,7 @@
 
 import "./components/card-case-study.js";
 
-const LIST_SELECTOR = ".case-studies__list";
+const LIST_SELECTOR = ".case-studies__cards";
 const DATA_URL = "data/case-studies.json";
 
 async function renderCaseStudies() {

@@ -362,7 +362,6 @@
   --size-primitive-container-2000: 1600px;
   --size-device-breakpoints-tablet: var(--size-primitive-container-900);
   --size-device-breakpoints-desktop: var(--size-primitive-container-1200);
-  --size-device-breakpoints-mobile: 360px;
 
   /* typography */
   --typography-title-hero-font-family: var(--typography-primitives-family-brand);

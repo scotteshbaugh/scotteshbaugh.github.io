@@ -1,46 +1,39 @@
-/* Main / landing page ("Start" in Figma, node 140:3035).
-   Pulls every value from css/tokens.css — do not hardcode colors, sizes, or
-   fonts here. The nav bar itself is the shared .site-nav component from
-   nav.css; this file only styles what's below it.
+/* Homepage-only styles (Figma's "Main - Desktop/Tablet/Mobile" frames,
+   node 140:3035). The shared .content container (padding/gap that every
+   page uses) lives in css/layout.css, not here — this file only styles
+   what's specific to this page's own content: the Intro heading and the
+   Case Studies section. Pulls every value from css/tokens.css — do not
+   hardcode colors, sizes, or fonts here.
 
-   Width note: the Figma frame's 1400px canvas is a test width, not a
-   target — the page itself is fluid and spans the viewport, same approach
-   as .site-nav. The 1080px on .hero__intro is the one exception: that's a
-   deliberate fixed reading-width cap, not a leftover from the frame. */
+   Naming note: class names below follow Figma's own frame names (Intro,
+   Case Studies, Cards, Section Divider) rather than inventing new ones —
+   Figma's naming takes precedence over whatever code used to call these. */
 
 body {
   margin: 0;
   background: var(--color-background-default-secondary);
 }
 
-.hero {
+/* ---- Intro (Figma node 140:3038, "Intro") ---- */
+
+.content__intro {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--size-primitive-space-2400);
-  box-sizing: border-box;
   width: 100%;
-  padding: var(--size-primitive-space-2400) var(--size-primitive-space-1200);
+  max-width: var(--size-primitive-container-1400); /* 1120px */
 }
 
-.hero__intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* Hardcoded on purpose (not a token): the Figma frame calls for a fixed
-     1080px reading width for the intro line, not a fluid one — it doesn't
-     map to any --size-primitive-space-* value, so this is an intentional exception
-     to the "pull everything from tokens.css" rule the rest of this file
-     follows. */
-  width: 100%;
-  max-width: 1080px;
-}
-
-.hero__heading {
+.content__intro-heading {
   margin: 0;
   font-family: var(--typography-heading-font-family), sans-serif;
-  font-size: var(--typography-heading-header-size-1);
-  line-height: var(--typography-heading-header-line-height-1);
+  /* Mobile default is Header 3 — Figma steps this up at Tablet (Header 2,
+     node 256:7166) and Desktop (Header 1, node 255:7162). Stays a single
+     <h1> at every breakpoint (correct — one heading per page) with only
+     the type scale changing, same approach as the card's own Header 4/3
+     swap in card-case-study.js, just three tiers instead of two. */
+  font-size: var(--typography-heading-header-size-3);
+  line-height: var(--typography-heading-header-line-height-3);
   /* No font-weight set on purpose, same reasoning as .site-nav__links:
      FFGoodProWide-Medium.woff2 is the only face registered under
      "FF Good Pro Wide" in fonts.css — nothing for a numeric weight to
@@ -48,50 +41,49 @@ body {
   color: var(--color-text-default-default);
 }
 
-.hero__highlight {
+@media (min-width: 720px) {
+  .content__intro-heading {
+    font-size: var(--typography-heading-header-size-2);
+    line-height: var(--typography-heading-header-line-height-2);
+  }
+}
+
+@media (min-width: 960px) {
+  .content__intro-heading {
+    font-size: var(--typography-heading-header-size-1);
+    line-height: var(--typography-heading-header-line-height-1);
+  }
+}
+
+.content__intro-highlight {
   color: var(--color-text-brand-default);
 }
 
-/* ---- Case studies section (Figma node 9:162, "case-studies") ---- */
+/* ---- Case studies section (Figma node 9:162, "Case Studies") ---- */
 
 .case-studies {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* not Figma's own items-start: Figma's card-column
-    is a fixed 1280px test width (a canvas snapshot, same as .hero's 1400px
-    frame width per the note above), but every card in this codebase is
-    already fluid (:host { width: 100% }) -- stretch is what lets that
-    fluid width actually reach full container width instead of collapsing
-    to 0 under a start-aligned flex parent. */
-  gap: var(--size-primitive-space-200);
+  align-items: stretch; /* not Figma's own items-start: every card in this
+    codebase is already fluid (:host { width: 100% }), and stretch is what
+    lets that fluid width actually reach full container width instead of
+    collapsing to 0 under a start-aligned flex parent. */
+  gap: var(--size-primitive-space-600); /* 24px, matches Figma exactly
+    (Space/600) between the Section Divider row and Cards. */
   width: 100%;
-  /* Same pattern as .hero__intro above: caps the column without centering
-     it, so it stays flush left with the nav/hero content and only picks up
-     right-side whitespace past 1400px instead of drifting to the middle
-     of the viewport. */
-  max-width: 1400px;
 }
 
-.case-studies__overline {
-  margin: 0;
-  font-family: var(--typography-overline-font-family), sans-serif;
-  font-size: var(--typography-overline-size);
-  line-height: var(--typography-overline-line-height);
-  font-weight: var(--typography-overline-font-weight);
-  text-transform: uppercase;
-  /* Hardcoded on purpose: Figma's Overline text isn't bound to a color
-     variable here (get_variable_defs returns none for this node) -- it's
-     a literal black, distinct from the --color-text-default-default gray
-     (#262626) used everywhere else in the card. No token exists for it,
-     same reasoning as the other hardcoded exceptions in this file. */
-  color: #000;
-}
+/* Section Divider markup here reuses the shared .section-divider /
+   .section-divider__label pattern + <ds-divider> from css/case-study.css
+   as-is — see that file for the pattern itself. */
 
-.case-studies__list {
+.case-studies__cards {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* see .case-studies above -- lets each fluid-width
-    ds-card-case-study fill the available width instead of hugging 0. */
-  gap: var(--size-primitive-space-1200);
+  align-items: stretch; /* see .case-studies above */
+  gap: var(--size-primitive-space-1200); /* 48px, matches Figma's Cards gap */
   width: 100%;
+  max-width: var(--size-primitive-container-2000); /* 1600px — caps just
+    the cards list (Figma's "Cards" frame), not the whole Case Studies
+    section, so the Section Divider row above it stays full width. */
 }

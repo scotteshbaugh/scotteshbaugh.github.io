@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/case-study.css">
 <link rel="stylesheet" href="css/main.css">
 <script type="module" src="main.js"></script>
 </head>
@@ -23,16 +25,19 @@
   </nav>
 </header>
 
-<main class="hero">
-  <div class="hero__intro">
-    <h1 class="hero__heading">
-      I am a <span class="hero__highlight">senior product designer</span> focused enterprise products, multi-role systems, and decision support.
+<main class="content">
+  <div class="content__intro">
+    <h1 class="content__intro-heading">
+      I am a <span class="content__intro-highlight">senior product designer</span> focused enterprise products, multi-role systems, and decision support.
     </h1>
   </div>
 
   <section class="case-studies">
-    <p class="case-studies__overline">Case studies</p>
-    <div class="case-studies__list"></div>
+    <div class="section-divider">
+      <p class="section-divider__label">Case Studies</p>
+      <ds-divider size="medium"></ds-divider>
+    </div>
+    <div class="case-studies__cards"></div>
   </section>
 </main>
 

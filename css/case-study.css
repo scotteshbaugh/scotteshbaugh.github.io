@@ -32,9 +32,9 @@
   font-weight: var(--typography-overline-font-weight);
   text-transform: uppercase;
   white-space: nowrap;
-  /* Unlike .case-studies__overline on the landing page (hardcoded black --
-     Figma left that one unbound), this label IS bound to a real token:
-     Text/Default/Secondary. */
+  /* Bound to a real token, Text/Default/Secondary -- the landing page's
+     own Section Divider (main.html) reuses this exact class, not a
+     separate hardcoded overline anymore. */
   color: var(--color-text-default-secondary);
 }
 

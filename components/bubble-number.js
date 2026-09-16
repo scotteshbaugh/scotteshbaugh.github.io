@@ -69,7 +69,7 @@ const BUBBLE_NUMBER_TEMPLATE = /* html */ `
     font-family: var(--typography-heading-font-family), sans-serif;
     font-size: var(--typography-heading-header-size-6);
     line-height: var(--typography-heading-header-line-height-6);
-    /* No font-weight set on purpose, same reasoning as .hero__heading in
+    /* No font-weight set on purpose, same reasoning as .content__intro-heading in
        main.css: FFGoodProWide-Medium.woff2 is the only face registered
        under "FF Good Pro Wide" in fonts.css -- nothing for a numeric
        weight to choose between, the Medium look comes from which file

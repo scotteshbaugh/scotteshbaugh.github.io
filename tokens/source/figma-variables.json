@@ -8069,17 +8069,6 @@
             }
           }
         }
-      },
-      "Device Breakpoints/Mobile": {
-        "id": "VariableID:255:4384",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Mode 1": 360
-        }
       }
     }
   }

@@ -82,10 +82,6 @@ const CARD_TEMPLATE = /* html */ `
     align-items: stretch;
     gap: var(--size-primitive-space-600);
     width: 100%;
-    min-width: 296px; /* Figma's Mobile card, auto-layout-hugged: 32px left
-      padding + 240px content + 24px right padding. A defensive floor, same
-      idea as ds-image's own min-height -- the card should never get squeezed
-      narrower than its own design minimum even if a parent container tries. */
     background: var(--color-background-default-default);
     padding-block: var(--size-primitive-space-600);
     padding-left: var(--size-primitive-space-800);

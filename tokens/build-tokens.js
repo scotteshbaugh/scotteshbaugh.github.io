@@ -6,11 +6,22 @@
  * Reads:  tokens/source/figma-variables.json  (raw export from the Figma variables plugin)
  * Writes: tokens/tokens.json                  (DTCG-format design tokens)
  *         css/tokens.css                      (CSS custom properties, Light mode only)
+ *         components/breakpoints.js           (JS breakpoint numbers -- see note below)
  *
  * How to update your tokens:
  *   1. Change values in Figma.
  *   2. Export variables with the plugin, overwrite tokens/source/figma-variables.json.
- *   3. Re-run this script. Never hand-edit tokens.json or tokens.css directly.
+ *   3. Re-run this script. Never hand-edit tokens.json, css/tokens.css, or
+ *      components/breakpoints.js directly.
+ *
+ * Why components/breakpoints.js is generated too: native CSS can't put a
+ * custom property inside an @media condition, so components that need a
+ * breakpoint import plain JS numbers from that file instead of reading
+ * css/tokens.css at runtime. Those numbers come from the "Device
+ * Breakpoints" variables (Size collection) -- resolveNumericValue() below
+ * follows their alias chain back to a real number (e.g. Tablet -> Size
+ * Primitives/Container/900 -> 720) since the CSS output only needs a
+ * var() reference, but a JS breakpoint constant needs the literal number.
  */
 
 const fs = require('fs');
@@ -20,6 +31,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SOURCE_PATH = path.join(__dirname, 'source', 'figma-variables.json');
 const TOKENS_OUT = path.join(__dirname, 'tokens.json');
 const CSS_OUT = path.join(ROOT, 'css', 'tokens.css');
+const BREAKPOINTS_OUT = path.join(ROOT, 'components', 'breakpoints.js');
 
 // Which Figma variable collection maps to which DTCG group path.
 // Add an entry here whenever a new collection (Size, Typography, etc.) gets exported.
@@ -124,6 +136,79 @@ function composeElevationTokens(tokensRoot) {
       elevationRoot[level] = { $type: 'shadow', $value: shadows };
     }
   }
+}
+
+// Follows a dotted token path (e.g. "size.device-breakpoints.tablet") down
+// into tokensRoot and returns its final resolved number -- chasing through
+// any "{other.path}" alias references along the way. Returns undefined if
+// the path doesn't exist or never bottoms out in a number (e.g. it's still
+// missing from this Figma export).
+function resolveNumericValue(tokensRoot, dottedPath) {
+  let node = tokensRoot;
+  for (const part of dottedPath.split('.')) {
+    if (!node || typeof node !== 'object') return undefined;
+    node = node[part];
+  }
+  if (!node || typeof node.$value === 'undefined') return undefined;
+  const value = node.$value;
+  if (typeof value === 'string') {
+    const refMatch = /^\{(.+)\}$/.exec(value);
+    if (refMatch) return resolveNumericValue(tokensRoot, refMatch[1]);
+    return undefined;
+  }
+  return typeof value === 'number' ? value : undefined;
+}
+
+// Regenerates components/breakpoints.js from the resolved Device
+// Breakpoints tokens, in the same shape components already import
+// (BREAKPOINTS, QUERY_DESKTOP, QUERY_TABLET_ONLY). Skips (with a warning)
+// rather than writing a broken file if either breakpoint isn't in this
+// Figma export yet.
+function writeBreakpointsFile(tokensRoot) {
+  const tablet = resolveNumericValue(tokensRoot, 'size.device-breakpoints.tablet');
+  const desktop = resolveNumericValue(tokensRoot, 'size.device-breakpoints.desktop');
+  if (typeof tablet !== 'number' || typeof desktop !== 'number') {
+    console.warn('Skipping components/breakpoints.js -- Device Breakpoints/Tablet and/or /Desktop not found in this export.');
+    return;
+  }
+
+  const content = `// Shared responsive breakpoints -- GENERATED FILE, do not hand-edit.
+//
+// Source of truth: the "Device Breakpoints" variables in Figma's Size
+// collection (Tablet/Desktop, each aliased to a Container primitive).
+// Regenerate the same way as tokens.json/css/tokens.css:
+//   1. Change values in Figma.
+//   2. Export variables with the plugin, overwrite tokens/source/figma-variables.json.
+//   3. Re-run \`node tokens/build-tokens.js\`.
+//
+// Why these numbers live in a JS file instead of being read from
+// css/tokens.css's custom properties at runtime: native CSS can't put a
+// custom property inside an @media condition. Every component that needs
+// a breakpoint imports the numbers from here and interpolates them
+// straight into its own <style> template literal at module-load time --
+// the generated CSS is still plain, native @media queries; only the
+// authoring step changes.
+//
+// This only works because these files load as ES modules (type="module")
+// script tags, which is also what lets components import each other
+// without the page needing to list every dependency's <script> tag by
+// hand in the right order.
+
+export const BREAKPOINTS = {
+  tablet: ${tablet},
+  desktop: ${desktop},
+};
+
+// Ready-made condition strings for the two shapes components actually
+// need. Add more here (rather than in a component file) if a third shape
+// comes up.
+export const QUERY_DESKTOP = \`(min-width: \${BREAKPOINTS.desktop}px)\`;
+export const QUERY_TABLET_ONLY = \`(min-width: \${BREAKPOINTS.tablet}px) and (max-width: \${BREAKPOINTS.desktop - 1}px)\`;
+`;
+
+  fs.mkdirSync(path.dirname(BREAKPOINTS_OUT), { recursive: true });
+  fs.writeFileSync(BREAKPOINTS_OUT, content);
+  console.log(`wrote ${path.relative(ROOT, BREAKPOINTS_OUT)} (tablet: ${tablet}px, desktop: ${desktop}px)`);
 }
 
 function main() {
@@ -263,6 +348,8 @@ function main() {
     warnings.forEach((w) => console.warn('  - ' + w));
     console.warn('');
   }
+  writeBreakpointsFile(tokensRoot);
+
   console.log(`primitive tokens: ${primitiveCount}`);
   console.log(`semantic tokens: ${semanticCount}`);
   console.log(`wrote ${path.relative(ROOT, TOKENS_OUT)}`);

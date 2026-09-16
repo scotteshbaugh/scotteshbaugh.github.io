@@ -67,7 +67,7 @@
 // script tag is enough to get everything the card needs, instead of a
 // page listing four separate tags in the right order.
 
-import { QUERY_DESKTOP, QUERY_TABLET_ONLY } from "./breakpoints.js";
+import { BREAKPOINTS, QUERY_DESKTOP, QUERY_TABLET_ONLY } from "./breakpoints.js";
 import "./tag.js";
 import "./divider.js";
 import "./image.js";
@@ -198,12 +198,26 @@ const CARD_TEMPLATE = /* html */ `
     display: block;
     margin-bottom: var(--size-primitive-space-400);
     font-family: var(--typography-heading-font-family), sans-serif;
-    font-size: var(--typography-heading-header-size-3);
-    line-height: var(--typography-heading-header-line-height-3);
+    /* Header 4 (smaller) is Mobile's own size -- Figma only bumps this up
+       to Header 3 starting at Tablet (see the media query below). Not the
+       same font-weight reasoning as Tag/this file's own header comment
+       elsewhere -- this is a genuine per-breakpoint type-scale swap, not a
+       token-fragility workaround. */
+    font-size: var(--typography-heading-header-size-4);
+    line-height: var(--typography-heading-header-line-height-4);
     /* No font-weight token here on purpose -- FF Good Pro Wide only has
        one weight registered (500/Medium) in fonts.css, same reasoning
        Tag documents for its own font. */
     color: var(--color-text-default-default);
+  }
+
+  /* Tablet and up: header steps up to Header 3. Mobile (the unqueried
+     default above) is the only size that uses Header 4. */
+  @media (min-width: ${BREAKPOINTS.tablet}px) {
+    slot[name="header"] {
+      font-size: var(--typography-heading-header-size-3);
+      line-height: var(--typography-heading-header-line-height-3);
+    }
   }
 
   slot[name="description"] {

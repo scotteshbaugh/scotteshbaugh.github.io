@@ -1,0 +1,50 @@
+/* Case study pages (Figma node 29:1079, "Frame 40" -- case-study component
+   definitions). Shared across every case-study page (5 to N of them), unlike
+   main.css which is scoped to the landing page only.
+   Pulls every value from css/tokens.css -- do not hardcode colors, sizes,
+   or fonts here. */
+
+/* ---- Section Divider (Figma node 210:939) ----
+   An overline label + a horizontal <ds-divider> filling the remaining
+   width. This reuses the existing Divider component as-is -- Figma's own
+   definition is just this label sitting next to a Divider instance, so
+   there's nothing new to build there, only these two classes wrapping it:
+
+   <div class="section-divider">
+     <p class="section-divider__label">Context</p>
+     <ds-divider size="medium"></ds-divider>
+   </div>
+*/
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--size-primitive-space-400);
+  width: 100%;
+}
+
+.section-divider__label {
+  margin: 0;
+  flex: none;
+  font-family: var(--typography-overline-font-family), sans-serif;
+  font-size: var(--typography-overline-size);
+  line-height: var(--typography-overline-line-height);
+  font-weight: var(--typography-overline-font-weight);
+  text-transform: uppercase;
+  white-space: nowrap;
+  /* Unlike .case-studies__overline on the landing page (hardcoded black --
+     Figma left that one unbound), this label IS bound to a real token:
+     Text/Default/Secondary. */
+  color: var(--color-text-default-secondary);
+}
+
+.section-divider ds-divider {
+  /* Figma's divider here is the "medium" size (Stroke/50, 2px), not
+     ds-divider's own default ("small", 1px) -- set via the size attribute
+     in markup, not here.
+     flex: 1 0 0 makes it fill the remaining row width. ds-divider's own
+     width: 100% (see divider.js) is only a flex-basis fallback for when
+     flex-basis is auto; setting flex-basis to 0 here overrides that, so
+     this fills correctly regardless of how wide the label is. */
+  flex: 1 0 0;
+}

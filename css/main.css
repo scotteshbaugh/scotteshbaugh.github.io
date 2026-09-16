@@ -17,10 +17,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--size-space-2400);
+  gap: var(--size-primitive-space-2400);
   box-sizing: border-box;
   width: 100%;
-  padding: var(--size-space-2400) var(--size-space-1200);
+  padding: var(--size-primitive-space-2400) var(--size-primitive-space-1200);
 }
 
 .hero__intro {
@@ -29,7 +29,7 @@ body {
   align-items: flex-start;
   /* Hardcoded on purpose (not a token): the Figma frame calls for a fixed
      1080px reading width for the intro line, not a fluid one — it doesn't
-     map to any --size-space-* value, so this is an intentional exception
+     map to any --size-primitive-space-* value, so this is an intentional exception
      to the "pull everything from tokens.css" rule the rest of this file
      follows. */
   width: 100%;
@@ -63,7 +63,7 @@ body {
     already fluid (:host { width: 100% }) -- stretch is what lets that
     fluid width actually reach full container width instead of collapsing
     to 0 under a start-aligned flex parent. */
-  gap: var(--size-space-200);
+  gap: var(--size-primitive-space-200);
   width: 100%;
   /* Same pattern as .hero__intro above: caps the column without centering
      it, so it stays flush left with the nav/hero content and only picks up
@@ -92,6 +92,6 @@ body {
   flex-direction: column;
   align-items: stretch; /* see .case-studies above -- lets each fluid-width
     ds-card-case-study fill the available width instead of hugging 0. */
-  gap: var(--size-space-1200);
+  gap: var(--size-primitive-space-1200);
   width: 100%;
 }

@@ -19,9 +19,9 @@
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-  padding: var(--size-space-300) var(--size-space-600);
+  padding: var(--size-primitive-space-300) var(--size-primitive-space-600);
   background: var(--color-background-default-default);
-  border-bottom: var(--size-stroke-25) solid var(--color-border-default-default);
+  border-bottom: var(--size-primitive-stroke-25) solid var(--color-border-default-default);
 }
 
 .site-nav__logo {
@@ -43,7 +43,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: var(--size-space-600);
+  gap: var(--size-primitive-space-600);
 }
 
 .site-nav__links .link {

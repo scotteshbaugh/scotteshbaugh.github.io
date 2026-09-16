@@ -43,9 +43,9 @@ const TAG_TEMPLATE = /* html */ `
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    gap: var(--size-space-200);
-    padding: var(--size-space-200);
-    border-radius: var(--size-radius-200);
+    gap: var(--size-primitive-space-200);
+    padding: var(--size-primitive-space-200);
+    border-radius: var(--size-primitive-radius-200);
     background: var(--tag-bg);
     color: var(--tag-fg);
     font-family: var(--typography-button-font-family), sans-serif;
@@ -135,7 +135,7 @@ const TAG_TEMPLATE = /* html */ `
     background: var(--tag-bg-hover);
   }
   :host([interactive]:focus-visible) {
-    outline: var(--size-stroke-focus-ring) solid var(--tag-fg);
+    outline: var(--size-primitive-stroke-focus-ring) solid var(--tag-fg);
     outline-offset: 2px;
   }
 
@@ -154,7 +154,7 @@ const TAG_TEMPLATE = /* html */ `
     height: 16px;
     color: var(--tag-icon);
     cursor: pointer;
-    border-radius: var(--size-radius-100);
+    border-radius: var(--size-primitive-radius-100);
   }
   :host([dismissible]) .dismiss {
     display: inline-flex;
@@ -164,7 +164,7 @@ const TAG_TEMPLATE = /* html */ `
     opacity: 0.7;
   }
   .dismiss:focus-visible {
-    outline: var(--size-stroke-focus-ring) solid var(--tag-fg);
+    outline: var(--size-primitive-stroke-focus-ring) solid var(--tag-fg);
     outline-offset: 1px;
   }
   .dismiss svg {

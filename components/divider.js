@@ -26,11 +26,11 @@ const DIVIDER_TEMPLATE = /* html */ `
     background: var(--color-background-neutral-tertiary);
   }
 
-  :host([size="small"])  { --divider-thickness: var(--size-stroke-25); }
-  :host([size="medium"]) { --divider-thickness: var(--size-stroke-50); }
-  :host([size="large"])  { --divider-thickness: var(--size-stroke-100); }
+  :host([size="small"])  { --divider-thickness: var(--size-primitive-stroke-25); }
+  :host([size="medium"]) { --divider-thickness: var(--size-primitive-stroke-50); }
+  :host([size="large"])  { --divider-thickness: var(--size-primitive-stroke-100); }
 
-  :host([shape="rounded"]) { border-radius: var(--size-radius-50); }
+  :host([shape="rounded"]) { border-radius: var(--size-primitive-radius-50); }
   :host([shape="sharp"])   { border-radius: 0; }
 
   :host([orientation="horizontal"]) {

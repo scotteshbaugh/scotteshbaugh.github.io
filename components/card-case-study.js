@@ -80,17 +80,17 @@ const CARD_TEMPLATE = /* html */ `
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: var(--size-space-600);
+    gap: var(--size-primitive-space-600);
     width: 100%;
     min-width: 296px; /* Figma's Mobile card, auto-layout-hugged: 32px left
       padding + 240px content + 24px right padding. A defensive floor, same
       idea as ds-image's own min-height -- the card should never get squeezed
       narrower than its own design minimum even if a parent container tries. */
     background: var(--color-background-default-default);
-    padding-block: var(--size-space-600);
-    padding-left: var(--size-space-800);
-    padding-right: var(--size-space-600);
-    border-radius: 0 var(--size-radius-400) var(--size-radius-400) 0;
+    padding-block: var(--size-primitive-space-600);
+    padding-left: var(--size-primitive-space-800);
+    padding-right: var(--size-primitive-space-600);
+    border-radius: 0 var(--size-primitive-radius-400) var(--size-primitive-radius-400) 0;
     box-shadow: var(--elevation-400);
     overflow: hidden;
     font-family: var(--typography-body-font-family), sans-serif;
@@ -100,7 +100,7 @@ const CARD_TEMPLATE = /* html */ `
        state adds this border alongside the SAME left padding as default,
        which -- with box-sizing: border-box -- would shrink the content by
        8px the moment you hover. Reserving it always avoids that reflow. */
-    border-left: var(--size-stroke-200) solid transparent;
+    border-left: var(--size-primitive-stroke-200) solid transparent;
     transition: box-shadow 150ms ease, border-left-color 150ms ease;
   }
 
@@ -185,7 +185,7 @@ const CARD_TEMPLATE = /* html */ `
     }
 
     slot[name="header"] {
-      margin-top: var(--size-space-200); /* the tags→header gap moves here
+      margin-top: var(--size-primitive-space-200); /* the tags→header gap moves here
         once tags shares its row with meta instead of sitting above header */
     }
   }
@@ -193,14 +193,14 @@ const CARD_TEMPLATE = /* html */ `
   slot[name="tags"] {
     grid-area: tags;
     display: flex;
-    gap: var(--size-space-200);
-    margin-bottom: var(--size-space-200);
+    gap: var(--size-primitive-space-200);
+    margin-bottom: var(--size-primitive-space-200);
   }
 
   slot[name="header"] {
     grid-area: header;
     display: block;
-    margin-bottom: var(--size-space-400);
+    margin-bottom: var(--size-primitive-space-400);
     font-family: var(--typography-heading-font-family), sans-serif;
     font-size: var(--typography-heading-header-size-3);
     line-height: var(--typography-heading-header-line-height-3);
@@ -213,7 +213,7 @@ const CARD_TEMPLATE = /* html */ `
   slot[name="description"] {
     grid-area: description;
     display: block;
-    margin-bottom: var(--size-space-600);
+    margin-bottom: var(--size-primitive-space-600);
     font-size: var(--typography-body-body-size-1);
     line-height: var(--typography-body-body-line-height-1);
     color: var(--color-text-default-default);
@@ -221,14 +221,14 @@ const CARD_TEMPLATE = /* html */ `
 
   ds-divider[part="inner-divider"] {
     grid-area: divider;
-    margin-bottom: var(--size-space-600);
+    margin-bottom: var(--size-primitive-space-600);
   }
 
   slot[name="outcome"] {
     grid-area: outcome;
     box-sizing: border-box;
     display: block;
-    padding-bottom: var(--size-space-1200); /* guaranteed minimum gap
+    padding-bottom: var(--size-primitive-space-1200); /* guaranteed minimum gap
       before meta, matching Figma at every breakpoint. On desktop this
       row is also 1fr (see .left above), so on a tall card the gap grows
       past this minimum and meta lands flush with the image's bottom
@@ -250,7 +250,7 @@ const CARD_TEMPLATE = /* html */ `
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: var(--size-space-200);
+    gap: var(--size-primitive-space-200);
     min-width: 0;
     overflow: hidden;
   }
@@ -279,7 +279,7 @@ const CARD_TEMPLATE = /* html */ `
   slot[name="descriptors"] {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--size-space-200);
+    gap: var(--size-primitive-space-200);
   }
 </style>
 <div class="left">

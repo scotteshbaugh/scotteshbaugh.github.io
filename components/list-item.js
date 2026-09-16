@@ -48,7 +48,7 @@ const LIST_ITEM_TEMPLATE = /* html */ `
       in stack mode too -- flex-wrap only matters on the axis items lay out
       across, which for a column is height, and items never overflow there
       the way they can across a row's width. */
-    gap: var(--size-space-200);
+    gap: var(--size-primitive-space-200);
     font-family: var(--typography-body-font-family), sans-serif;
     font-size: var(--typography-body-body-size-2);
     line-height: var(--typography-body-body-line-height-2);

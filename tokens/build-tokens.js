@@ -26,6 +26,7 @@ const CSS_OUT = path.join(ROOT, 'css', 'tokens.css');
 const COLLECTION_GROUP_MAP = {
   'Color Primitives': ['color', 'primitive'],
   'Color': ['color'],
+  'Size Primitives': ['size', 'primitive'],
 };
 
 // Which mode is the "real" value for now (no dark mode wired up in CSS yet).

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icon component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="icon.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .note { max-width: 780px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+  .row { display: flex; align-items: flex-end; gap: 28px; }
+  figure { margin: 0; text-align: center; }
+  figcaption { margin-top: 8px; font-size: 11px; color: #8d8d8d; }
+  .on-color { display: inline-flex; gap: 16px; padding: 16px; border-radius: 8px; }
+  .brand { background: var(--color-background-brand-default); color: var(--color-icon-brand-on-brand); }
+  .danger { background: var(--color-background-danger-default); color: var(--color-icon-danger-on-danger); }
+  .neutral { background: var(--color-background-neutral-default); color: var(--color-icon-neutral-on-neutral); }
+  .default { color: var(--color-icon-default-default); }
+</style>
+</head>
+<body>
+
+<p class="note">Stroke weight comes from <code>--size-icon-stroke-&lt;size&gt;</code>, applied in screen pixels via <code>vector-effect: non-scaling-stroke</code>. The 16px icon draws a 1.6px stroke, not the 1.33px linear scaling would give — matching Figma at every size.</p>
+
+<h2>All five sizes — stroke thickens as Figma specifies, not proportionally</h2>
+<div class="row default">
+  <figure><ds-icon name="x" size="16"></ds-icon><figcaption>16 — 1.6</figcaption></figure>
+  <figure><ds-icon name="x" size="20"></ds-icon><figcaption>20 — 2</figcaption></figure>
+  <figure><ds-icon name="x" size="24"></ds-icon><figcaption>24 — 2.5</figcaption></figure>
+  <figure><ds-icon name="x" size="32"></ds-icon><figcaption>32 — 3</figcaption></figure>
+  <figure><ds-icon name="x" size="48"></ds-icon><figcaption>48 — 4</figcaption></figure>
+</div>
+
+<h2>Default size — no size attribute given, falls back to 24</h2>
+<div class="row default">
+  <figure><ds-icon name="x"></ds-icon><figcaption>24</figcaption></figure>
+</div>
+
+<h2>Color is inherited, never set by the icon</h2>
+<div class="row">
+  <span class="on-color brand">
+    <ds-icon name="x" size="24"></ds-icon>
+  </span>
+  <span class="on-color danger">
+    <ds-icon name="x" size="24"></ds-icon>
+  </span>
+  <span class="on-color neutral">
+    <ds-icon name="x" size="24"></ds-icon>
+  </span>
+</div>
+
+<h2>Any of the 287 by name — nothing to register first</h2>
+<div class="row default">
+  <figure><ds-icon name="chevron-down" size="24"></ds-icon><figcaption>chevron-down</figcaption></figure>
+  <figure><ds-icon name="external-link" size="24"></ds-icon><figcaption>external-link</figcaption></figure>
+  <figure><ds-icon name="arrow-up-right" size="24"></ds-icon><figcaption>arrow-up-right</figcaption></figure>
+  <figure><ds-icon name="search" size="24"></ds-icon><figcaption>search</figcaption></figure>
+  <figure><ds-icon name="menu" size="24"></ds-icon><figcaption>menu</figcaption></figure>
+  <figure><ds-icon name="check" size="24"></ds-icon><figcaption>check</figcaption></figure>
+  <figure><ds-icon name="star" size="24"></ds-icon><figcaption>star</figcaption></figure>
+</div>
+
+<h2>Decorative vs labelled</h2>
+<p class="note">Without <code>label</code> the icon is <code>aria-hidden</code> and announced to nobody — correct when something around it already has a name. With <code>label</code> the host takes <code>role="img"</code> and is announced once. Don't label an icon that sits inside a labelled control or next to visible text.</p>
+<div class="row default">
+  <figure>
+    <ds-icon name="check" size="24"></ds-icon>
+    <figcaption>decorative<br>(no label)</figcaption>
+  </figure>
+  <figure>
+    <ds-icon name="check" size="24" label="Passed"></ds-icon>
+    <figcaption>labelled<br>"Passed"</figcaption>
+  </figure>
+</div>
+
+<h2>Unknown name — renders nothing, warns in the console</h2>
+<div class="row default">
+  <figure><ds-icon name="not-a-real-icon" size="24"></ds-icon><figcaption>(empty)</figcaption></figure>
+</div>
+
+</body>
+</html>

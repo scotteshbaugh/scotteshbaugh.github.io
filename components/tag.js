@@ -30,6 +30,8 @@
 //   <ds-tag scheme="danger" variant="secondary" dismissible>Blocked</ds-tag>
 //   <ds-tag scheme="brand" interactive>Filter</ds-tag>
 
+import "./icon.js";
+
 const TAG_TEMPLATE = /* html */ `
 <style>
   :host {
@@ -167,18 +169,21 @@ const TAG_TEMPLATE = /* html */ `
     outline: var(--size-primitive-stroke-focus-ring) solid var(--tag-fg);
     outline-offset: 1px;
   }
-  .dismiss svg {
-    width: 100%;
-    height: 100%;
-    display: block;
+  /* ds-icon carries its own box and stroke for the size it is given; this
+     only stops the icon swallowing the button's own click target. */
+  .dismiss ds-icon {
     pointer-events: none;
   }
 </style>
 <span class="label" part="label"><slot></slot></span>
 <button type="button" class="dismiss" part="dismiss" aria-label="Remove">
-  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-    <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-  </svg>
+  <!-- The X is <ds-icon>, not inline markup: the stroke weight at this
+       size is a design token, and ds-icon is what maps size -> token. The
+       16 here is the tag's own decision about how big its dismiss control
+       is, and it has to match ds-icon's size attribute -- there is no icon
+       size token to bind it to, since icon size is always decided by
+       whatever hosts the icon. -->
+  <ds-icon name="x" size="16"></ds-icon>
 </button>
 `;
 

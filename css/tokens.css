@@ -337,9 +337,11 @@
   --size-primitive-stroke-100: 4px;
   --size-primitive-stroke-200: 8px;
   --size-primitive-stroke-focus-ring: var(--size-primitive-stroke-50);
-  --size-primitive-icon-small: 24px;
-  --size-primitive-icon-medium: 32px;
-  --size-primitive-icon-large: 40px;
+  --size-primitive-stroke-icon-stroke-100: 1.6px;
+  --size-primitive-stroke-icon-stroke-125: 2px;
+  --size-primitive-stroke-icon-stroke-150: 2.5px;
+  --size-primitive-stroke-icon-stroke-200: 3px;
+  --size-primitive-stroke-icon-stroke-300: 4px;
   --size-primitive-container-100: 80px;
   --size-primitive-container-200: 160px;
   --size-primitive-container-300: 240px;
@@ -362,6 +364,11 @@
   --size-primitive-container-2000: 1600px;
   --size-device-breakpoints-tablet: var(--size-primitive-container-900);
   --size-device-breakpoints-desktop: var(--size-primitive-container-1200);
+  --size-icon-stroke-16: var(--size-primitive-stroke-icon-stroke-100);
+  --size-icon-stroke-20: var(--size-primitive-stroke-icon-stroke-125);
+  --size-icon-stroke-24: var(--size-primitive-stroke-icon-stroke-150);
+  --size-icon-stroke-32: var(--size-primitive-stroke-icon-stroke-200);
+  --size-icon-stroke-48: var(--size-primitive-stroke-icon-stroke-300);
 
   /* typography */
   --typography-title-hero-font-family: var(--typography-primitives-family-brand);
@@ -422,4 +429,8 @@
   --elevation-500: var(--size-primitive-depth-0) var(--size-primitive-depth-400) var(--size-primitive-blur-400) var(--size-primitive-depth-negative-200) var(--color-primitive-black-200), var(--size-primitive-depth-0) var(--size-primitive-depth-100) var(--size-primitive-blur-100) var(--size-primitive-depth-negative-100) var(--color-primitive-black-100);
   --elevation-550: var(--size-primitive-depth-0) var(--size-primitive-depth-200) var(--size-primitive-blur-400) var(--size-primitive-depth-negative-100) var(--color-primitive-black-100), var(--size-primitive-depth-0) var(--size-primitive-depth-400) var(--size-primitive-blur-800) var(--size-primitive-depth-negative-200) var(--color-primitive-black-300);
   --elevation-600: var(--size-primitive-depth-0) var(--size-primitive-depth-400) var(--size-primitive-blur-800) var(--size-primitive-depth-negative-200) var(--color-primitive-black-400);
+
+  /* overlay */
+  --overlay-scrim-blur: var(--size-primitive-blur-100);
+  --overlay-scrim-color: var(--color-background-utilities-scrim);
 }

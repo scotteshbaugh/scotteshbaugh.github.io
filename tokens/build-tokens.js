@@ -39,6 +39,19 @@ const COLLECTION_GROUP_MAP = {
   'Color Primitives': ['color', 'primitive'],
   'Color': ['color'],
   'Size Primitives': ['size', 'primitive'],
+  // "Layer" maps to root (an empty path) rather than a "layer" group of its
+  // own, because its variables already carry the group name Figma shows them
+  // under -- "Elevation/400/Shadow 1/Blur", "Overlay/Scrim/Blur" -- so the
+  // Figma group becomes the top-level token path on its own: elevation.*,
+  // overlay.*. This collection used to BE named "Elevation" with variables
+  // like "400/Shadow 1/Blur"; when it was renamed and the elevations were
+  // nested under an Elevation group, the default fallback here would have
+  // produced layer.elevation.* instead, which (a) renames every
+  // --elevation-* custom property out from under the components using them
+  // and (b) hides the elevations from composeElevationTokens(), which looks
+  // for tokensRoot.elevation -- silently emitting 60 flat shadow-field vars
+  // and no composed box-shadow at all. Mapping to root keeps both working.
+  'Layer': [],
 };
 
 // Which mode is the "real" value for now (no dark mode wired up in CSS yet).
@@ -64,6 +77,16 @@ function tokenPathFor(collectionName, variableName) {
 
 function toHexByte(n) {
   return Math.round(n).toString(16).padStart(2, '0');
+}
+
+// Figma stores numbers as 32-bit floats, so a value typed as 1.6 comes back
+// as 1.600000023841858 and lands in the CSS that way. That is float noise,
+// not intent -- nobody typed those digits -- so numbers are snapped back to
+// what a person would have entered. Five decimal places is far finer than
+// any real design value and comfortably inside the error.
+function cleanNumber(n) {
+  if (typeof n !== 'number' || !isFinite(n)) return n;
+  return Math.round(n * 1e5) / 1e5;
 }
 
 function colorToHex(colorValue) {
@@ -232,7 +255,7 @@ function main() {
     if (modeValue && typeof modeValue === 'object' && 'hex' in modeValue) {
       return { isRef: false, value: colorToHex(modeValue) };
     }
-    return { isRef: false, value: modeValue };
+    return { isRef: false, value: cleanNumber(modeValue) };
   }
 
   const tokensRoot = {};

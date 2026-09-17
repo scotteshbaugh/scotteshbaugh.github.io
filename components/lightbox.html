@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Light Box component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="lightbox.js"></script>
+<script type="module" src="image.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .note { max-width: 820px; margin: 0 0 24px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+  .thumbs { display: flex; gap: 20px; flex-wrap: wrap; max-width: 820px; }
+  .thumb { width: 240px; cursor: zoom-in; }
+  .filler { max-width: 820px; color: #8d8d8d; font-size: 13px; line-height: 1.7; }
+  .log { margin: 16px 0; font: 12px/1.5 ui-monospace, monospace; color: #525252; background: #f4f4f4; border-radius: 4px; padding: 10px 14px; max-width: 520px; }
+</style>
+</head>
+<body>
+
+<p class="note">Click a thumbnail to open it. Escape, the close button, or a click on the scrim all dismiss it. While open, focus is trapped in the dialog, the page behind is inert, and it can't scroll — try tabbing or scrolling with it open.</p>
+
+<h2>Click to open</h2>
+<div class="thumbs">
+  <div class="thumb"><ds-image><img src="../assets/covers/ss_cover.jpg" alt="Self-service case study cover"></ds-image></div>
+  <div class="thumb"><ds-image><img src="../assets/covers/jav_cover.jpg" alt="Javelin Program case study cover"></ds-image></div>
+  <div class="thumb"><ds-image><img src="../assets/covers/pca_cover.jpg" alt="Predictive Customer Analytics cover"></ds-image></div>
+</div>
+
+<div class="log" id="log">nothing opened yet</div>
+
+<h2>Scroll behind (should be locked while open)</h2>
+<p class="filler" id="filler"></p>
+
+<ds-lightbox id="lb">
+  <img id="lbimg" src="../assets/covers/ss_cover.jpg" alt="">
+</ds-lightbox>
+
+<script type="module">
+  const lb = document.getElementById('lb');
+  const lbimg = document.getElementById('lbimg');
+  const log = document.getElementById('log');
+
+  document.querySelectorAll('.thumb img').forEach((img) => {
+    img.closest('.thumb').addEventListener('click', () => {
+      lbimg.src = img.getAttribute('src');
+      lbimg.alt = img.getAttribute('alt');
+      lb.show();
+      log.textContent = `opened "${img.getAttribute('alt')}"`;
+    });
+  });
+
+  lb.addEventListener('ds-lightbox-close', () => {
+    log.textContent = 'closed — focus returned to the thumbnail';
+  });
+
+  // filler so there is something to scroll
+  document.getElementById('filler').textContent =
+    'Scrollable filler. '.repeat(120);
+</script>
+
+</body>
+</html>

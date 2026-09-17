@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Icon Button component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="icon-button.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .note { max-width: 820px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+  table { border-collapse: collapse; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #8d8d8d; font-weight: 500; text-align: left; padding: 0 24px 10px 0; }
+  td { padding: 0 24px 20px 0; vertical-align: middle; }
+  td.label { font-size: 12px; color: #6f6f6f; padding-right: 20px; }
+  .log { margin-top: 8px; font: 12px/1.5 ui-monospace, monospace; color: #525252; background: #f4f4f4; border-radius: 4px; padding: 10px 14px; max-width: 520px; min-height: 20px; }
+</style>
+</head>
+<body>
+
+<p class="note">Hover each button to see its hover fill — Figma models hover as a variant because it has no pseudo-classes; here it's <code>:hover</code>. Disabled flattens all three variants to the same appearance, which is what Figma specifies. Tab through them to see the focus ring.</p>
+
+<h2>Medium — 44&times;44 (space-300 padding + 20px icon)</h2>
+<table>
+  <tr><th></th><th>Default</th><th>Disabled</th></tr>
+  <tr>
+    <td class="label">Primary</td>
+    <td><ds-icon-button variant="primary" icon="star" label="Favourite"></ds-icon-button></td>
+    <td><ds-icon-button variant="primary" icon="star" label="Favourite" disabled></ds-icon-button></td>
+  </tr>
+  <tr>
+    <td class="label">Neutral</td>
+    <td><ds-icon-button variant="neutral" icon="star" label="Favourite"></ds-icon-button></td>
+    <td><ds-icon-button variant="neutral" icon="star" label="Favourite" disabled></ds-icon-button></td>
+  </tr>
+  <tr>
+    <td class="label">Subtle</td>
+    <td><ds-icon-button variant="subtle" icon="star" label="Favourite"></ds-icon-button></td>
+    <td><ds-icon-button variant="subtle" icon="star" label="Favourite" disabled></ds-icon-button></td>
+  </tr>
+</table>
+
+<h2>Small — 36&times;36 (space-200 padding, same 20px icon)</h2>
+<table>
+  <tr><th></th><th>Default</th><th>Disabled</th></tr>
+  <tr>
+    <td class="label">Primary</td>
+    <td><ds-icon-button variant="primary" size="small" icon="star" label="Favourite"></ds-icon-button></td>
+    <td><ds-icon-button variant="primary" size="small" icon="star" label="Favourite" disabled></ds-icon-button></td>
+  </tr>
+  <tr>
+    <td class="label">Neutral</td>
+    <td><ds-icon-button variant="neutral" size="small" icon="star" label="Favourite"></ds-icon-button></td>
+    <td><ds-icon-button variant="neutral" size="small" icon="star" label="Favourite" disabled></ds-icon-button></td>
+  </tr>
+  <tr>
+    <td class="label">Subtle</td>
+    <td><ds-icon-button variant="subtle" size="small" icon="star" label="Favourite"></ds-icon-button></td>
+    <td><ds-icon-button variant="subtle" size="small" icon="star" label="Favourite" disabled></ds-icon-button></td>
+  </tr>
+</table>
+
+<h2>Any icon — the button doesn't care which</h2>
+<p>
+  <ds-icon-button variant="subtle" icon="x" label="Close"></ds-icon-button>
+  <ds-icon-button variant="subtle" icon="chevron-left" label="Previous"></ds-icon-button>
+  <ds-icon-button variant="subtle" icon="chevron-right" label="Next"></ds-icon-button>
+  <ds-icon-button variant="neutral" icon="download" label="Download"></ds-icon-button>
+  <ds-icon-button variant="primary" icon="plus" label="Add"></ds-icon-button>
+</p>
+
+<h2>Clicks — native, composed, no custom event to learn</h2>
+<p>
+  <ds-icon-button icon="zap" label="Fire"></ds-icon-button>
+  <ds-icon-button icon="zap" label="Fire (disabled)" disabled></ds-icon-button>
+</p>
+<div class="log" id="log">click one…</div>
+
+<script type="module">
+  const log = document.getElementById('log');
+  let n = 0;
+  for (const b of document.querySelectorAll('ds-icon-button[icon="zap"]')) {
+    b.addEventListener('click', (e) => {
+      log.textContent = `${++n}. click on "${e.currentTarget.getAttribute('label')}" — target is <${e.target.tagName.toLowerCase()}>`;
+    });
+  }
+</script>
+
+</body>
+</html>

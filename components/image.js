@@ -1,103 +1,120 @@
 // <ds-image> — Image web component
 //
-// A reusable image frame: fills the width of its container, centers a
-// slotted <img> inside a capped box (never shorter than 300px, never taller
-// than 400px), and crops it to fill via object-fit: cover. Every number
-// here is a raw pixel value straight from Figma, not a token -- these
-// constraints (300/400/1000/10px, and the mobile height below) are specific
-// to this one component's layout, not shared design values, so there's
-// nothing in css/tokens.css to bind them to. Only the background
-// placeholder color is a token.
+// The image surface primitive (Figma "Image", node 270:1637). It draws the
+// frame around a slotted <img>; what that frame looks like depends on where
+// the image sits, which is what the `placement` attribute says -- Figma's
+// own "Placement" property on the same component.
 //
-// Crop anchor: above 1000px wide, the frame is capped and centered, with
-// the purple background showing on both sides -- the image crops evenly
-// from both sides too. At 1000px and narrower, the frame is flush with the
-// host (no more purple gap), and the crop switches to left-anchored, so it
-// only eats into the right side of the image as it keeps narrowing. This
-// uses a container query on the host's own width, not the viewport --
-// it's about how much room THIS component has, not how wide the page is.
+// This is the piece <ds-card-image> and <ds-lightbox> are both built out of,
+// matching how Figma nests an Image instance inside each of them rather than
+// redrawing the surface twice. Change the surface here and both pick it up.
 //
-// Needs a flex parent to size against (same as <ds-divider> needs a flex
-// parent to stretch against) -- it flex-grows to fill whatever height is
-// available. A 300px min-height is a real, unconditional floor (matching
-// .frame's own min-height below) rather than a breakpoint-scoped override,
-// because flex-grow alone doesn't guarantee any height: inside a flex
-// container whose own height isn't definite (e.g. a stacked column with no
-// fixed height), "flex: 1 0 0" resolves to the item's floor, and without a
-// real min-height that floor is 0 -- collapsing the whole component
-// invisibly, with overflow: hidden clipping away .frame's inner 300px too.
+// Attribute:
+//   placement   "standalone" | "card" | "lightbox"  (default: "standalone")
+//
+//     standalone  Its own surface: radius + elevation 400, stepping to
+//                 elevation 550 on hover. The plain "here is a picture of
+//                 the work" case, and the only placement Figma defines a
+//                 State=Hover variant for -- see the hover note below.
+//     card        Background only. No radius, no shadow: <ds-card-image>
+//                 draws the framing around it, and a second radius/shadow
+//                 inside that one would read as a box within a box.
+//     lightbox    Elevation 550, but still no radius (deliberate, confirmed
+//                 against the Lightbox design -- the lightbox shows the
+//                 image square-cornered). The scrim behind it is blur +
+//                 a translucent wash rather than a dim layer, so this
+//                 shadow is the only thing separating image from page.
+//
+// Why hover is standalone-only: Figma defines State=Hover for Placement=
+// Standalone alone. Card and Lightbox each sit inside a parent that owns
+// its own interaction, so a lift here would be a second, competing
+// affordance pointing at the same click.
+//
+// Sizing: the image's own aspect ratio drives the box -- the component
+// hugs whatever is slotted into it, with no caps, floors or fixed ratio of
+// its own. The one exception is placement="card", which keeps object-fit:
+// cover: <ds-card-image> gives it a fixed-height row to fill, and the five
+// case-study covers don't share an aspect ratio, so without the crop they
+// would letterbox against the brand bleed at five different heights.
+// Figma can't express that distinction (it has no <img> to fit), so it
+// lives here.
+//
+// Every value is a token from css/tokens.css, inherited through the shadow
+// boundary -- no hardcoded colors, radii, shadows or sizes.
 //
 // Usage:
 //   <ds-image>
-//     <img src="cover.jpg" alt="Screenshot of the app dashboard">
+//     <img src="work.png" alt="The settings screen, mid-edit">
+//   </ds-image>
+//
+//   <ds-image placement="lightbox">
+//     <img src="work.png" alt="The settings screen, mid-edit">
 //   </ds-image>
 
 const IMAGE_TEMPLATE = /* html */ `
 <style>
   :host {
     box-sizing: border-box;
-    display: flex;
-    flex: 1 0 0;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 300px; /* a real floor, not just a fallback -- see file
-      header. Matches .frame's own min-height below, so the component never
-      collapses even when its flex parent has no definite height to grow
-      into (e.g. Card's stacked mobile/tablet column). */
+    display: block;
     overflow: hidden;
-    background: var(--color-background-brand-secondary);
-    container-type: inline-size;
-    container-name: ds-image;
+    background: var(--color-background-default-secondary);
   }
 
-  .frame {
-    box-sizing: border-box;
+  /* Standalone owns its surface: the rounded, raised "here is a picture"
+     treatment. Card and Lightbox deliberately omit the radius -- see the
+     file header. */
+  :host([placement="standalone"]) {
+    border-radius: var(--size-primitive-radius-400);
+    box-shadow: var(--elevation-400);
+  }
+
+  :host([placement="standalone"]:hover) {
+    box-shadow: var(--elevation-550);
+  }
+
+  :host([placement="lightbox"]) {
+    box-shadow: var(--elevation-550);
+  }
+
+  /* Card is a flex child of <ds-card-image>, which sets its own caps and
+     floor on this element from the outside. flex/min-width live here rather
+     than there so the element is a well-behaved flex item wherever it is
+     put, and min-width: 0 stops the usual flex "won't shrink below its
+     content" floor from defeating the parent's max-width. */
+  :host([placement="card"]) {
     display: flex;
-    position: relative;
     flex: 1 0 0;
-    height: 100%;
-    max-height: 400px;
-    max-width: 1000px;
-    min-height: 300px;
     min-width: 0;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
   }
 
   ::slotted(img) {
-    position: absolute;
-    inset: 0;
+    display: block;
     width: 100%;
-    height: 100%;
-    max-width: none;
-    object-fit: cover;
-    object-position: center;
-    pointer-events: none;
+    height: auto;
   }
 
-  /* Once the host is <= 1000px wide, .frame is no longer capped -- it's
-     flush with the host, so the purple background gaps are gone. At that
-     point stop cropping evenly from both sides: anchor left and let the
-     crop eat only from the right as it keeps narrowing. Above 1000px the
-     frame stays centered inside the host with its own even crop. */
-  @container ds-image (max-width: 1000px) {
-    ::slotted(img) {
-      object-position: left center;
-    }
+  /* The crop that only the card needs -- see the sizing note in the file
+     header for why this is the one placement that fills rather than hugs. */
+  :host([placement="card"]) ::slotted(img) {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 </style>
-<div class="frame" part="frame">
-  <slot></slot>
-</div>
+<slot></slot>
 `;
 
 class DsImage extends HTMLElement {
-  constructor() {
-    super();
-    const root = this.attachShadow({ mode: "open" });
-    root.innerHTML = IMAGE_TEMPLATE;
+  connectedCallback() {
+    // Reflected as a real attribute rather than kept as a property, because
+    // every rule above is an attribute selector on the host -- same pattern
+    // as <ds-callout>'s own type attribute.
+    if (!this.hasAttribute("placement")) this.setAttribute("placement", "standalone");
+
+    if (!this.shadowRoot) {
+      const root = this.attachShadow({ mode: "open" });
+      root.innerHTML = IMAGE_TEMPLATE;
+    }
   }
 }
 

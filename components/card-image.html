@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Image component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="card-image.js"></script>
+<script type="module" src="list-item.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .note { max-width: 860px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+  .narrow { max-width: 360px; }
+  /* Breaks out of body's padding just for the wide demo, so a row past the
+     Container/1300 cap can be shown -- this is only to make the brand side
+     edges visible, not a real layout pattern. */
+  .wide { width: 1400px; margin-left: -32px; }
+  .card { border: 1px solid #e0e0e0; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; max-width: 500px; }
+</style>
+</head>
+<body>
+
+<p class="note">Card Image nests a <code>&lt;ds-image placement="card"&gt;</code> — it draws the brand bleed, the fixed row height and the caps; the image surface itself comes from the Image component.</p>
+
+<h2>Default — image fills the frame, cropped to the fixed height</h2>
+<ds-card-image>
+  <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of the Self-service case study cover">
+</ds-card-image>
+
+<h2>Wide (1400px) — past the Container/1300 cap, brand shows as side edges</h2>
+<div class="wide">
+  <ds-card-image>
+    <img src="../assets/covers/jav_cover.jpg" alt="Screenshot of the Javelin Program case study cover">
+  </ds-card-image>
+</div>
+
+<h2>Narrow — flush with its container, still the same row height</h2>
+<div class="narrow">
+  <ds-card-image>
+    <img src="../assets/covers/pca_cover.jpg" alt="Screenshot of the Predictive Customer Analytics cover">
+  </ds-card-image>
+</div>
+
+<h2>Different aspect ratios — all crop to the same row height</h2>
+<div class="narrow">
+  <ds-card-image>
+    <img src="../assets/covers/qir-cover.jpg" alt="Screenshot of the Quarter in Review case study cover">
+  </ds-card-image>
+</div>
+
+<h2>Real usage — inside a case study card, with List item underneath</h2>
+<div class="card">
+  <ds-card-image>
+    <img src="../assets/covers/ocd_cover.jpg" alt="Screenshot of the Offering content reporting cover">
+  </ds-card-image>
+  <ds-list-item>
+    Descriptor
+    <span slot="item-2">Descriptor</span>
+    <span slot="item-3">Descriptor</span>
+  </ds-list-item>
+</div>
+
+</body>
+</html>

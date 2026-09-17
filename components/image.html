@@ -7,62 +7,63 @@
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/fonts.css">
 <script type="module" src="image.js"></script>
-<script type="module" src="list-item.js"></script>
 <style>
   /* preview-page-only styling, not part of the component */
-  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; max-width: 720px; }
-  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; max-width: 860px; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; }
   h2:first-of-type { margin-top: 0; }
-  .stack > * + * { margin-top: 24px; }
-  .row-fill { display: flex; height: 300px; border: 1px dashed #c6c6c6; }
-  .narrow { max-width: 360px; border: 1px dashed #c6c6c6; }
-  /* Breaks out of body's own padding/max-width just for this one demo, so a
-     row wider than the component's 1000px cap can be shown -- this is only
-     to make the side-edge purple gaps visible, not a real layout pattern. */
-  .wide { width: 1400px; margin-left: -32px; }
-  .card { border: 1px solid #e0e0e0; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; height: 380px; max-width: 500px; }
+  .note { max-width: 860px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+  .narrow { max-width: 360px; }
+  /* Stands in for <ds-card-image>'s own frame, so placement="card" can be
+     seen doing its job before that component exists: a fixed-height row
+     with the brand bleed behind it. Not the real component. */
+  .card-frame {
+    display: flex; align-items: center; justify-content: center;
+    height: var(--size-primitive-container-500);
+    overflow: hidden;
+    background: var(--color-background-brand-secondary);
+  }
+  .card-frame ds-image {
+    height: 100%;
+    max-height: var(--size-primitive-container-500);
+    max-width: var(--size-primitive-container-1300);
+    min-height: var(--size-primitive-container-300);
+  }
 </style>
 </head>
 <body>
 
-<h2>Fills a flex row (dashed box = the parent's own bounds)</h2>
-<div class="row-fill">
-  <ds-image>
-    <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
-  </ds-image>
-</div>
+<p class="note">Hover the standalone image to see elevation 400 step up to 550. Card and Lightbox have no hover by design — each sits inside a parent that owns its own interaction.</p>
 
-<h2>Wide row (1400px) — past the 1000px cap, purple shows as side edges</h2>
-<div class="row-fill wide">
+<h2>Standalone (default) — radius + elevation 400, 550 on hover</h2>
+<ds-image>
+  <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
+</ds-image>
+
+<h2>Standalone, narrow — hugs its container, aspect ratio held</h2>
+<div class="narrow">
   <ds-image>
     <img src="../assets/covers/jav_cover.jpg" alt="Screenshot of another case study cover">
   </ds-image>
 </div>
 
-<h2>No image loaded yet — background token still shows through the gap</h2>
-<div class="row-fill">
+<h2>Card — no radius, no shadow, crops to fill the frame</h2>
+<div class="card-frame">
+  <ds-image placement="card">
+    <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
+  </ds-image>
+</div>
+
+<h2>Lightbox — no radius, elevation 550</h2>
+<ds-image placement="lightbox">
+  <img src="../assets/covers/pca_cover.jpg" alt="Screenshot of another case study cover">
+</ds-image>
+
+<h2>No image loaded — background token shows through</h2>
+<div class="narrow">
   <ds-image>
     <img alt="Placeholder, no src set yet">
   </ds-image>
-</div>
-
-<h2>Narrow / mobile (&le;480px) — fixed 300px height instead of flex-fill</h2>
-<div class="narrow">
-  <ds-image>
-    <img src="../assets/covers/cvt_cover.jpg" alt="Screenshot of another case study cover">
-  </ds-image>
-</div>
-
-<h2>Real usage — inside a case study card, with List item underneath</h2>
-<div class="card">
-  <ds-image>
-    <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of the case study cover">
-  </ds-image>
-  <ds-list-item>
-    Descriptor
-    <span slot="item-2">Descriptor</span>
-    <span slot="item-3">Descriptor</span>
-  </ds-list-item>
 </div>
 
 </body>

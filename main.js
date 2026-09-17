@@ -5,7 +5,7 @@
 // rather than being duplicated into main.html card by card.
 //
 // Loaded as an ES module -- pulls in ds-card-case-study, which in turn
-// imports ds-tag/ds-divider/ds-image/ds-list-item, so this one script tag
+// imports ds-tag/ds-divider/ds-card-image/ds-list-item, so this one script tag
 // is all main.html needs for both the card component and this page logic.
 
 import "./components/card-case-study.js";
@@ -81,7 +81,7 @@ function buildCardElement(study) {
 
   card.append(buildListItem("meta", [study.year, ...(study.role ?? [])]));
 
-  const image = document.createElement("ds-image");
+  const image = document.createElement("ds-card-image");
   image.slot = "image";
   const img = document.createElement("img");
   img.src = study.image;

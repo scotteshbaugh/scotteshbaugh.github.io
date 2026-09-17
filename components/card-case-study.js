@@ -37,7 +37,7 @@
 //   outcome      the longer result/story text, under the divider
 //   meta         a <ds-list-item> (e.g. year + role) -- see breakpoint
 //                note above for where it renders
-//   image        a <ds-image> with its <img>
+//   image        a <ds-card-image> with its <img>
 //   descriptors  a <ds-list-item> of short tags under the image
 //
 // Usage:
@@ -51,9 +51,9 @@
 //       2019–2021
 //       <span slot="item-2">Senior Product Designer</span>
 //     </ds-list-item>
-//     <ds-image slot="image">
+//     <ds-card-image slot="image">
 //       <img src="cover.jpg" alt="…">
-//     </ds-image>
+//     </ds-card-image>
 //     <ds-list-item slot="descriptors">
 //       B2B SaaS
 //       <span slot="item-2">Healthcare</span>
@@ -62,17 +62,17 @@
 //
 // Loaded as an ES module (type="module") -- this file imports its own
 // dependencies below, so a page only needs to load this one script;
-// tag.js/divider.js/image.js/list-item.js don't need their own <script>
+// tag.js/divider.js/card-image.js/list-item.js don't need their own <script>
 // tags too. This card's own shadow DOM only creates <ds-divider>
 // elements directly, but every real usage also slots in <ds-tag>,
-// <ds-image>, and <ds-list-item> -- importing all four here means one
+// <ds-card-image>, and <ds-list-item> -- importing all four here means one
 // script tag is enough to get everything the card needs, instead of a
 // page listing four separate tags in the right order.
 
 import { BREAKPOINTS, QUERY_DESKTOP, QUERY_TABLET_ONLY } from "./breakpoints.js";
 import "./tag.js";
 import "./divider.js";
-import "./image.js";
+import "./card-image.js";
 import "./list-item.js";
 
 const CARD_TEMPLATE = /* html */ `
@@ -282,10 +282,10 @@ const CARD_TEMPLATE = /* html */ `
        definite height by the desktop row) actually include the image's
        real height instead of collapsing to ~0 and letting the image
        overflow past .right and get clipped by :host's overflow: hidden.
-       ds-image now carries its own 300px min-height floor (see image.js),
-       so removing this is safe on Desktop too: with .right stretched to a
-       definite height there, the slot still flex-grows past 300px into
-       whatever room is available. */
+       ds-card-image is a fixed Container/500 tall (see card-image.js), so
+       removing this is safe on Desktop too: the slot flex-grows into
+       whatever room .right has, and the cover inside it stays the same
+       height on every card regardless. */
   }
 
   slot[name="descriptors"] {

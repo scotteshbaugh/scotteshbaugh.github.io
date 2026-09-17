@@ -1,0 +1,35 @@
+{
+  "slug": "offering-content-reporting",
+  "intro": {
+    "title": "Content+ Offering Content Dashboard",
+    "subtitle": "A dashboard for service offering teams that provides visibility into their offering's readiness and consultant usage.",
+    "meta": [
+      {
+        "label": "Goal",
+        "text": "The dashboard aimed to help service offering teams manage the lifecycle of their Offering and integrate them into a new content management system, Content+."
+      },
+      {
+        "label": "Outcomes",
+        "text": "I delivered a high-fidelity prototype that articulated a new governance model and provided qualitative feedback for the first time."
+      },
+      {
+        "label": "Role",
+        "text": "I owned the reporting dashboard and my biggest contribution was building out its interface."
+      },
+      {
+        "label": "Client and scope",
+        "text": "The internal client for this project was a cross-functional team representing IBM Services and lasted 4 months in 2020."
+      }
+    ]
+  },
+  "context": {
+    "eyebrow": "Context",
+    "question": "How might we design a better way for offering team members to maintain quality offering content?",
+    "points": [
+      "Consultants needed fresh, calibrated content for client opportunities, but what offering teams provided was often outdated or inconsistently maintained.",
+      "Offering teams lacked centralized, sufficient data to understand how their content was actually being used.",
+      "Offering teams lacked the incentives and feedback loops to prioritize improving their content over time.",
+      "The vision was to extend how teams manage their offering's lifecycle -- tracking, strategizing, and evolving their content based on real feedback."
+    ]
+  }
+}

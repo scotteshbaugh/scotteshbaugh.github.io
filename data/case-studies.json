@@ -1,5 +1,6 @@
 [
   {
+    "slug": "self-service",
     "title": "Self-service",
     "tags": [
       "Enterprise",
@@ -19,6 +20,7 @@
     "image": "assets/covers/ss_cover.jpg"
   },
   {
+    "slug": "offering-content-reporting",
     "title": "Offering content reporting",
     "tags": [
       "Enterprise",
@@ -38,13 +40,14 @@
     "image": "assets/covers/ocd_cover.jpg"
   },
   {
+    "slug": "quarter-in-review",
     "title": "Quarter in Review",
     "tags": [
       "Enterprise",
       "Product operations"
     ],
     "description": "A digital report for service offering leaders that provides visibility into their offering's readiness, financial performance, and consultant usage.",
-    "outcome": "Turned scattered, unactionable data into a concise report that Offering Leaders could finally trust and act on — adoption spread from 1 offering to 28 in two quarters.",
+    "outcome": "Turned scattered, unactionable data into a concise report that Offering Leaders could finally trust and act on \u2014 adoption spread from 1 offering to 28 in two quarters.",
     "year": "2020",
     "role": [
       "Product designer"
@@ -57,6 +60,7 @@
     "image": "assets/covers/qir-cover.jpg"
   },
   {
+    "slug": "predictive-customer-analytics",
     "title": "Predictive Customer Analytics",
     "tags": [
       "Enterprise",
@@ -76,6 +80,7 @@
     "image": "assets/covers/pca_cover.jpg"
   },
   {
+    "slug": "javelin-program",
     "title": "Javelin Program",
     "tags": [
       "Enterprise",
@@ -83,7 +88,7 @@
     ],
     "description": "A 12-week design thinking coaching program for IBM's top 80 client account teams.",
     "outcome": "Turned an unproven pilot into a CMO-funded program, rebuilt it to scale worldwide, and adapted the framework for sellers, increasing team maturity by an average of 42% by the program's end.",
-    "year": "2017–2018",
+    "year": "2017\u20132018",
     "role": [
       "Service design lead",
       "Facilitator"

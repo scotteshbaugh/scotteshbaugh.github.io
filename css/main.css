@@ -87,3 +87,22 @@ body {
     the cards list (Figma's "Cards" frame), not the whole Case Studies
     section, so the Section Divider row above it stays full width. */
 }
+
+/* Each card is wrapped in this link (main.js) so the whole card -- not
+   just its title -- is the click target through to that case study's own
+   page. No Figma equivalent: a prototype's connections aren't a real
+   anchor tag, this is a code-only concern. Resets the browser's default
+   link styling (color/underline) since ds-card-case-study's own :host
+   already supplies the card's look (background, shadow, hover accent) --
+   this wrapper should be visually invisible until you interact with it. */
+.case-studies__card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.case-studies__card-link:focus-visible {
+  outline: var(--size-primitive-stroke-focus-ring) solid var(--color-border-brand-default);
+  outline-offset: 2px;
+  border-radius: var(--size-primitive-radius-400);
+}

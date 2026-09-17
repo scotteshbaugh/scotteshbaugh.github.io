@@ -1,0 +1,35 @@
+{
+  "slug": "predictive-customer-analytics",
+  "intro": {
+    "title": "Predictive Customer Analytics (PCA)",
+    "subtitle": "A cloud-based product for marketing analysts at a time when campaigns need to be personal and timely.",
+    "meta": [
+      {
+        "label": "Goal",
+        "text": "The product needed to simplify and integrate predictive analytics into the core workflows of marketing analysts."
+      },
+      {
+        "label": "Outcomes",
+        "text": "I brought the product from its initial user and market need framing to its limited released to clients."
+      },
+      {
+        "label": "Role",
+        "text": "I was the primary product designer. My role was diverse and my most lasting contribution was defining the product's core user flow."
+      },
+      {
+        "label": "Client and scope",
+        "text": "The internal client was the IBM Analytics product division and I spent one year working on the product between 2015 and 2016."
+      }
+    ]
+  },
+  "context": {
+    "eyebrow": "Context",
+    "question": "How might we design a better way for marketing analysts to identify customers for a sales campaign?",
+    "points": [
+      "IBM Analytics needed to combine its SPSS and Cognos capabilities to meet marketing's growing need for personalized, timely campaigns.",
+      "Marketing analysts relied on spreadsheet-based tools that performed poorly at scale, lacked engagement-system integration, and couldn't leverage predictive analytics without a data scientist.",
+      "Analysts were beholden to data scientists to build predictive models, limiting how targeted their campaigns could be.",
+      "The vision was to democratize predictive analytics -- giving analysts a dynamic, integrated way to build and act on customer lists themselves."
+    ]
+  }
+}

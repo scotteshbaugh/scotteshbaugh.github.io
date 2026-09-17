@@ -1,0 +1,35 @@
+{
+  "slug": "javelin-program",
+  "intro": {
+    "title": "Javelin Program",
+    "subtitle": "A 12-week design thinking coaching program for IBM's top 80 client account teams.",
+    "meta": [
+      {
+        "label": "Goal",
+        "text": "The coaching program needed to contextualize design thinking for consultants to differentiate them throughout the sales cycle."
+      },
+      {
+        "label": "Outcomes",
+        "text": "The program influenced 1.2B in revenue and trail blazed design thinking in the sales context and remains a template for similar efforts."
+      },
+      {
+        "label": "Role",
+        "text": "I was a service designer, facilitator, and coach working with a small design team. My biggest contribution to the project developing learning objectives, habits, and onboarding sales teams."
+      },
+      {
+        "label": "Client and scope",
+        "text": "The internal client was the IBM Global Markets SVP of Integrated Accounts and my role on this team lasted just under 2 years between 2017 and 2019."
+      }
+    ]
+  },
+  "context": {
+    "eyebrow": "Context",
+    "question": "How might we design a better way for account sellers to differentiate IBM in the sales cycle?",
+    "points": [
+      "IBM's adoption of design thinking reached across the company except sales, even as client engagements showed it could impact sales performance.",
+      "Changing markets pushed sellers toward new, design-led ways of working, leading the new Enterprise Design Thinking for Sellers team to form the Javelin Program.",
+      "To teach sellers design thinking, the program's format had to fit how they actually worked.",
+      "Our vision focused on four core seller jobs, enabled by Enterprise Design Thinking."
+    ]
+  }
+}

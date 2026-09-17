@@ -1,0 +1,35 @@
+{
+  "slug": "quarter-in-review",
+  "intro": {
+    "title": "Quarter in Review",
+    "subtitle": "A digital report for service offering leaders that provides visibility into their offering's readiness, financial performance, and consultant usage.",
+    "meta": [
+      {
+        "label": "Goal",
+        "text": "The report aimed to provide service offering leaders an adoptable experience that would motivate them to improve the quality of their offering."
+      },
+      {
+        "label": "Outcomes",
+        "text": "Within two quarters, the report scaled from 1 offering to 28 offerings and received high engagement with offering teams."
+      },
+      {
+        "label": "Role",
+        "text": "I co-designed this report with another UX designer and my biggest contribution to the project was its user interface and data visualizations."
+      },
+      {
+        "label": "Client and scope",
+        "text": "The internal client for this project was IBM Services Offering Management and lasted for 6 weeks in early 2020."
+      }
+    ]
+  },
+  "context": {
+    "eyebrow": "Context",
+    "question": "How might we design a better way for offering leaders to manage their offering's lifecycle?",
+    "points": [
+      "Offering leaders lacked reliable, accessible data to make evidence-based decisions and continually improve their offerings.",
+      "The data that did exist was fragmented across platforms and inconsistently formatted, breeding mistrust among offering teams.",
+      "Offering leaders often lacked the skills and dedicated time to manage their offering's ongoing performance.",
+      "The vision was a quarterly report with the right information, at the right density, to help leaders maintain and evolve high-quality offerings."
+    ]
+  }
+}

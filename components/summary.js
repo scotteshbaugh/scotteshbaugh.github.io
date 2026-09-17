@@ -293,7 +293,7 @@ const SUMMARY_TEMPLATE = /* html */ `
   <slot name="goal"></slot>
 </div>
 <div class="summary-item summary-item--outcome">
-  <span class="summary-item__label">Outcome</span>
+  <span class="summary-item__label">Outcomes</span>
   <slot name="outcome"></slot>
 </div>
 <div class="summary-item summary-item--role">

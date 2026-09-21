@@ -168,6 +168,38 @@ function composeShadowTokens(tokensRoot, groupName) {
   }
 }
 
+// Radial gradients follow the same system as shadows: Figma holds every
+// decision as its own variable (both colors, both stop positions, plus the
+// Shape / Size / Position strings Figma can't bind but records anyway), and
+// this folds them into one `$type: "gradient"` token that replaces the group.
+// Background/Media/Image/* becomes --color-background-media-image.
+// Any group containing these seven leaves composes -- nothing is named here.
+const GRADIENT_FIELDS = ['radial-inner', 'inner-stop', 'radial-outer', 'outer-stop', 'shape', 'size', 'position'];
+
+function composeGradientTokens(node) {
+  if (!node || typeof node !== 'object' || '$value' in node) return;
+  for (const key of Object.keys(node)) {
+    const child = node[key];
+    if (child && typeof child === 'object' && !('$value' in child) &&
+        GRADIENT_FIELDS.every((f) => child[f] && '$value' in child[f])) {
+      node[key] = {
+        $type: 'gradient',
+        $value: {
+          shape: child['shape'].$value,
+          size: child['size'].$value,
+          position: child['position'].$value,
+          stops: [
+            { color: child['radial-inner'].$value, position: child['inner-stop'].$value },
+            { color: child['radial-outer'].$value, position: child['outer-stop'].$value },
+          ],
+        },
+      };
+    } else {
+      composeGradientTokens(child);
+    }
+  }
+}
+
 // Follows a dotted token path (e.g. "size.device-breakpoints.tablet") down
 // into tokensRoot and returns its final resolved number -- chasing through
 // any "{other.path}" alias references along the way. Returns undefined if
@@ -309,6 +341,7 @@ function main() {
   }
 
   for (const group of SHADOW_GROUPS) composeShadowTokens(tokensRoot, group);
+  composeGradientTokens(tokensRoot);
 
   fs.mkdirSync(path.dirname(TOKENS_OUT), { recursive: true });
   fs.writeFileSync(TOKENS_OUT, JSON.stringify(tokensRoot, null, 2) + '\n');
@@ -331,10 +364,21 @@ function main() {
 
       if (node.$type === 'shadow') {
         const shadows = Array.isArray(node.$value) ? node.$value : [node.$value];
+        // Shadow lengths can come through as bare numbers (the elevation
+        // values are literal in Figma, not primitive refs); CSS requires a
+        // unit on every non-zero length, so bare numbers get px here.
+        const length = (v) => (typeof v === 'number' ? `${v}px` : refToVar(v));
         const layers = shadows.map((s) =>
-          [s.offsetX, s.offsetY, s.blur, s.spread, s.color].map(refToVar).join(' ')
+          [s.offsetX, s.offsetY, s.blur, s.spread].map(length).concat(refToVar(s.color)).join(' ')
         );
         lines.push(`  ${varName}: ${layers.join(', ')};`);
+        return;
+      }
+
+      if (node.$type === 'gradient') {
+        const g = node.$value;
+        const stops = g.stops.map((st) => `${refToVar(st.color)} ${st.position}%`).join(', ');
+        lines.push(`  ${varName}: radial-gradient(${g.shape} ${g.size} at ${g.position}, ${stops});`);
         return;
       }
 

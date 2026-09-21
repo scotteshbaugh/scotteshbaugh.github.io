@@ -539,7 +539,10 @@
         "id": "VariableID:36:1789",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#f4f4f4",
@@ -556,7 +559,10 @@
         "id": "VariableID:36:1790",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#e0e0e0",
@@ -573,7 +579,10 @@
         "id": "VariableID:36:1791",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#c6c6c6",
@@ -590,7 +599,10 @@
         "id": "VariableID:36:1792",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#a8a8a8",
@@ -607,7 +619,10 @@
         "id": "VariableID:36:1793",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#8d8d8d",
@@ -624,7 +639,10 @@
         "id": "VariableID:36:1794",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#6f6f6f",
@@ -641,7 +659,10 @@
         "id": "VariableID:36:1795",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#525252",
@@ -658,7 +679,10 @@
         "id": "VariableID:36:1796",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#393939",
@@ -675,7 +699,10 @@
         "id": "VariableID:36:1797",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#262626",
@@ -692,7 +719,10 @@
         "id": "VariableID:36:1798",
         "type": "COLOR",
         "description": "",
-        "scopes": [],
+        "scopes": [
+          "FRAME_FILL",
+          "STROKE_COLOR"
+        ],
         "valuesByMode": {
           "Value": {
             "hex": "#161616",
@@ -2781,7 +2811,111 @@
           }
         }
       },
-      "Background/Utilities/Scrim": {
+      "Background/Media/Image/Radial Inner": {
+        "id": "VariableID:380:18755",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Gray/200"
+            }
+          },
+          "SDS Dark": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Gray/800"
+            }
+          }
+        }
+      },
+      "Background/Media/Image/Radial Outer": {
+        "id": "VariableID:380:18759",
+        "type": "COLOR",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Gray/100"
+            }
+          },
+          "SDS Dark": {
+            "$alias": {
+              "collection": "Color Primitives",
+              "name": "Gray/900"
+            }
+          }
+        }
+      },
+      "Background/Media/Image/Inner Stop": {
+        "id": "VariableID:380:18760",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": 50,
+          "SDS Dark": 50
+        }
+      },
+      "Background/Media/Image/Outer Stop": {
+        "id": "VariableID:380:18761",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": 100,
+          "SDS Dark": 100
+        }
+      },
+      "Background/Media/Image/Shape": {
+        "id": "VariableID:383:19696",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": "ellipse",
+          "SDS Dark": "ellipse"
+        }
+      },
+      "Background/Media/Image/Size": {
+        "id": "VariableID:383:19697",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": "closest-side",
+          "SDS Dark": "closest-side"
+        }
+      },
+      "Background/Media/Image/Position": {
+        "id": "VariableID:383:19698",
+        "type": "STRING",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "SDS Light": "center",
+          "SDS Dark": "center"
+        }
+      },
+      "Background/Media/Overlay/Scrim": {
         "id": "VariableID:36:1896",
         "type": "COLOR",
         "description": "Bg/Utilities/Scrim",
@@ -2807,90 +2941,6 @@
               "g": 0,
               "b": 0,
               "a": 0.800000011920929
-            }
-          }
-        }
-      },
-      "Background/Utilities/Blanket": {
-        "id": "VariableID:36:1897",
-        "type": "COLOR",
-        "description": "Bg/Utilities/Blanket",
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "EFFECT_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "hex": "#000000",
-            "rgba": {
-              "r": 0,
-              "g": 0,
-              "b": 0,
-              "a": 0.699999988079071
-            }
-          },
-          "SDS Dark": {
-            "hex": "#000000",
-            "rgba": {
-              "r": 0,
-              "g": 0,
-              "b": 0,
-              "a": 0.699999988079071
-            }
-          }
-        }
-      },
-      "Background/Utilities/Overlay": {
-        "id": "VariableID:36:1898",
-        "type": "COLOR",
-        "description": "Bg/Utilities/Overlay",
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "EFFECT_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "hex": "#000000",
-            "rgba": {
-              "r": 0,
-              "g": 0,
-              "b": 0,
-              "a": 0.5
-            }
-          },
-          "SDS Dark": {
-            "hex": "#000000",
-            "rgba": {
-              "r": 0,
-              "g": 0,
-              "b": 0,
-              "a": 0.5
-            }
-          }
-        }
-      },
-      "Background/Utilities/Measurement": {
-        "id": "VariableID:36:1899",
-        "type": "COLOR",
-        "description": "Bg/Utilities/Measurement",
-        "scopes": [
-          "FRAME_FILL",
-          "SHAPE_FILL",
-          "EFFECT_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/200"
-            }
-          },
-          "SDS Dark": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/800"
             }
           }
         }
@@ -3643,50 +3693,6 @@
           }
         }
       },
-      "Text/Utilities/Text On Overlay": {
-        "id": "VariableID:36:1934",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Brand Alpha/1000"
-            }
-          },
-          "SDS Dark": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "White/1000"
-            }
-          }
-        }
-      },
-      "Text/Utilities/Text On Measurement": {
-        "id": "VariableID:36:1935",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "TEXT_FILL"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/800"
-            }
-          },
-          "SDS Dark": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/200"
-            }
-          }
-        }
-      },
       "Text/Disabled/On Disabled": {
         "id": "VariableID:36:1936",
         "type": "COLOR",
@@ -4123,54 +4129,6 @@
             "$alias": {
               "collection": "Color Primitives",
               "name": "Gray/600"
-            }
-          }
-        }
-      },
-      "Border/Utilities/Measurement": {
-        "id": "VariableID:36:1956",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "STROKE_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/400"
-            }
-          },
-          "SDS Dark": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/600"
-            }
-          }
-        }
-      },
-      "Border/Utilities/Swatch": {
-        "id": "VariableID:36:1957",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "STROKE_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "hex": "#NaNNaNNaN",
-            "rgba": {
-              "r": null,
-              "g": null,
-              "b": null
-            }
-          },
-          "SDS Dark": {
-            "hex": "#NaNNaNNaN",
-            "rgba": {
-              "r": null,
-              "g": null,
-              "b": null
             }
           }
         }
@@ -4957,52 +4915,6 @@
           }
         }
       },
-      "Icon/Utilities/Icon": {
-        "id": "VariableID:36:1992",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/600"
-            }
-          },
-          "SDS Dark": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/400"
-            }
-          }
-        }
-      },
-      "Icon/Utilities/Icon On Measurement": {
-        "id": "VariableID:36:1993",
-        "type": "COLOR",
-        "description": "",
-        "scopes": [
-          "SHAPE_FILL",
-          "STROKE_COLOR"
-        ],
-        "valuesByMode": {
-          "SDS Light": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/800"
-            }
-          },
-          "SDS Dark": {
-            "$alias": {
-              "collection": "Color Primitives",
-              "name": "Magenta/200"
-            }
-          }
-        }
-      },
       "Icon/Disabled/On Disabled": {
         "id": "VariableID:36:1994",
         "type": "COLOR",
@@ -5334,7 +5246,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Default": 22
+          "Default": 20
         }
       },
       "Line Height/200": {
@@ -5467,17 +5379,6 @@
         ],
         "valuesByMode": {
           "Default": 4
-        }
-      },
-      "Space/150": {
-        "id": "VariableID:36:2036",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "GAP"
-        ],
-        "valuesByMode": {
-          "Default": 6
         }
       },
       "Space/200": {
@@ -5722,17 +5623,6 @@
           "Default": 4
         }
       },
-      "Blur/125": {
-        "id": "VariableID:348:7217",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 5
-        }
-      },
       "Blur/200": {
         "id": "VariableID:120:1942",
         "type": "FLOAT",
@@ -5744,17 +5634,6 @@
           "Default": 8
         }
       },
-      "Blur/250": {
-        "id": "VariableID:348:7233",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 10
-        }
-      },
       "Blur/300": {
         "id": "VariableID:120:1954",
         "type": "FLOAT",
@@ -5764,28 +5643,6 @@
         ],
         "valuesByMode": {
           "Default": 12
-        }
-      },
-      "Blur/350": {
-        "id": "VariableID:348:7239",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 14
-        }
-      },
-      "Blur/375": {
-        "id": "VariableID:348:7275",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 15
         }
       },
       "Radius/Full": {
@@ -5843,17 +5700,6 @@
           "Default": 28
         }
       },
-      "Blur/750": {
-        "id": "VariableID:348:7251",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 30
-        }
-      },
       "Blur/800": {
         "id": "VariableID:120:1962",
         "type": "FLOAT",
@@ -5876,17 +5722,6 @@
           "Default": 36
         }
       },
-      "Blur/950": {
-        "id": "VariableID:348:7258",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 38
-        }
-      },
       "Blur/1000": {
         "id": "VariableID:120:1967",
         "type": "FLOAT",
@@ -5896,28 +5731,6 @@
         ],
         "valuesByMode": {
           "Default": 40
-        }
-      },
-      "Blur/1150": {
-        "id": "VariableID:348:7265",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 46
-        }
-      },
-      "Blur/1200": {
-        "id": "VariableID:348:7966",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "ALL_SCOPES"
-        ],
-        "valuesByMode": {
-          "Default": 48
         }
       },
       "Depth/0": {
@@ -5953,17 +5766,6 @@
           "Default": 2
         }
       },
-      "Depth/075": {
-        "id": "VariableID:348:7205",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "EFFECT_FLOAT"
-        ],
-        "valuesByMode": {
-          "Default": 3
-        }
-      },
       "Depth/100": {
         "id": "VariableID:36:2058",
         "type": "FLOAT",
@@ -5975,17 +5777,6 @@
           "Default": 4
         }
       },
-      "Depth/150": {
-        "id": "VariableID:348:7250",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "EFFECT_FLOAT"
-        ],
-        "valuesByMode": {
-          "Default": 6
-        }
-      },
       "Depth/200": {
         "id": "VariableID:36:2059",
         "type": "FLOAT",
@@ -5995,28 +5786,6 @@
         ],
         "valuesByMode": {
           "Default": 8
-        }
-      },
-      "Depth/225": {
-        "id": "VariableID:348:7264",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "EFFECT_FLOAT"
-        ],
-        "valuesByMode": {
-          "Default": 9
-        }
-      },
-      "Depth/275": {
-        "id": "VariableID:348:7274",
-        "type": "FLOAT",
-        "description": "",
-        "scopes": [
-          "EFFECT_FLOAT"
-        ],
-        "valuesByMode": {
-          "Default": 11
         }
       },
       "Depth/300": {
@@ -7284,12 +7053,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 1/Position X": {
@@ -7300,12 +7064,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 1/Position Y": {
@@ -7316,12 +7075,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/050"
-            }
-          }
+          "Mode 1": 2
         }
       },
       "Elevation/200/Shadow 1/Blur": {
@@ -7332,12 +7086,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/100"
-            }
-          }
+          "Mode 1": 4
         }
       },
       "Elevation/200/Shadow 1/Spread": {
@@ -7348,12 +7097,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 1/Color": {
@@ -7380,12 +7124,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/050"
-            }
-          }
+          "Mode 1": 2
         }
       },
       "Elevation/300/Shadow 1/Position X": {
@@ -7396,12 +7135,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/300/Shadow 1/Position Y": {
@@ -7412,12 +7146,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/200"
-            }
-          }
+          "Mode 1": 8
         }
       },
       "Elevation/100/Shadow 1/Blur": {
@@ -7428,12 +7157,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/050"
-            }
-          }
+          "Mode 1": 2
         }
       },
       "Elevation/100/Shadow 1/Spread": {
@@ -7444,12 +7168,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/300/Shadow 1/Blur": {
@@ -7460,12 +7179,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/250"
-            }
-          }
+          "Mode 1": 10
         }
       },
       "Elevation/300/Shadow 1/Spread": {
@@ -7476,12 +7190,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/100/Shadow 1/Color": {
@@ -7524,12 +7233,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/400/Shadow 1/Position Y": {
@@ -7540,12 +7244,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/400"
-            }
-          }
+          "Mode 1": 16
         }
       },
       "Elevation/400/Shadow 1/Blur": {
@@ -7556,12 +7255,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/600"
-            }
-          }
+          "Mode 1": 24
         }
       },
       "Elevation/400/Shadow 1/Spread": {
@@ -7572,12 +7266,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/400/Shadow 1/Color": {
@@ -7604,12 +7293,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/500/Shadow 1/Position Y": {
@@ -7620,12 +7304,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/600"
-            }
-          }
+          "Mode 1": 24
         }
       },
       "Elevation/500/Shadow 1/Blur": {
@@ -7636,12 +7315,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/950"
-            }
-          }
+          "Mode 1": 38
         }
       },
       "Elevation/500/Shadow 1/Spread": {
@@ -7652,12 +7326,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/500/Shadow 1/Color": {
@@ -7703,7 +7372,7 @@
           "Mode 1": {
             "$alias": {
               "collection": "Color",
-              "name": "Background/Utilities/Scrim"
+              "name": "Background/Media/Overlay/Scrim"
             }
           }
         }
@@ -7716,12 +7385,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/100/Shadow 2/Position Y": {
@@ -7732,12 +7396,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/075"
-            }
-          }
+          "Mode 1": 3
         }
       },
       "Elevation/100/Shadow 2/Blur": {
@@ -7748,12 +7407,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/100"
-            }
-          }
+          "Mode 1": 4
         }
       },
       "Elevation/100/Shadow 2/Spread": {
@@ -7764,12 +7418,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/100/Shadow 2/Color": {
@@ -7796,12 +7445,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/100/Shadow 3/Position Y": {
@@ -7812,12 +7456,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/025"
-            }
-          }
+          "Mode 1": 1
         }
       },
       "Elevation/100/Shadow 3/Blur": {
@@ -7828,12 +7467,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/125"
-            }
-          }
+          "Mode 1": 5
         }
       },
       "Elevation/100/Shadow 3/Spread": {
@@ -7844,12 +7478,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/100/Shadow 3/Color": {
@@ -7876,12 +7505,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 2/Position Y": {
@@ -7892,12 +7516,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/100"
-            }
-          }
+          "Mode 1": 4
         }
       },
       "Elevation/200/Shadow 2/Blur": {
@@ -7908,12 +7527,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/125"
-            }
-          }
+          "Mode 1": 5
         }
       },
       "Elevation/200/Shadow 2/Spread": {
@@ -7924,12 +7538,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 2/Color": {
@@ -7956,12 +7565,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 3/Position Y": {
@@ -7972,12 +7576,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/025"
-            }
-          }
+          "Mode 1": 1
         }
       },
       "Elevation/200/Shadow 3/Blur": {
@@ -7988,12 +7587,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/250"
-            }
-          }
+          "Mode 1": 10
         }
       },
       "Elevation/200/Shadow 3/Spread": {
@@ -8004,12 +7598,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/200/Shadow 3/Color": {
@@ -8036,12 +7625,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/300/Shadow 2/Position Y": {
@@ -8052,12 +7636,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/075"
-            }
-          }
+          "Mode 1": 3
         }
       },
       "Elevation/300/Shadow 2/Blur": {
@@ -8068,12 +7647,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/350"
-            }
-          }
+          "Mode 1": 14
         }
       },
       "Elevation/300/Shadow 2/Spread": {
@@ -8084,12 +7658,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/300/Shadow 2/Color": {
@@ -8116,12 +7685,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/300/Shadow 3/Position Y": {
@@ -8132,12 +7696,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/100"
-            }
-          }
+          "Mode 1": 4
         }
       },
       "Elevation/300/Shadow 3/Blur": {
@@ -8148,12 +7707,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/125"
-            }
-          }
+          "Mode 1": 5
         }
       },
       "Elevation/300/Shadow 3/Spread": {
@@ -8164,12 +7718,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/300/Shadow 3/Color": {
@@ -8196,12 +7745,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/400/Shadow 2/Position Y": {
@@ -8212,12 +7756,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/150"
-            }
-          }
+          "Mode 1": 6
         }
       },
       "Elevation/400/Shadow 2/Blur": {
@@ -8228,12 +7767,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/750"
-            }
-          }
+          "Mode 1": 30
         }
       },
       "Elevation/400/Shadow 2/Spread": {
@@ -8244,12 +7778,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/400/Shadow 2/Color": {
@@ -8276,12 +7805,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/400/Shadow 3/Position Y": {
@@ -8292,12 +7816,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/200"
-            }
-          }
+          "Mode 1": 8
         }
       },
       "Elevation/400/Shadow 3/Blur": {
@@ -8308,12 +7827,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/250"
-            }
-          }
+          "Mode 1": 10
         }
       },
       "Elevation/400/Shadow 3/Spread": {
@@ -8324,12 +7838,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/400/Shadow 3/Color": {
@@ -8356,12 +7865,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/100"
-            }
-          }
+          "Mode 1": 4
         }
       },
       "Elevation/500/Shadow 2/Position Y": {
@@ -8372,12 +7876,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/225"
-            }
-          }
+          "Mode 1": 9
         }
       },
       "Elevation/500/Shadow 2/Blur": {
@@ -8388,12 +7887,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/1150"
-            }
-          }
+          "Mode 1": 46
         }
       },
       "Elevation/500/Shadow 2/Spread": {
@@ -8404,12 +7898,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/500/Shadow 2/Color": {
@@ -8436,12 +7925,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/500/Shadow 3/Position Y": {
@@ -8452,12 +7936,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/275"
-            }
-          }
+          "Mode 1": 11
         }
       },
       "Elevation/500/Shadow 3/Blur": {
@@ -8468,12 +7947,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Blur/375"
-            }
-          }
+          "Mode 1": 15
         }
       },
       "Elevation/500/Shadow 3/Spread": {
@@ -8484,12 +7958,7 @@
           "ALL_SCOPES"
         ],
         "valuesByMode": {
-          "Mode 1": {
-            "$alias": {
-              "collection": "Size Primitives",
-              "name": "Depth/0"
-            }
-          }
+          "Mode 1": 0
         }
       },
       "Elevation/500/Shadow 3/Color": {
@@ -8551,7 +8020,7 @@
           "Mode 1": {
             "$alias": {
               "collection": "Size Primitives",
-              "name": "Blur/1000"
+              "name": "Blur/800"
             }
           }
         }
@@ -8631,7 +8100,7 @@
           "Mode 1": {
             "$alias": {
               "collection": "Size Primitives",
-              "name": "Blur/1000"
+              "name": "Blur/800"
             }
           }
         }
@@ -8711,7 +8180,7 @@
           "Mode 1": {
             "$alias": {
               "collection": "Size Primitives",
-              "name": "Blur/1000"
+              "name": "Blur/800"
             }
           }
         }

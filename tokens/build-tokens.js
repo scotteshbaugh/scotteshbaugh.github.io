@@ -48,7 +48,7 @@ const COLLECTION_GROUP_MAP = {
   // nested under an Elevation group, the default fallback here would have
   // produced layer.elevation.* instead, which (a) renames every
   // --elevation-* custom property out from under the components using them
-  // and (b) hides the elevations from composeElevationTokens(), which looks
+  // and (b) hides the elevations from composeShadowTokens(), which looks
   // for tokensRoot.elevation -- silently emitting 60 flat shadow-field vars
   // and no composed box-shadow at all. Mapping to root keeps both working.
   'Layer': [],
@@ -136,8 +136,15 @@ function buildShadowValue(fields) {
   };
 }
 
-function composeElevationTokens(tokensRoot) {
-  const elevationRoot = tokensRoot.elevation;
+// Every shadow group (Elevation, Separation) follows the same system: Figma
+// stores each level as loose fields, and this folds them into one composed
+// `$type: "shadow"` token per level, so CSS gets --elevation-300 and
+// --separation-200 the same way. Add a new shadow group to SHADOW_GROUPS
+// and it composes too -- nothing else changes.
+const SHADOW_GROUPS = ['elevation', 'separation'];
+
+function composeShadowTokens(tokensRoot, groupName) {
+  const elevationRoot = tokensRoot[groupName];
   if (!elevationRoot) return;
 
   for (const level of Object.keys(elevationRoot)) {
@@ -301,7 +308,7 @@ function main() {
     }
   }
 
-  composeElevationTokens(tokensRoot);
+  for (const group of SHADOW_GROUPS) composeShadowTokens(tokensRoot, group);
 
   fs.mkdirSync(path.dirname(TOKENS_OUT), { recursive: true });
   fs.writeFileSync(TOKENS_OUT, JSON.stringify(tokensRoot, null, 2) + '\n');

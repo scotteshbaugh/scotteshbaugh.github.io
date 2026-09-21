@@ -12,23 +12,14 @@
 // Attribute:
 //   placement   "standalone" | "card" | "lightbox"  (default: "standalone")
 //
-//     standalone  Its own surface: radius + elevation 400, stepping to
-//                 elevation 550 on hover. The plain "here is a picture of
-//                 the work" case, and the only placement Figma defines a
-//                 State=Hover variant for -- see the hover note below.
+//     standalone  Its own surface: radius + Separation 200 (an even halo,
+//                 no offset -- it detaches the image from the page rather
+//                 than lifting it). No hover: Figma dropped it.
 //     card        Background only. No radius, no shadow: <ds-card-image>
 //                 draws the framing around it, and a second radius/shadow
 //                 inside that one would read as a box within a box.
-//     lightbox    Elevation 550, but still no radius (deliberate, confirmed
-//                 against the Lightbox design -- the lightbox shows the
-//                 image square-cornered). The scrim behind it is blur +
-//                 a translucent wash rather than a dim layer, so this
-//                 shadow is the only thing separating image from page.
-//
-// Why hover is standalone-only: Figma defines State=Hover for Placement=
-// Standalone alone. Card and Lightbox each sit inside a parent that owns
-// its own interaction, so a lift here would be a second, competing
-// affordance pointing at the same click.
+//     lightbox    No radius, no shadow -- matches Figma. The scrim behind
+//                 it does the separating.
 //
 // Sizing: the image's own aspect ratio drives the box -- the component
 // hugs whatever is slotted into it, with no caps, floors or fixed ratio of
@@ -60,20 +51,12 @@ const IMAGE_TEMPLATE = /* html */ `
     background: var(--color-background-default-secondary);
   }
 
-  /* Standalone owns its surface: the rounded, raised "here is a picture"
+  /* Standalone owns its surface: the rounded, separated "here is a picture"
      treatment. Card and Lightbox deliberately omit the radius -- see the
      file header. */
   :host([placement="standalone"]) {
     border-radius: var(--size-primitive-radius-400);
-    box-shadow: var(--elevation-400);
-  }
-
-  :host([placement="standalone"]:hover) {
-    box-shadow: var(--elevation-550);
-  }
-
-  :host([placement="lightbox"]) {
-    box-shadow: var(--elevation-550);
+    box-shadow: var(--separation-200);
   }
 
   /* Card is a flex child of <ds-card-image>, which sets its own caps and
@@ -108,7 +91,7 @@ class DsImage extends HTMLElement {
   connectedCallback() {
     // Reflected as a real attribute rather than kept as a property, because
     // every rule above is an attribute selector on the host -- same pattern
-    // as <ds-callout>'s own type attribute.
+    // as <ds-pullout>'s own type attribute.
     if (!this.hasAttribute("placement")) this.setAttribute("placement", "standalone");
 
     if (!this.shadowRoot) {

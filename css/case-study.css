@@ -186,9 +186,9 @@
    with no state, and staying in the light DOM lets it be a real
    <figcaption> when it sits inside a <figure> with its Media Card.
 
-   Fixed width, not Fill: Container/300 (240px). The caption keeps a
-   narrow, readable line length no matter how wide the image above it is
-   -- a deliberate design decision, not a layout side effect.
+   Fill width, not fixed: the caption takes whatever width its parent gives
+   it. On a case study page that parent is a grid span (typically 2 columns),
+   so the layout decides the caption's line length, not the caption itself.
 
    Neither part is a heading: captions aren't in the page outline, so both
    are <p>, styled by the Caption type tokens (Figma "Caption" type
@@ -213,8 +213,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--size-primitive-space-100); /* 4px, Space/100 */
-  width: var(--size-primitive-container-300); /* 240px, Container/300 */
-  max-width: 100%; /* never overflow a narrower parent */
+  width: 100%; /* Figma: Fill -- the grid span sets the width */
   margin: 0; /* <figcaption> has none by default, but <figure> does --
     this keeps the pattern neutral wherever it's used */
 }

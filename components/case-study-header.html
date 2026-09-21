@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Study Header preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/case-study.css">
+<style>
+  /* preview-page-only styling, not part of the pattern */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2.demo { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; font-weight: 400; }
+  h2.demo:first-of-type { margin-top: 0; }
+  .note { max-width: 900px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<p class="note">Resize the window to see the heading step through its sizes: Heading 3 on mobile, Heading 2 from 720px, Heading 1 from 960px. One per case-study page; content comes from that case study's JSON (intro.title / intro.subtitle).</p>
+
+<h2 class="demo">Case Study Header -- plain CSS classes, not a web component</h2>
+<div class="case-study-header">
+  <h1 class="case-study-header__heading">Self-service portal</h1>
+  <p class="case-study-header__body">A cross-device self-service experience that lets admins configure what end users see and do on their profile.</p>
+</div>
+
+<h2 class="demo">Long title -- wraps inside its 1600px cap</h2>
+<div class="case-study-header">
+  <h1 class="case-study-header__heading">Predictive customer analytics for a multi-region retail network</h1>
+  <p class="case-study-header__body">Description caps at 720px so the line length stays readable even when the title runs wide.</p>
+</div>
+
+<h2 class="demo">Narrow container (320px) -- fills, doesn't overflow</h2>
+<div style="width: 320px; outline: 1px dashed #ccc;">
+  <div class="case-study-header">
+    <h1 class="case-study-header__heading">Quarter in review</h1>
+    <p class="case-study-header__body">Wraps inside the narrower space.</p>
+  </div>
+</div>
+
+</body>
+</html>

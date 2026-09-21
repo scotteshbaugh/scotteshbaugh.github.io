@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figure Caption preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/case-study.css">
+<script type="module" src="image.js"></script>
+<style>
+  /* preview-page-only styling, not part of the pattern */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2.demo { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; font-weight: 400; }
+  h2.demo:first-of-type { margin-top: 0; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 24px; max-width: 800px; }
+  .placeholder { width: 100%; aspect-ratio: 16 / 10; background: #f4f4f4; }
+</style>
+</head>
+<body>
+
+<h2 class="demo">Figure Caption -- plain CSS classes, not a web component</h2>
+<div class="figure-caption">
+  <p class="figure-caption__title">Admin experience</p>
+  <p class="figure-caption__body">Admins define which attributes appear on a user's profile and how users can interact with them.</p>
+</div>
+
+<h2 class="demo">Title only</h2>
+<div class="figure-caption">
+  <p class="figure-caption__title">End user experience</p>
+</div>
+
+<h2 class="demo">Body only</h2>
+<div class="figure-caption">
+  <p class="figure-caption__body">End users, such as employees and customers, experience the results of an admin's profile configuration choices.</p>
+</div>
+
+<h2 class="demo">In context -- inside a &lt;figure&gt;, stays 240px under a wide image</h2>
+<figure>
+  <div class="placeholder"></div>
+  <figcaption class="figure-caption">
+    <p class="figure-caption__title">Admin experience</p>
+    <p class="figure-caption__body">Admins define which attributes appear on a user's profile and how users can interact with them.</p>
+  </figcaption>
+</figure>
+
+<h2 class="demo">Narrow parent (200px) -- caps to parent, doesn't overflow</h2>
+<div style="width: 200px; outline: 1px dashed #ccc;">
+  <div class="figure-caption">
+    <p class="figure-caption__title">Admin experience</p>
+    <p class="figure-caption__body">Wraps inside the narrower space instead of spilling out.</p>
+  </div>
+</div>
+
+</body>
+</html>

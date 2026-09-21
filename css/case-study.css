@@ -180,6 +180,69 @@
     registered, and the weight token is a string ("Regular"), not a number. */
 }
 
+/* ---- Figure Caption (Figma node 363:8179) ----
+   A title and a short description that identify the image above them.
+   Plain classes, not a web component -- same call as Subhead: it's type
+   with no state, and staying in the light DOM lets it be a real
+   <figcaption> when it sits inside a <figure> with its Media Card.
+
+   Fixed width, not Fill: Container/300 (240px). The caption keeps a
+   narrow, readable line length no matter how wide the image above it is
+   -- a deliberate design decision, not a layout side effect.
+
+   Neither part is a heading: captions aren't in the page outline, so both
+   are <p>, styled by the Caption type tokens (Figma "Caption" type
+   component, Title / Body).
+
+   Figma's two booleans map to markup, not modifier classes:
+     Show Title -> include or omit .figure-caption__title
+     Show Body  -> include or omit .figure-caption__body
+   Keep at least one.
+
+   <figure>
+     <ds-image>...</ds-image>
+     <figcaption class="figure-caption">
+       <p class="figure-caption__title">Admin experience</p>
+       <p class="figure-caption__body">Admins define which attributes...</p>
+     </figcaption>
+   </figure>
+*/
+
+.figure-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-100); /* 4px, Space/100 */
+  width: var(--size-primitive-container-300); /* 240px, Container/300 */
+  max-width: 100%; /* never overflow a narrower parent */
+  margin: 0; /* <figcaption> has none by default, but <figure> does --
+    this keeps the pattern neutral wherever it's used */
+}
+
+.figure-caption__title,
+.figure-caption__body {
+  margin: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.figure-caption__title {
+  font-family: var(--typography-caption-title-font-family), sans-serif;
+  font-size: var(--typography-caption-title-size);
+  line-height: var(--typography-caption-title-line-height);
+  font-weight: 700; /* explicit: the weight token exports as a string
+    ("Bold"), not valid CSS -- same call as .subhead__body */
+  color: var(--color-text-default-default);
+}
+
+.figure-caption__body {
+  font-family: var(--typography-caption-body-font-family), sans-serif;
+  font-size: var(--typography-caption-body-size);
+  line-height: var(--typography-caption-body-line-height);
+  font-weight: 400; /* same reason as above ("Regular") */
+  color: var(--color-text-default-secondary);
+}
+
 /* ---- Case Study Context row (Figma node 31:1143) ----
    The Context section's own local grouping: the Section Divider above,
    plus a two-column row pairing a <ds-pullout> with the numbered

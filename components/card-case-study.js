@@ -89,7 +89,7 @@ const CARD_TEMPLATE = /* html */ `
     padding-left: var(--size-primitive-space-800);
     padding-right: var(--size-primitive-space-600);
     border-radius: 0 var(--size-primitive-radius-400) var(--size-primitive-radius-400) 0;
-    box-shadow: var(--elevation-400);
+    box-shadow: var(--elevation-300);
     overflow: hidden;
     font-family: var(--typography-body-font-family), sans-serif;
 
@@ -119,7 +119,7 @@ const CARD_TEMPLATE = /* html */ `
   }
 
   :host(:hover) {
-    box-shadow: var(--elevation-550);
+    box-shadow: var(--elevation-400);
     border-left-color: var(--color-border-brand-default);
   }
 
@@ -205,8 +205,8 @@ const CARD_TEMPLATE = /* html */ `
        same font-weight reasoning as Tag/this file's own header comment
        elsewhere -- this is a genuine per-breakpoint type-scale swap, not a
        token-fragility workaround. */
-    font-size: var(--typography-heading-header-size-4);
-    line-height: var(--typography-heading-header-line-height-4);
+    font-size: var(--typography-heading-size-4);
+    line-height: var(--typography-heading-line-height-4);
     /* No font-weight token here on purpose -- FF Good Pro Wide only has
        one weight registered (500/Medium) in fonts.css, same reasoning
        Tag documents for its own font. */
@@ -217,8 +217,8 @@ const CARD_TEMPLATE = /* html */ `
      default above) is the only size that uses Header 4. */
   @media (min-width: ${BREAKPOINTS.tablet}px) {
     slot[name="header"] {
-      font-size: var(--typography-heading-header-size-3);
-      line-height: var(--typography-heading-header-line-height-3);
+      font-size: var(--typography-heading-size-3);
+      line-height: var(--typography-heading-line-height-3);
     }
   }
 

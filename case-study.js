@@ -1,7 +1,7 @@
 // case-study.js — shared case-study page renderer.
 //
 // Every case-study page (self-service.html, quarter-in-review.html, ...)
-// is an identical shell: nav, an empty .case-study-title, an empty
+// is an identical shell: nav, an empty .case-study-header, an empty
 // <ds-summary>, and an empty Context section. This script is what turns a
 // shell into an actual page, by fetching that page's own
 // data/case-studies/<slug>.json and building the slotted content into the
@@ -18,7 +18,7 @@
 // given page is.
 
 import "./components/summary.js";
-import "./components/callout.js";
+import "./components/pullout.js";
 import "./components/list-item.js";
 import { appendListItems } from "./components/build-list-item.js";
 
@@ -36,14 +36,14 @@ async function renderCaseStudy() {
     return;
   }
 
-  renderTitle(data.intro);
+  renderCaseStudyHeader(data.intro);
   renderSummary(data.intro.meta);
   renderContext(data.context);
 }
 
-function renderTitle(intro) {
-  document.querySelector(".case-study-title__heading").textContent = intro.title;
-  document.querySelector(".case-study-title__body").textContent = intro.subtitle;
+function renderCaseStudyHeader(intro) {
+  document.querySelector(".case-study-header__heading").textContent = intro.title;
+  document.querySelector(".case-study-header__body").textContent = intro.subtitle;
   document.title = `${intro.title} — Scott Eshbaugh`;
 }
 
@@ -78,11 +78,11 @@ function renderSummary(meta) {
 function renderContext(context) {
   document.querySelector(".section-divider__label").textContent = context.eyebrow;
 
-  const callout = document.querySelector("ds-callout");
+  const pullout = document.querySelector("ds-pullout");
   const header = document.createElement("span");
   header.slot = "header";
   header.textContent = context.question;
-  callout.append(header);
+  pullout.append(header);
 
   const listItem = document.querySelector("ds-list-item");
   appendListItems(listItem, context.points);

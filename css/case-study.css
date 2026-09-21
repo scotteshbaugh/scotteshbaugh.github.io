@@ -4,20 +4,20 @@
    Pulls every value from css/tokens.css -- do not hardcode colors, sizes,
    or fonts here. */
 
-/* ---- Case Study Title (Figma node 210:925) ----
+/* ---- Case Study Header (Figma node 210:925) ----
    Plain markup + classes, not a <ds-*> component: it's a single heading +
    description that appears exactly once per case-study page (same reason
    Section Divider above is plain classes, not a component). Content comes
    straight from that case study's data/case-studies/<slug>.json
    (intro.title / intro.subtitle).
 
-   <div class="case-study-title">
-     <h1 class="case-study-title__heading">Self-service portal</h1>
-     <p class="case-study-title__body">A cross-device self-service...</p>
+   <div class="case-study-header">
+     <h1 class="case-study-header__heading">Self-service portal</h1>
+     <p class="case-study-header__body">A cross-device self-service...</p>
    </div>
 */
 
-.case-study-title {
+.case-study-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -25,16 +25,16 @@
   width: 100%;
 }
 
-.case-study-title__heading {
+.case-study-header__heading {
   margin: 0;
   max-width: var(--size-primitive-container-2000); /* 1600px, matches
-    Figma's Header block (w-full + this cap) */
+    Figma's Heading block (w-full + this cap) */
   font-family: var(--typography-heading-font-family), sans-serif;
   /* Same 3-tier type-scale swap as main.css's .content__intro-heading --
-     Header 3 on Mobile (the default below), Header 2 at Tablet, Header 1
+     Heading 3 on Mobile (the default below), Heading 2 at Tablet, Heading 1
      at Desktop. Bosco: should be the same pattern as the homepage intro. */
-  font-size: var(--typography-heading-header-size-3);
-  line-height: var(--typography-heading-header-line-height-3);
+  font-size: var(--typography-heading-size-3);
+  line-height: var(--typography-heading-line-height-3);
   /* No font-weight token here on purpose -- FF Good Pro Wide only has one
      weight registered (500/Medium) in fonts.css, same reasoning Tag and
      Summary's labels document for themselves. */
@@ -45,20 +45,20 @@
   /* 720/960 here match breakpoints.js's BREAKPOINTS.tablet/desktop --
      this file is plain CSS (not a JS template literal), so it can't
      import those numbers directly; see breakpoints.js for why. */
-  .case-study-title__heading {
-    font-size: var(--typography-heading-header-size-2);
-    line-height: var(--typography-heading-header-line-height-2);
+  .case-study-header__heading {
+    font-size: var(--typography-heading-size-2);
+    line-height: var(--typography-heading-line-height-2);
   }
 }
 
 @media (min-width: 960px) {
-  .case-study-title__heading {
-    font-size: var(--typography-heading-header-size-1);
-    line-height: var(--typography-heading-header-line-height-1);
+  .case-study-header__heading {
+    font-size: var(--typography-heading-size-1);
+    line-height: var(--typography-heading-line-height-1);
   }
 }
 
-.case-study-title__body {
+.case-study-header__body {
   margin: 0;
   max-width: var(--size-primitive-container-900); /* 720px, matches
     Figma's Body block (w-full + this cap) -- caps the description's
@@ -119,7 +119,7 @@
 
 /* ---- Case Study Context row (Figma node 31:1143) ----
    The Context section's own local grouping: the Section Divider above,
-   plus a two-column row pairing a <ds-callout> with the numbered
+   plus a two-column row pairing a <ds-pullout> with the numbered
    <ds-list-item> points. This wrapper's 48px gap is one level deeper than
    .content's own 96px between top-level sections -- Title, Summary, and
    this whole Context block sit as .content's direct children already
@@ -128,7 +128,7 @@
    <section class="case-study-context">
      <div class="section-divider">...</div>
      <div class="case-study-context__grid">
-       <ds-callout><span slot="header">...</span></ds-callout>
+       <ds-pullout><span slot="header">...</span></ds-pullout>
        <ds-list-item layout="stack" variant="primary" numbered>...</ds-list-item>
      </div>
    </section>
@@ -150,7 +150,7 @@
      40/60. Bosco: "I wanted like a 40/60% look so I did the best I could"
      using Figma's Grid columns feature -- matching Figma's actual column
      definition here rather than inventing a rounder ratio. Default grid
-     stretch (no align-items override) is intentional: Figma's Callout box
+     stretch (no align-items override) is intentional: Figma's Pullout box
      stretches to the row's full (List-driven) height too. */
   grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr);
   gap: var(--size-primitive-space-1600); /* 64px -- same reasoning as the

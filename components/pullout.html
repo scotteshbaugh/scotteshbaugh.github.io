@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Callout component preview</title>
+<title>Pullout component preview</title>
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/fonts.css">
-<script type="module" src="callout.js"></script>
+<script type="module" src="pullout.js"></script>
 <style>
   /* preview-page-only styling, not part of the component */
   body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
@@ -18,21 +18,21 @@
 </head>
 <body>
 
-<p class="note">Resize below 720px to see the Mobile (Header 4) size step up to Header 3 at Tablet/Desktop.</p>
+<p class="note">Resize below 720px to see the Mobile (Heading 4) size step up to Heading 3 at Tablet/Desktop.</p>
 
-<h2>Default</h2>
+<h2>Statement</h2>
 <div class="row">
-  <ds-callout>
+  <ds-pullout>
     <span slot="header">Title about something or someone.</span>
-  </ds-callout>
+  </ds-pullout>
 </div>
 
 <h2>Quote</h2>
 <div class="row">
-  <ds-callout type="quote">
+  <ds-pullout type="quote">
     <span slot="header">Quote about something or someone.</span>
     <span slot="attribution">Person</span>
-  </ds-callout>
+  </ds-pullout>
 </div>
 
 </body>

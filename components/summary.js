@@ -113,7 +113,7 @@ const SUMMARY_TEMPLATE = /* html */ `
     width: 100%;
     max-width: var(--size-primitive-container-2000); /* 1600px, matches
       Figma's own cap on the Summary frame -- same value/token as
-      case-study-title__heading's cap in case-study.css. */
+      case-study-header__heading's cap in case-study.css. */
 
     /* The gap track a divider sits in: a full --size-primitive-space-800
        of clearance on *each* side of the 1px hairline (not 32px split
@@ -266,8 +266,8 @@ const SUMMARY_TEMPLATE = /* html */ `
   .summary-item__label {
     display: block;
     font-family: var(--typography-heading-font-family), sans-serif;
-    font-size: var(--typography-heading-header-size-6);
-    line-height: var(--typography-heading-header-line-height-6);
+    font-size: var(--typography-heading-size-6);
+    line-height: var(--typography-heading-line-height-6);
     /* No font-weight token here on purpose -- FF Good Pro Wide only has
        one weight registered (500/Medium) in fonts.css, same reasoning
        Tag and the card's header slot document for themselves. */

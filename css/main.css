@@ -32,8 +32,8 @@ body {
      <h1> at every breakpoint (correct — one heading per page) with only
      the type scale changing, same approach as the card's own Header 4/3
      swap in card-case-study.js, just three tiers instead of two. */
-  font-size: var(--typography-heading-header-size-3);
-  line-height: var(--typography-heading-header-line-height-3);
+  font-size: var(--typography-heading-size-3);
+  line-height: var(--typography-heading-line-height-3);
   /* No font-weight set on purpose, same reasoning as .site-nav__links:
      FFGoodProWide-Medium.woff2 is the only face registered under
      "FF Good Pro Wide" in fonts.css — nothing for a numeric weight to
@@ -43,15 +43,15 @@ body {
 
 @media (min-width: 720px) {
   .content__intro-heading {
-    font-size: var(--typography-heading-header-size-2);
-    line-height: var(--typography-heading-header-line-height-2);
+    font-size: var(--typography-heading-size-2);
+    line-height: var(--typography-heading-line-height-2);
   }
 }
 
 @media (min-width: 960px) {
   .content__intro-heading {
-    font-size: var(--typography-heading-header-size-1);
-    line-height: var(--typography-heading-header-line-height-1);
+    font-size: var(--typography-heading-size-1);
+    line-height: var(--typography-heading-line-height-1);
   }
 }
 

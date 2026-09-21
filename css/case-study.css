@@ -117,6 +117,69 @@
   flex: 1 0 0;
 }
 
+/* ---- Subhead (Figma node 217:1028) ----
+   A short rule above a heading, with an optional body line below. Plain
+   classes, not a web component -- same call as Section Divider above: it's
+   a composition of <ds-divider> plus type, with no state or variants.
+   Keeping it in the light DOM also lets each use pick its own heading
+   level: "Header 6" is the type style, not the tag. Use whatever level
+   fits the page outline (usually h3 under a Section Divider).
+
+   Figma's two booleans map to markup, not modifier classes:
+     Show divider  -> include or omit the <ds-divider>
+     Body          -> include or omit the .subhead__body <p>
+
+   <div class="subhead">
+     <ds-divider emphasis="strong"></ds-divider>
+     <h3 class="subhead__heading">Research approach</h3>
+     <p class="subhead__body">Optional supporting line</p>
+   </div>
+*/
+
+.subhead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-200); /* 8px, Space/200 -- between the
+    rule and the text group only; heading and body sit flush (Figma's
+    inner Text frame has no gap). */
+  width: 100%; /* Figma: Fill */
+  max-width: var(--size-primitive-container-500); /* 400px, Container/500 */
+}
+
+.subhead ds-divider {
+  /* Short fixed-length rule, not full width: Container/100 (80px).
+     Thickness stays ds-divider's default "small" (Stroke/25, 1px).
+     Color comes from the divider itself -- use emphasis="strong" in
+     markup (Figma: Emphasis=Strong), not an override here. */
+  width: var(--size-primitive-container-100);
+}
+
+.subhead__heading,
+.subhead__body {
+  margin: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+  color: var(--color-text-default-default);
+}
+
+.subhead__heading {
+  font-family: var(--typography-heading-font-family), sans-serif;
+  font-size: var(--typography-heading-size-6);
+  line-height: var(--typography-heading-line-height-6);
+  /* No font-weight token on purpose -- the weight primitives export as
+     strings ("Medium"), which aren't valid CSS, and FF Good Pro Wide only
+     has 500 registered in fonts.css anyway. Same call ds-summary makes. */
+}
+
+.subhead__body {
+  font-family: var(--typography-body-font-family), sans-serif;
+  font-size: var(--typography-body-body-size-1);
+  line-height: var(--typography-body-body-line-height-1);
+  font-weight: 400; /* explicit: FF Good Pro has both 400 and 700
+    registered, and the weight token is a string ("Regular"), not a number. */
+}
+
 /* ---- Case Study Context row (Figma node 31:1143) ----
    The Context section's own local grouping: the Section Divider above,
    plus a two-column row pairing a <ds-pullout> with the numbered

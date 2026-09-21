@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Subhead preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/case-study.css">
+<script type="module" src="divider.js"></script>
+<style>
+  /* preview-page-only styling, not part of the pattern */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2.demo { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; font-weight: 400; }
+  h2.demo:first-of-type { margin-top: 0; }
+</style>
+</head>
+<body>
+
+<h2 class="demo">Subhead -- plain CSS classes, not a web component</h2>
+<div class="subhead">
+  <ds-divider emphasis="strong"></ds-divider>
+  <h3 class="subhead__heading">Header 6</h3>
+</div>
+
+<h2 class="demo">With body</h2>
+<div class="subhead">
+  <ds-divider emphasis="strong"></ds-divider>
+  <h3 class="subhead__heading">Research approach</h3>
+  <p class="subhead__body">Optional supporting line that sits flush under the heading.</p>
+</div>
+
+<h2 class="demo">No divider</h2>
+<div class="subhead">
+  <h3 class="subhead__heading">Header 6</h3>
+  <p class="subhead__body">Body 1</p>
+</div>
+
+<h2 class="demo">Long text -- caps at 400px, wraps</h2>
+<div class="subhead">
+  <ds-divider emphasis="strong"></ds-divider>
+  <h3 class="subhead__heading">A much longer subhead that should wrap once it reaches the Container/500 max width</h3>
+</div>
+
+<h2 class="demo">Narrow container (240px) -- fills, doesn't overflow</h2>
+<div style="width: 240px;">
+  <div class="subhead">
+    <ds-divider emphasis="strong"></ds-divider>
+    <h3 class="subhead__heading">Header 6</h3>
+    <p class="subhead__body">Body 1 wraps inside the narrower space.</p>
+  </div>
+</div>
+
+</body>
+</html>

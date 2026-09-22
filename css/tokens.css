@@ -150,7 +150,7 @@
   --color-background-danger-tertiary: var(--color-primitive-red-100);
   --color-background-danger-tertiary-hover: var(--color-primitive-red-200);
   --color-background-disabled-default: var(--color-primitive-gray-300);
-  --color-background-media-image: radial-gradient(ellipse closest-side at center, var(--color-primitive-gray-200) 50%, var(--color-primitive-gray-100) 100%);
+  --color-background-media-showcase: radial-gradient(ellipse closest-side at center, var(--color-primitive-gray-200) 50%, var(--color-primitive-gray-100) 100%);
   --color-background-media-overlay-scrim: #ffffffcc;
   --color-text-default-default: var(--color-primitive-gray-900);
   --color-text-default-secondary: var(--color-primitive-gray-700);

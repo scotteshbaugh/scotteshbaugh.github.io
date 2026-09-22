@@ -2811,7 +2811,7 @@
           }
         }
       },
-      "Background/Media/Image/Radial Inner": {
+      "Background/Media/Showcase/Radial Inner": {
         "id": "VariableID:380:18755",
         "type": "COLOR",
         "description": "",
@@ -2833,7 +2833,7 @@
           }
         }
       },
-      "Background/Media/Image/Radial Outer": {
+      "Background/Media/Showcase/Radial Outer": {
         "id": "VariableID:380:18759",
         "type": "COLOR",
         "description": "",
@@ -2855,7 +2855,7 @@
           }
         }
       },
-      "Background/Media/Image/Inner Stop": {
+      "Background/Media/Showcase/Inner Stop": {
         "id": "VariableID:380:18760",
         "type": "FLOAT",
         "description": "",
@@ -2867,7 +2867,7 @@
           "SDS Dark": 50
         }
       },
-      "Background/Media/Image/Outer Stop": {
+      "Background/Media/Showcase/Outer Stop": {
         "id": "VariableID:380:18761",
         "type": "FLOAT",
         "description": "",
@@ -2879,7 +2879,7 @@
           "SDS Dark": 100
         }
       },
-      "Background/Media/Image/Shape": {
+      "Background/Media/Showcase/Shape": {
         "id": "VariableID:383:19696",
         "type": "STRING",
         "description": "",
@@ -2891,7 +2891,7 @@
           "SDS Dark": "ellipse"
         }
       },
-      "Background/Media/Image/Size": {
+      "Background/Media/Showcase/Size": {
         "id": "VariableID:383:19697",
         "type": "STRING",
         "description": "",
@@ -2903,7 +2903,7 @@
           "SDS Dark": "closest-side"
         }
       },
-      "Background/Media/Image/Position": {
+      "Background/Media/Showcase/Position": {
         "id": "VariableID:383:19698",
         "type": "STRING",
         "description": "",

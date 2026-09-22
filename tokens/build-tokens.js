@@ -172,7 +172,7 @@ function composeShadowTokens(tokensRoot, groupName) {
 // decision as its own variable (both colors, both stop positions, plus the
 // Shape / Size / Position strings Figma can't bind but records anyway), and
 // this folds them into one `$type: "gradient"` token that replaces the group.
-// Background/Media/Image/* becomes --color-background-media-image.
+// Background/Media/Showcase/* becomes --color-background-media-showcase.
 // Any group containing these seven leaves composes -- nothing is named here.
 const GRADIENT_FIELDS = ['radial-inner', 'inner-stop', 'radial-outer', 'outer-stop', 'shape', 'size', 'position'];
 

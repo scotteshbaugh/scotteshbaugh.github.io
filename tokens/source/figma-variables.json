@@ -8228,7 +8228,18 @@
       }
     ],
     "variables": {
-      "Device Breakpoints/Tablet": {
+      "Breakpoints/Compact": {
+        "id": "VariableID:416:27481",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": 0
+        }
+      },
+      "Breakpoints/Medium": {
         "id": "VariableID:254:4382",
         "type": "FLOAT",
         "description": "",
@@ -8244,7 +8255,7 @@
           }
         }
       },
-      "Device Breakpoints/Desktop": {
+      "Breakpoints/Expanded": {
         "id": "VariableID:254:4383",
         "type": "FLOAT",
         "description": "",
@@ -8256,6 +8267,22 @@
             "$alias": {
               "collection": "Size Primitives",
               "name": "Container/1200"
+            }
+          }
+        }
+      },
+      "Breakpoints/Spacious": {
+        "id": "VariableID:416:27480",
+        "type": "FLOAT",
+        "description": "",
+        "scopes": [
+          "ALL_SCOPES"
+        ],
+        "valuesByMode": {
+          "Mode 1": {
+            "$alias": {
+              "collection": "Size Primitives",
+              "name": "Container/2000"
             }
           }
         }

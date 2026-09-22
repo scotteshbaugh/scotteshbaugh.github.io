@@ -19,7 +19,7 @@
  * breakpoint import plain JS numbers from that file instead of reading
  * css/tokens.css at runtime. Those numbers come from the "Device
  * Breakpoints" variables (Size collection) -- resolveNumericValue() below
- * follows their alias chain back to a real number (e.g. Tablet -> Size
+ * follows their alias chain back to a real number (e.g. Medium -> Size
  * Primitives/Container/900 -> 720) since the CSS output only needs a
  * var() reference, but a JS breakpoint constant needs the literal number.
  */
@@ -200,7 +200,7 @@ function composeGradientTokens(node) {
   }
 }
 
-// Follows a dotted token path (e.g. "size.device-breakpoints.tablet") down
+// Follows a dotted token path (e.g. "size.breakpoints.medium") down
 // into tokensRoot and returns its final resolved number -- chasing through
 // any "{other.path}" alias references along the way. Returns undefined if
 // the path doesn't exist or never bottoms out in a number (e.g. it's still
@@ -221,23 +221,32 @@ function resolveNumericValue(tokensRoot, dottedPath) {
   return typeof value === 'number' ? value : undefined;
 }
 
-// Regenerates components/breakpoints.js from the resolved Device
-// Breakpoints tokens, in the same shape components already import
-// (BREAKPOINTS, QUERY_DESKTOP, QUERY_TABLET_ONLY). Skips (with a warning)
-// rather than writing a broken file if either breakpoint isn't in this
-// Figma export yet.
+// Regenerates components/breakpoints.js from the resolved Breakpoints
+// tokens (Figma: Size > Breakpoints/Compact, Medium, Expanded, Spacious --
+// Material's window size classes, plus Spacious). Each value is where that
+// range STARTS; a range ends where the next one starts. Skips (with a
+// warning) rather than writing a broken file if any is missing.
 function writeBreakpointsFile(tokensRoot) {
-  const tablet = resolveNumericValue(tokensRoot, 'size.device-breakpoints.tablet');
-  const desktop = resolveNumericValue(tokensRoot, 'size.device-breakpoints.desktop');
-  if (typeof tablet !== 'number' || typeof desktop !== 'number') {
-    console.warn('Skipping components/breakpoints.js -- Device Breakpoints/Tablet and/or /Desktop not found in this export.');
+  const names = ['compact', 'medium', 'expanded', 'spacious'];
+  const bp = Object.fromEntries(names.map(n => [n, resolveNumericValue(tokensRoot, `size.breakpoints.${n}`)]));
+  const missing = names.filter(n => typeof bp[n] !== 'number');
+  if (missing.length) {
+    console.warn(`Skipping components/breakpoints.js -- Breakpoints/${missing.join(', ')} not found in this export.`);
     return;
   }
 
   const content = `// Shared responsive breakpoints -- GENERATED FILE, do not hand-edit.
 //
-// Source of truth: the "Device Breakpoints" variables in Figma's Size
-// collection (Tablet/Desktop, each aliased to a Container primitive).
+// Source of truth: the "Breakpoints" variables in Figma's Size collection.
+// Named for size ranges (Material's window size classes, plus Spacious);
+// each number is where that range STARTS, and a range ends where the next
+// one starts:
+//
+//   Compact   ${bp.compact} - ${bp.medium - 1}px
+//   Medium    ${bp.medium} - ${bp.expanded - 1}px
+//   Expanded  ${bp.expanded} - ${bp.spacious - 1}px
+//   Spacious  ${bp.spacious}px and up
+//
 // Regenerate the same way as tokens.json/css/tokens.css:
 //   1. Change values in Figma.
 //   2. Export variables with the plugin, overwrite tokens/source/figma-variables.json.
@@ -247,30 +256,27 @@ function writeBreakpointsFile(tokensRoot) {
 // css/tokens.css's custom properties at runtime: native CSS can't put a
 // custom property inside an @media condition. Every component that needs
 // a breakpoint imports the numbers from here and interpolates them
-// straight into its own <style> template literal at module-load time --
-// the generated CSS is still plain, native @media queries; only the
-// authoring step changes.
-//
-// This only works because these files load as ES modules (type="module")
-// script tags, which is also what lets components import each other
-// without the page needing to list every dependency's <script> tag by
-// hand in the right order.
+// straight into its own <style> template literal at module-load time.
+// Plain .css files can't import this, so they repeat the numbers by hand.
 
 export const BREAKPOINTS = {
-  tablet: ${tablet},
-  desktop: ${desktop},
+  compact: ${bp.compact},
+  medium: ${bp.medium},
+  expanded: ${bp.expanded},
+  spacious: ${bp.spacious},
 };
 
-// Ready-made condition strings for the two shapes components actually
-// need. Add more here (rather than in a component file) if a third shape
-// comes up.
-export const QUERY_DESKTOP = \`(min-width: \${BREAKPOINTS.desktop}px)\`;
-export const QUERY_TABLET_ONLY = \`(min-width: \${BREAKPOINTS.tablet}px) and (max-width: \${BREAKPOINTS.desktop - 1}px)\`;
+// Ready-made condition strings. Compact needs none: it's the unqueried
+// default.
+export const QUERY_MEDIUM = \`(min-width: \${BREAKPOINTS.medium}px)\`;
+export const QUERY_MEDIUM_ONLY = \`(min-width: \${BREAKPOINTS.medium}px) and (max-width: \${BREAKPOINTS.expanded - 1}px)\`;
+export const QUERY_EXPANDED = \`(min-width: \${BREAKPOINTS.expanded}px)\`;
+export const QUERY_SPACIOUS = \`(min-width: \${BREAKPOINTS.spacious}px)\`;
 `;
 
   fs.mkdirSync(path.dirname(BREAKPOINTS_OUT), { recursive: true });
   fs.writeFileSync(BREAKPOINTS_OUT, content);
-  console.log(`wrote ${path.relative(ROOT, BREAKPOINTS_OUT)} (tablet: ${tablet}px, desktop: ${desktop}px)`);
+  console.log(`wrote ${path.relative(ROOT, BREAKPOINTS_OUT)} (medium: ${bp.medium}px, expanded: ${bp.expanded}px, spacious: ${bp.spacious}px)`);
 }
 
 function main() {

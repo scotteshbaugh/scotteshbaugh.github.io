@@ -358,8 +358,10 @@
   --size-primitive-container-1800: 1440px;
   --size-primitive-container-1900: 1520px;
   --size-primitive-container-2000: 1600px;
-  --size-device-breakpoints-tablet: var(--size-primitive-container-900);
-  --size-device-breakpoints-desktop: var(--size-primitive-container-1200);
+  --size-breakpoints-compact: 0px;
+  --size-breakpoints-medium: var(--size-primitive-container-900);
+  --size-breakpoints-expanded: var(--size-primitive-container-1200);
+  --size-breakpoints-spacious: var(--size-primitive-container-2000);
   --size-icon-stroke-16: var(--size-primitive-stroke-icon-stroke-100);
   --size-icon-stroke-20: var(--size-primitive-stroke-icon-stroke-125);
   --size-icon-stroke-24: var(--size-primitive-stroke-icon-stroke-150);

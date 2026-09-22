@@ -27,8 +27,8 @@ body {
 .content__intro-heading {
   margin: 0;
   font-family: var(--typography-heading-font-family), sans-serif;
-  /* Mobile default is Header 3 — Figma steps this up at Tablet (Header 2,
-     node 256:7166) and Desktop (Header 1, node 255:7162). Stays a single
+  /* Compact default is Header 3 — Figma steps this up at Medium (Header 2,
+     node 256:7166) and Expanded (Header 1, node 255:7162). Stays a single
      <h1> at every breakpoint (correct — one heading per page) with only
      the type scale changing, same approach as the card's own Header 4/3
      swap in card-case-study.js, just three tiers instead of two. */

@@ -1,7 +1,15 @@
 // Shared responsive breakpoints -- GENERATED FILE, do not hand-edit.
 //
-// Source of truth: the "Device Breakpoints" variables in Figma's Size
-// collection (Tablet/Desktop, each aliased to a Container primitive).
+// Source of truth: the "Breakpoints" variables in Figma's Size collection.
+// Named for size ranges (Material's window size classes, plus Spacious);
+// each number is where that range STARTS, and a range ends where the next
+// one starts:
+//
+//   Compact   0 - 719px
+//   Medium    720 - 959px
+//   Expanded  960 - 1599px
+//   Spacious  1600px and up
+//
 // Regenerate the same way as tokens.json/css/tokens.css:
 //   1. Change values in Figma.
 //   2. Export variables with the plugin, overwrite tokens/source/figma-variables.json.
@@ -11,22 +19,19 @@
 // css/tokens.css's custom properties at runtime: native CSS can't put a
 // custom property inside an @media condition. Every component that needs
 // a breakpoint imports the numbers from here and interpolates them
-// straight into its own <style> template literal at module-load time --
-// the generated CSS is still plain, native @media queries; only the
-// authoring step changes.
-//
-// This only works because these files load as ES modules (type="module")
-// script tags, which is also what lets components import each other
-// without the page needing to list every dependency's <script> tag by
-// hand in the right order.
+// straight into its own <style> template literal at module-load time.
+// Plain .css files can't import this, so they repeat the numbers by hand.
 
 export const BREAKPOINTS = {
-  tablet: 720,
-  desktop: 960,
+  compact: 0,
+  medium: 720,
+  expanded: 960,
+  spacious: 1600,
 };
 
-// Ready-made condition strings for the two shapes components actually
-// need. Add more here (rather than in a component file) if a third shape
-// comes up.
-export const QUERY_DESKTOP = `(min-width: ${BREAKPOINTS.desktop}px)`;
-export const QUERY_TABLET_ONLY = `(min-width: ${BREAKPOINTS.tablet}px) and (max-width: ${BREAKPOINTS.desktop - 1}px)`;
+// Ready-made condition strings. Compact needs none: it's the unqueried
+// default.
+export const QUERY_MEDIUM = `(min-width: ${BREAKPOINTS.medium}px)`;
+export const QUERY_MEDIUM_ONLY = `(min-width: ${BREAKPOINTS.medium}px) and (max-width: ${BREAKPOINTS.expanded - 1}px)`;
+export const QUERY_EXPANDED = `(min-width: ${BREAKPOINTS.expanded}px)`;
+export const QUERY_SPACIOUS = `(min-width: ${BREAKPOINTS.spacious}px)`;

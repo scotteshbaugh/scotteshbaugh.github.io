@@ -17,7 +17,7 @@
 // scope, always with those labels. The labels themselves live in this
 // file, not in consumer markup, because they're part of the template, not
 // per-instance content. Field ORDER differs by breakpoint (Outcome leads
-// on Desktop; Goal leads on Tablet/Mobile) -- confirmed against Figma.
+// on Expanded; Goal leads on Medium/Compact) -- confirmed against Figma.
 //
 // Why CSS Grid with named grid-areas instead of flexbox + <ds-divider>
 // elements (which is what the Figma component itself uses, and what the
@@ -36,7 +36,7 @@
 //
 // Divider lines: drawn as their own grid items (.summary-divider-1/2/3),
 // not as borders on the fields. An earlier version drew each divider as a
-// border owned by the field(s) next to it -- on Tablet's 2x2, that meant
+// border owned by the field(s) next to it -- on Medium's 2x2, that meant
 // the vertical rule (owned by Outcome/Client and scope) and the horizontal
 // rule (owned by Goal/Outcome) were two independently-positioned border
 // segments that never actually touched, leaving a visible disconnected
@@ -48,7 +48,7 @@
 // span, it paints one continuous rectangle across every track in that
 // span, including gap tracks it merely passes through. So each divider
 // here is sized to its own explicit gap track and then spans the *entire*
-// grid in the perpendicular direction -- e.g. on Tablet, the vertical
+// grid in the perpendicular direction -- e.g. on Medium, the vertical
 // divider spans grid-row 1/4 (top to bottom, through the horizontal
 // divider's row too), and the horizontal divider spans grid-column 1/4
 // (left to right, through the vertical divider's column too). Both are
@@ -69,24 +69,24 @@
 // grid-areas like the fields: unlike the fields, a divider isn't tied to
 // a piece of content that might reorder, so there's nothing for its
 // identity to track -- it's the same 3 generic elements at every
-// breakpoint, just re-pointed at different lines (and, on Tablet, given a
+// breakpoint, just re-pointed at different lines (and, on Medium, given a
 // different orientation) per media query.
 //
 // Breakpoints (imported from breakpoints.js, the site's real device
 // breakpoints -- not arbitrary):
-//   < 720px          Mobile   -- single column, stacked Goal, Outcome,
+//   < 720px          Compact   -- single column, stacked Goal, Outcome,
 //                                 Role, Client and scope. Horizontal rule
 //                                 between each
-//   720px - 959px    Tablet   -- 2x2: Goal/Outcome on top, Role/Client and
+//   720px - 959px    Medium   -- 2x2: Goal/Outcome on top, Role/Client and
 //                                 scope below. Vertical rule between the
 //                                 two columns, horizontal rule between the
 //                                 two rows
-//   >= 960px         Desktop  -- single row, Outcome first: Outcome,
+//   >= 960px         Expanded  -- single row, Outcome first: Outcome,
 //                                 Goal, Role, Client and scope. Vertical
 //                                 rule between each. Outcome leads here
-//                                 (unlike Tablet/Mobile) because Desktop
+//                                 (unlike Medium/Compact) because Expanded
 //                                 shows all 4 as one simultaneous row --
-//                                 confirmed against Figma's Desktop
+//                                 confirmed against Figma's Expanded
 //                                 variant, not a leftover mismatch.
 //
 // Slots:
@@ -103,7 +103,7 @@
 //     <span slot="client-scope">The internal client for this project...</span>
 //   </ds-summary>
 
-import { QUERY_DESKTOP, QUERY_TABLET_ONLY } from "./breakpoints.js";
+import { QUERY_EXPANDED, QUERY_MEDIUM_ONLY } from "./breakpoints.js";
 
 const SUMMARY_TEMPLATE = /* html */ `
 <style>
@@ -120,7 +120,7 @@ const SUMMARY_TEMPLATE = /* html */ `
        between the two -- see the file header comment). */
     --gutter: calc(2 * var(--size-primitive-space-800) + var(--size-primitive-stroke-25));
 
-    /* Mobile (default): one column, fields stacked in reading order, each
+    /* Compact (default): one column, fields stacked in reading order, each
        pair separated by its own gutter track rather than the \`gap\`
        property -- the divider elements below need a real track to be
        placed in. */
@@ -140,7 +140,7 @@ const SUMMARY_TEMPLATE = /* html */ `
       "client-scope";
   }
 
-  @media ${QUERY_TABLET_ONLY} {
+  @media ${QUERY_MEDIUM_ONLY} {
     :host {
       /* 2x2: Goal/Outcome paired above Role/Client and scope, so the
          goal->outcome (problem->result) pair reads as a unit before the
@@ -155,10 +155,10 @@ const SUMMARY_TEMPLATE = /* html */ `
     }
   }
 
-  @media ${QUERY_DESKTOP} {
+  @media ${QUERY_EXPANDED} {
     :host {
-      /* Outcome leads on Desktop -- all 4 fields show as one simultaneous
-         row here, unlike Tablet/Mobile's paired/stacked layouts. Every
+      /* Outcome leads on Expanded -- all 4 fields show as one simultaneous
+         row here, unlike Medium/Compact's paired/stacked layouts. Every
          other column is a gutter track for one of the 3 vertical
          dividers. */
       grid-template-columns:
@@ -176,9 +176,9 @@ const SUMMARY_TEMPLATE = /* html */ `
     display: flex;
     flex-direction: column;
     min-width: var(--size-primitive-container-200); /* matches Figma's own
-      min-w-[160px] on Summary Item directly -- at Desktop's 4-column
+      min-w-[160px] on Summary Item directly -- at Expanded's 4-column
       layout that's 4x160 + 3x--gutter (65px) = 835px, comfortably under
-      the 960px point the Desktop layout itself starts at, so unlike the
+      the 960px point the Expanded layout itself starts at, so unlike the
       old 240px value this no longer risks overflow/squeeze. */
     overflow-wrap: break-word; /* matches Figma's own word-break:break-word
       on Summary Item. */
@@ -197,7 +197,7 @@ const SUMMARY_TEMPLATE = /* html */ `
     background: var(--color-background-neutral-tertiary);
   }
 
-  /* Mobile: 3 horizontal rules, one per gap row between the 4 stacked
+  /* Compact: 3 horizontal rules, one per gap row between the 4 stacked
      fields. Each spans the (single) column and sits centered in its row. */
   .summary-divider-1,
   .summary-divider-2,
@@ -212,8 +212,8 @@ const SUMMARY_TEMPLATE = /* html */ `
   .summary-divider-2 { grid-row: 4 / 5; }
   .summary-divider-3 { grid-row: 6 / 7; }
 
-  @media ${QUERY_TABLET_ONLY} {
-    /* Tablet needs only 2 dividers (one cross): the 3rd is unused. */
+  @media ${QUERY_MEDIUM_ONLY} {
+    /* Medium needs only 2 dividers (one cross): the 3rd is unused. */
     .summary-divider-3 {
       display: none;
     }
@@ -242,8 +242,8 @@ const SUMMARY_TEMPLATE = /* html */ `
     }
   }
 
-  @media ${QUERY_DESKTOP} {
-    /* Desktop: 3 vertical rules, one per gap column between the 4 fields
+  @media ${QUERY_EXPANDED} {
+    /* Expanded: 3 vertical rules, one per gap column between the 4 fields
        in a single row. Each spans the (single) row and sits centered in
        its column. */
     .summary-divider-1,

@@ -3,7 +3,7 @@
    fonts here. Re-run tokens/build-tokens.js after any Figma token update;
    this file should not need to change when that happens.
 
-   Layout note: Figma's Desktop/Tablet/Mobile frames are the same bar at
+   Layout note: Figma's Expanded/Medium/Compact frames are the same bar at
    three test widths, not three different layouts — nothing regroups
    between them, so this is one fluid, full-width bar rather than three
    separate breakpoint rules.

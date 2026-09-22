@@ -9,7 +9,7 @@
    redefining its own copy of these rules. The Top Navigation half of
    "Main" is the separate, already-shared .site-nav component in nav.css.
 
-   Breakpoint note: 720 below is Figma's real Tablet breakpoint (see
+   Breakpoint note: 720 below is Figma's real Medium breakpoint (see
    components/breakpoints.js, generated from the same Figma tokens) —
    hardcoded here on purpose, not a token or an import. Plain CSS can't
    read a JS module's constants, and a custom property can't be used

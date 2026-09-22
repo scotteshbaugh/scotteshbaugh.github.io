@@ -27,7 +27,7 @@
 //          attribution slot prefixed with an em dash.
 //
 // Responsive header size: mobile default is Heading 4 (smaller), stepping
-// up to Heading 3 at Tablet and staying there through Desktop -- same
+// up to Heading 3 at Medium and staying there through Expanded -- same
 // single-breakpoint mobile-only swap as card-case-study.js's own
 // slot[name="header"]. Figma now states this explicitly: Pullout has a
 // Device property (Desktop | Mobile) alongside Type.
@@ -74,7 +74,7 @@ const PULLOUT_TEMPLATE = /* html */ `
     color: var(--color-text-default-default);
   }
 
-  @media (min-width: ${BREAKPOINTS.tablet}px) {
+  @media (min-width: ${BREAKPOINTS.medium}px) {
     .pullout__header {
       font-size: var(--typography-heading-size-3);
       line-height: var(--typography-heading-line-height-3);

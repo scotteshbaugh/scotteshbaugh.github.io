@@ -8,11 +8,11 @@
 //
 // Breakpoints (real, not arbitrary -- these are the site's actual device
 // breakpoints, meant to be reused elsewhere on the site):
-//   < 720px          Mobile   -- stacked column, same grouping as Desktop
-//   720px - 959px    Tablet   -- stacked column, but the Year/Role meta
+//   < 720px          Compact   -- stacked column, same grouping as Expanded
+//   720px - 959px    Medium   -- stacked column, but the Year/Role meta
 //                                 list item moves up next to the tags
 //                                 instead of sitting with the outcome text
-//   >= 960px         Desktop  -- side by side, same grouping as Mobile
+//   >= 960px         Expanded  -- side by side, same grouping as Compact
 // Defined in components/breakpoints.js -- GENERATED from Figma's Device
 // Breakpoints tokens by tokens/build-tokens.js, not hand-maintained -- and
 // imported below. See that file for why importing the numbers works even
@@ -22,7 +22,7 @@
 // Why the left column is one CSS Grid instead of nested flexboxes: the
 // Year/Role meta list item is the SAME element in the markup at every
 // breakpoint, but which group it visually belongs to changes -- next to
-// the outcome text on Mobile/Desktop, next to the tags on Tablet. A single
+// the outcome text on Compact/Expanded, next to the tags on Medium. A single
 // slotted node can only live in one place in the DOM, so two separate flex
 // containers can't both host it. Grid areas can relocate it purely in CSS
 // (grid-template-areas differs per breakpoint) without moving anything in
@@ -69,7 +69,7 @@
 // script tag is enough to get everything the card needs, instead of a
 // page listing four separate tags in the right order.
 
-import { BREAKPOINTS, QUERY_DESKTOP, QUERY_TABLET_ONLY } from "./breakpoints.js";
+import { BREAKPOINTS, QUERY_EXPANDED, QUERY_MEDIUM_ONLY } from "./breakpoints.js";
 import "./tag.js";
 import "./divider.js";
 import "./card-image.js";
@@ -123,7 +123,7 @@ const CARD_TEMPLATE = /* html */ `
     border-left-color: var(--color-border-brand-default);
   }
 
-  @media ${QUERY_DESKTOP} {
+  @media ${QUERY_EXPANDED} {
     :host {
       flex-direction: row;
     }
@@ -146,11 +146,11 @@ const CARD_TEMPLATE = /* html */ `
     min-width: 0;
   }
 
-  @media ${QUERY_DESKTOP} {
+  @media ${QUERY_EXPANDED} {
     .left {
-      flex: 0 1 360px; /* Figma's Desktop left column is a fixed 360px, but
+      flex: 0 1 360px; /* Figma's Expanded left column is a fixed 360px, but
         pinning it with flex: none + a fixed width would let it push past
-        .right (and off the card) on the narrow end of Desktop, just above
+        .right (and off the card) on the narrow end of Expanded, just above
         the 960px breakpoint. flex-grow: 0 caps it at 360px without letting
         it stretch wider; flex-shrink: 1 lets it give up width before
         .right does, since .right (image + descriptors) is where the
@@ -160,9 +160,9 @@ const CARD_TEMPLATE = /* html */ `
     }
   }
 
-  /* Tablet only: meta moves up next to tags. Outside this exact band,
-     Mobile and Desktop share the same grouping (meta stays with outcome). */
-  @media ${QUERY_TABLET_ONLY} {
+  /* Medium only: meta moves up next to tags. Outside this exact band,
+     Compact and Expanded share the same grouping (meta stays with outcome). */
+  @media ${QUERY_MEDIUM_ONLY} {
     .left {
       grid-template-columns: auto 1fr;
       grid-template-rows: auto auto auto auto 1fr;
@@ -200,8 +200,8 @@ const CARD_TEMPLATE = /* html */ `
     display: block;
     margin-bottom: var(--size-primitive-space-400);
     font-family: var(--typography-heading-font-family), sans-serif;
-    /* Header 4 (smaller) is Mobile's own size -- Figma only bumps this up
-       to Header 3 starting at Tablet (see the media query below). Not the
+    /* Header 4 (smaller) is Compact's own size -- Figma only bumps this up
+       to Header 3 starting at Medium (see the media query below). Not the
        same font-weight reasoning as Tag/this file's own header comment
        elsewhere -- this is a genuine per-breakpoint type-scale swap, not a
        token-fragility workaround. */
@@ -213,9 +213,9 @@ const CARD_TEMPLATE = /* html */ `
     color: var(--color-text-default-default);
   }
 
-  /* Tablet and up: header steps up to Header 3. Mobile (the unqueried
+  /* Medium and up: header steps up to Header 3. Compact (the unqueried
      default above) is the only size that uses Header 4. */
-  @media (min-width: ${BREAKPOINTS.tablet}px) {
+  @media (min-width: ${BREAKPOINTS.medium}px) {
     slot[name="header"] {
       font-size: var(--typography-heading-size-3);
       line-height: var(--typography-heading-line-height-3);
@@ -241,11 +241,11 @@ const CARD_TEMPLATE = /* html */ `
     box-sizing: border-box;
     display: block;
     padding-bottom: var(--size-primitive-space-1200); /* guaranteed minimum gap
-      before meta, matching Figma at every breakpoint. On desktop this
+      before meta, matching Figma at every breakpoint. On Expanded this
       row is also 1fr (see .left above), so on a tall card the gap grows
       past this minimum and meta lands flush with the image's bottom
       edge instead -- exactly the space-between behavior Figma's own
-      Desktop-only wrapper uses. */
+      Expanded-only wrapper uses. */
     font-size: var(--typography-body-body-size-1);
     line-height: var(--typography-body-body-line-height-1);
     color: var(--color-text-default-default);
@@ -267,7 +267,7 @@ const CARD_TEMPLATE = /* html */ `
     overflow: hidden;
   }
 
-  @media ${QUERY_DESKTOP} {
+  @media ${QUERY_EXPANDED} {
     .right {
       flex: 1 0 0;
     }
@@ -278,12 +278,12 @@ const CARD_TEMPLATE = /* html */ `
     flex: 1 0 0;
     /* No min-height: 0 here -- that would strip this flex item's natural
        content-based minimum, which is exactly what makes .right's own
-       auto-height (on Tablet/Mobile, where .right isn't stretched to a
-       definite height by the desktop row) actually include the image's
+       auto-height (on Medium/Compact, where .right isn't stretched to a
+       definite height by the Expanded row) actually include the image's
        real height instead of collapsing to ~0 and letting the image
        overflow past .right and get clipped by :host's overflow: hidden.
        ds-card-image is a fixed Container/500 tall (see card-image.js), so
-       removing this is safe on Desktop too: the slot flex-grows into
+       removing this is safe on Expanded too: the slot flex-grows into
        whatever room .right has, and the cover inside it stays the same
        height on every card regardless. */
   }
@@ -317,23 +317,23 @@ class DsCardCaseStudy extends HTMLElement {
     this._outerDivider = root.querySelector('ds-divider[part="divider"]');
 
     // The outer divider's orientation is driven by viewport width, not an
-    // author-set attribute -- vertical between the two columns on Desktop
+    // author-set attribute -- vertical between the two columns on Expanded
     // (side by side), horizontal between them everywhere else (stacked).
-    this._desktopQuery = matchMedia(QUERY_DESKTOP);
+    this._expandedQuery = matchMedia(QUERY_EXPANDED);
     this._syncDividerOrientation = this._syncDividerOrientation.bind(this);
   }
 
   connectedCallback() {
     this._syncDividerOrientation();
-    this._desktopQuery.addEventListener("change", this._syncDividerOrientation);
+    this._expandedQuery.addEventListener("change", this._syncDividerOrientation);
   }
 
   disconnectedCallback() {
-    this._desktopQuery.removeEventListener("change", this._syncDividerOrientation);
+    this._expandedQuery.removeEventListener("change", this._syncDividerOrientation);
   }
 
   _syncDividerOrientation() {
-    this._outerDivider.setAttribute("orientation", this._desktopQuery.matches ? "vertical" : "horizontal");
+    this._outerDivider.setAttribute("orientation", this._expandedQuery.matches ? "vertical" : "horizontal");
   }
 }
 

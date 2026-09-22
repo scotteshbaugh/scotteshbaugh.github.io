@@ -18,7 +18,8 @@
 // fills rather than hugs.
 //
 // -- The row height is fixed, not a range --
-// Container/500 (400px), matching the Card Image frame in Figma, and it
+// Container/400 (320px) on Compact, Container/500 (400px) from Medium up,
+// matching the card's Compact and Medium/Expanded variants in Figma. It
 // does not flex with the card's own content: every cover in the list is
 // the same height whether its card's text column is short or long.
 //
@@ -44,6 +45,7 @@
 //   </ds-card-image>
 
 import { nestImage } from "./nest-image.js";
+import { QUERY_MEDIUM } from "./breakpoints.js";
 
 const CARD_IMAGE_TEMPLATE = /* html */ `
 <style>
@@ -51,7 +53,7 @@ const CARD_IMAGE_TEMPLATE = /* html */ `
     box-sizing: border-box;
     display: flex;
     width: 100%;
-    height: var(--size-primitive-container-500);
+    height: var(--size-primitive-container-400); /* 320px, Compact */
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -69,6 +71,13 @@ const CARD_IMAGE_TEMPLATE = /* html */ `
     max-height: var(--size-primitive-container-500);
     min-height: var(--size-primitive-container-300);
     max-width: var(--size-primitive-container-1300);
+  }
+
+  /* Medium and up: the taller 400px row (Container/500). */
+  @media ${QUERY_MEDIUM} {
+    :host {
+      height: var(--size-primitive-container-500);
+    }
   }
 </style>
 <slot></slot>

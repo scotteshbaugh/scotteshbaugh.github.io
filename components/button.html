@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Button component preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="button.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 32px 0 12px; }
+  h2:first-of-type { margin-top: 0; }
+  .row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+  .note { max-width: 720px; margin: 0 0 24px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<p class="note">Hover each button to see its hover state, and tab through them to see the focus ring. Disabled buttons flatten to the same appearance in every variant.</p>
+
+<h2>Medium — primary / neutral / subtle</h2>
+<div class="row">
+  <ds-button>Button</ds-button>
+  <ds-button variant="neutral">Button</ds-button>
+  <ds-button variant="subtle">Button</ds-button>
+</div>
+
+<h2>Small</h2>
+<div class="row">
+  <ds-button size="small">Button</ds-button>
+  <ds-button size="small" variant="neutral">Button</ds-button>
+  <ds-button size="small" variant="subtle">Button</ds-button>
+</div>
+
+<h2>Disabled</h2>
+<div class="row">
+  <ds-button disabled>Button</ds-button>
+  <ds-button variant="neutral" disabled>Button</ds-button>
+  <ds-button variant="subtle" disabled>Button</ds-button>
+</div>
+
+<h2>Icons — start, end, both</h2>
+<div class="row">
+  <ds-button icon-start="star">Button</ds-button>
+  <ds-button icon-end="x">Button</ds-button>
+  <ds-button icon-start="star" icon-end="x">Button</ds-button>
+</div>
+<div class="row">
+  <ds-button size="small" variant="neutral" icon-start="star">Button</ds-button>
+  <ds-button size="small" variant="subtle" icon-end="x">Button</ds-button>
+</div>
+
+<h2>Longer labels, and a click handler</h2>
+<div class="row">
+  <ds-button id="counter">Clicked 0 times</ds-button>
+  <ds-button variant="neutral">A considerably longer button label</ds-button>
+</div>
+
+<script type="module">
+  let n = 0;
+  const b = document.getElementById("counter");
+  b.addEventListener("click", () => { n += 1; b.textContent = `Clicked ${n} times`; });
+</script>
+
+</body>
+</html>

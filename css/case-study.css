@@ -31,8 +31,8 @@
     Figma's Heading block (w-full + this cap) */
   font-family: var(--typography-heading-font-family), sans-serif;
   /* Same 3-tier type-scale swap as main.css's .content__intro-heading --
-     Heading 3 on Mobile (the default below), Heading 2 at Tablet, Heading 1
-     at Desktop. Bosco: should be the same pattern as the homepage intro. */
+     Heading 3 on Compact (the default below), Heading 2 at Medium, Heading 1
+     at Expanded. Bosco: should be the same pattern as the homepage intro. */
   font-size: var(--typography-heading-size-3);
   line-height: var(--typography-heading-line-height-3);
   /* No font-weight token here on purpose -- FF Good Pro Wide only has one
@@ -42,7 +42,7 @@
 }
 
 @media (min-width: 720px) {
-  /* 720/960 here match breakpoints.js's BREAKPOINTS.tablet/desktop --
+  /* 720/960 here match breakpoints.js's BREAKPOINTS.medium/expanded --
      this file is plain CSS (not a JS template literal), so it can't
      import those numbers directly; see breakpoints.js for why. */
   .case-study-header__heading {
@@ -62,7 +62,7 @@
   margin: 0;
   max-width: var(--size-primitive-container-900); /* 720px, matches
     Figma's Body block (w-full + this cap) -- caps the description's
-    measure for readability, same value as BREAKPOINTS.tablet
+    measure for readability, same value as BREAKPOINTS.medium
     (coincidence of reusing the same token, not a breakpoint reference). */
   font-family: var(--typography-body-font-family), sans-serif;
   font-size: var(--typography-body-body-size-1);
@@ -273,7 +273,8 @@
    panel. They line up at the top; a shorter one ends sooner and the
    backdrop shows below it.
 
-   Below the tablet breakpoint every panel goes full width.
+   Below Medium panels keep their split; the showcases
+   stack instead (see .layout).
 */
 
 .showcase {
@@ -320,10 +321,34 @@
   background: none;
 }
 
-@media (max-width: 719px) {
-  .showcase__panel {
-    grid-column: 1 / -1;
+/* Showcase spacing steps with the page width (Breakpoints tokens, see
+   components/breakpoints.js). Figma has three variants -- Compact,
+   Medium, Spacious -- and no Expanded one, so Expanded keeps Medium's
+   values: a range with no values of its own keeps the range below's.
+
+     Compact             under 720px   16px padding / 12px gap
+     Medium + Expanded   720-1599px    24px padding / 16px gap
+     Spacious            1600px+       32px padding / 24px gap   (above)
+
+   Plain CSS can't read breakpoints.js, so 720 and 1600 are repeated here
+   by hand. Panels keep their split at every width -- only the showcases
+   themselves stack on Compact (see .layout). */
+@media (max-width: 1599px) {
+  .showcase {
+    padding: var(--size-primitive-space-600);  /* 24px, Space/600 */
+    gap: var(--size-primitive-space-400);      /* 16px, Space/400 */
   }
+}
+
+@media (max-width: 719px) {
+  .showcase {
+    padding: var(--size-primitive-space-400);  /* 16px, Space/400 */
+    gap: var(--size-primitive-space-300);      /* 12px, Space/300 */
+  }
+}
+
+@media (max-width: 1599px) {
+  .showcase--single { padding: 0; }
 }
 
 /* ---- Case Study Section + Layouts (Figma nodes 263:8048, 363:8124) ----
@@ -333,7 +358,7 @@
    (Side by Side, Over on Over) are the presets below.
 
    Markup order is reading order, with each caption right before its
-   showcase (Caption A, Showcase A, Caption B, Showcase B). On desktop the
+   showcase (Caption A, Showcase A, Caption B, Showcase B). From Medium up the
    grid places them; below 720px the grid drops to one column and they
    stack in that order, so pairs stay together.
 
@@ -457,8 +482,8 @@
 
 @media (max-width: 719px) {
   .case-study-context__grid {
-    /* Figma doesn't define a Mobile/Tablet variant of this row yet -- a
-       single stacked column below Tablet is the same fallback every
+    /* Figma doesn't define a Compact/Medium variant of this row yet -- a
+       single stacked column below Medium is the same fallback every
        other not-yet-designed-smaller breakpoint in this codebase uses,
        not a guess unique to this page. */
     grid-template-columns: 1fr;

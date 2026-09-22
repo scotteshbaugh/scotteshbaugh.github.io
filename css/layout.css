@@ -9,7 +9,7 @@
    redefining its own copy of these rules. The Top Navigation half of
    "Main" is the separate, already-shared .site-nav component in nav.css.
 
-   Breakpoint note: 720 below is Figma's real Medium breakpoint (see
+   Breakpoint note: 720 and 1600 below are Figma's Medium and Spacious breakpoints (see
    components/breakpoints.js, generated from the same Figma tokens) —
    hardcoded here on purpose, not a token or an import. Plain CSS can't
    read a JS module's constants, and a custom property can't be used
@@ -27,6 +27,15 @@
   /* Figma's own asymmetry, not a mistake: more room above the intro than
      below the last section. 3-value shorthand = top | left+right | bottom. */
   padding: var(--size-primitive-space-2400) var(--size-primitive-space-1200) var(--size-primitive-space-1200);
+}
+
+/* Spacious (1600px+, Breakpoints/Spacious): side padding doubles to 96px,
+   matching Figma's "Main - Spacious" frame. Top/bottom stay as above. */
+@media (min-width: 1600px) {
+  .content {
+    padding-left: var(--size-primitive-space-2400);
+    padding-right: var(--size-primitive-space-2400);
+  }
 }
 
 @media (max-width: 719px) {

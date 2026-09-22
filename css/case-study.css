@@ -200,7 +200,7 @@
    Keep at least one.
 
    <figure>
-     <ds-image>...</ds-image>
+     <div class="showcase showcase--single">...</div>
      <figcaption class="figure-caption">
        <p class="figure-caption__title">Admin experience</p>
        <p class="figure-caption__body">Admins define which attributes...</p>
@@ -240,6 +240,90 @@
   line-height: var(--typography-caption-body-line-height);
   font-weight: 400; /* same reason as above ("Regular") */
   color: var(--color-text-default-secondary);
+}
+
+/* ---- Showcase + Panel (Figma nodes 270:1637, 389:27090) ----
+   The framed stage a case-study picture sits on: radial backdrop, rounded
+   corners, Separation 200. Replaces the old standalone <ds-image> surface.
+
+   Two ways to use it:
+
+   1. Single image -- the picture sits directly on the showcase, no padding
+      (Figma variant None/None/None):
+
+      <div class="showcase showcase--single">
+        <ds-image><img src="..." alt="..."></ds-image>
+      </div>
+
+   2. Panels -- a 12-column grid; each panel says how many columns it takes
+      with --span (default 12, so panels stack unless told otherwise). Any
+      split works: 6/6, 9/3, 4/4/4, 8/4 ... Figma's variants are just presets
+      of this.
+
+      <div class="showcase">
+        <div class="showcase__panel" style="--span: 8">
+          <ds-image><img src="desktop.png" alt="..."></ds-image>
+        </div>
+        <div class="showcase__panel" style="--span: 4">
+          <ds-image><img src="phone.png" alt="..."></ds-image>
+        </div>
+      </div>
+
+   Panels hug their screenshot: no stretching, no white space inside a
+   panel. They line up at the top; a shorter one ends sooner and the
+   backdrop shows below it.
+
+   Below the tablet breakpoint every panel goes full width.
+*/
+
+.showcase {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--size-primitive-space-600);      /* 24px, Space/600 */
+  align-items: start;                        /* panels hug, never stretch */
+  padding: var(--size-primitive-space-800);  /* 32px, Space/800 */
+  background: var(--color-background-media-showcase);
+  border-radius: var(--size-primitive-radius-200);
+  box-shadow: var(--separation-200);
+  overflow: hidden;
+}
+
+.showcase--single {
+  display: block;
+  padding: 0;
+}
+
+.showcase__panel {
+  position: relative;
+  grid-column: span var(--span, 12);
+  min-width: 0;
+  overflow: hidden;
+  background: var(--color-background-default-default);
+  border-radius: var(--size-primitive-radius-200);
+}
+
+/* Figma's stroke is INSIDE, 1px. Drawn as an overlay so it sits on top of
+   the screenshot's edge instead of under it, and adds no size. */
+.showcase__panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 var(--size-primitive-stroke-25) var(--color-border-default-default);
+  pointer-events: none;
+}
+
+/* Panels own the white; the image's loading background would show at the
+   edges otherwise. */
+.showcase__panel ds-image {
+  background: none;
+}
+
+@media (max-width: 719px) {
+  .showcase__panel {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ---- Case Study Context row (Figma node 31:1143) ----

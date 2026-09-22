@@ -33,36 +33,38 @@
 </head>
 <body>
 
-<p class="note">Hover the standalone image to see elevation 400 step up to 550. Card and Lightbox have no hover by design — each sits inside a parent that owns its own interaction.</p>
+<p class="note">&lt;ds-image&gt; is behavior only now: alt warning, lazy loading, and the card crop. Corners, shadow and the radial backdrop belong to Showcase — see showcase.html. Open the console to see the missing-alt warning from the last demo.</p>
 
-<h2>Standalone (default) — radius + elevation 400, 550 on hover</h2>
+<h2>Default — hugs its image, no surface</h2>
 <ds-image>
   <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
 </ds-image>
 
-<h2>Standalone, narrow — hugs its container, aspect ratio held</h2>
+<h2>Narrow — width follows the container, aspect ratio held</h2>
 <div class="narrow">
   <ds-image>
     <img src="../assets/covers/jav_cover.jpg" alt="Screenshot of another case study cover">
   </ds-image>
 </div>
 
-<h2>Card — no radius, no shadow, crops to fill the frame</h2>
+<h2>Card — crops to fill the frame</h2>
 <div class="card-frame">
   <ds-image placement="card">
     <img src="../assets/covers/ss_cover.jpg" alt="Screenshot of a case study cover">
   </ds-image>
 </div>
 
-<h2>Lightbox — no radius, elevation 550</h2>
-<ds-image placement="lightbox">
-  <img src="../assets/covers/pca_cover.jpg" alt="Screenshot of another case study cover">
-</ds-image>
-
 <h2>No image loaded — background token shows through</h2>
 <div class="narrow">
-  <ds-image>
+  <ds-image style="height:160px">
     <img alt="Placeholder, no src set yet">
+  </ds-image>
+</div>
+
+<h2>Missing alt — logs a console warning</h2>
+<div class="narrow">
+  <ds-image>
+    <img src="../assets/covers/pca_cover.jpg">
   </ds-image>
 </div>
 

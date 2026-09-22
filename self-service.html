@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/case-study.css">
 <script type="module" src="case-study.js"></script>
+<script type="module" src="components/divider.js"></script>
+<script type="module" src="components/image.js"></script>
 </head>
 <body>
 
@@ -40,6 +42,70 @@
     <div class="case-study-context__grid">
       <ds-pullout></ds-pullout>
       <ds-list-item layout="stack" variant="primary" numbered></ds-list-item>
+    </div>
+  </section>
+  <section class="case-study-section">
+    <div class="section-divider">
+      <p class="section-divider__label">Solution</p>
+      <ds-divider size="medium"></ds-divider>
+    </div>
+
+    <div class="case-study-section__subsections">
+
+      <!-- 01 Subsection -- Side by Side -->
+      <div class="layout layout--side-by-side">
+        <div class="subhead layout__subhead">
+          <ds-divider emphasis="strong"></ds-divider>
+          <h2 class="subhead__heading">Admins can configure experiences to meet their organization’s security needs</h2>
+        </div>
+
+        <div class="figure-caption layout__caption-a">
+          <p class="figure-caption__title">Admin experience</p>
+          <p class="figure-caption__body">Admins define which attributes appear on a user's profile and how users can interact with them.</p>
+        </div>
+        <div class="showcase showcase--single layout__showcase-a">
+          <ds-image><img src="assets/self-service/03-solution-01a-configuration-admin-user.png" width="4320" height="3966" alt="Self-service settings in the admin console: a table of profile attributes with toggles for whether each is visible and required, and its mutability."></ds-image>
+        </div>
+
+        <div class="figure-caption layout__caption-b">
+          <p class="figure-caption__title">End user experience</p>
+          <p class="figure-caption__body">End users, such as employees and customers, experience the results of an admin's profile configuration choices.</p>
+        </div>
+        <div class="showcase showcase--single layout__showcase-b">
+          <ds-image><img src="assets/self-service/03-solution-01b-configuration-end-user.png" width="4320" height="3864" alt="The end user's Personal information page, showing the profile fields the admin chose to make visible and editable."></ds-image>
+        </div>
+      </div>
+
+      <!-- 02 Subsection -- Over on Over -->
+      <div class="layout layout--over-on-over">
+        <div class="subhead layout__subhead">
+          <ds-divider emphasis="strong"></ds-divider>
+          <h2 class="subhead__heading">Admins customize and end users receive a branded cross-device experience</h2>
+        </div>
+
+        <div class="showcase layout__showcase-a">
+          <div class="showcase__panel" style="--span: 9">
+            <ds-image><img src="assets/self-service/03-solution-02a-custom-unbranded-desktop.png" width="4320" height="2700" alt="Unbranded Email addresses page on desktop, with the platform's default styling."></ds-image>
+          </div>
+          <div class="showcase__panel" style="--span: 3">
+            <ds-image><img src="assets/self-service/03-solution-02b-custom-unbranded-mobile.png" width="1200" height="2532" alt="The same unbranded Email addresses page on a phone."></ds-image>
+          </div>
+        </div>
+
+        <div class="figure-caption layout__caption-b">
+          <p class="figure-caption__title">Minimal branding with big impact</p>
+          <p class="figure-caption__body">Token-based theming provides impactful branding while keeping admin configuration minimal.</p>
+        </div>
+        <div class="showcase layout__showcase-b">
+          <div class="showcase__panel" style="--span: 9">
+            <ds-image><img src="assets/self-service/03-solution-02c-custom-branded-desktop.png" width="4320" height="2700" alt="The Email addresses page on desktop with a customer's brand applied: logo, header color and button color."></ds-image>
+          </div>
+          <div class="showcase__panel" style="--span: 3">
+            <ds-image><img src="assets/self-service/03-solution-02d-custom-branded-mobile.png" width="1200" height="2532" alt="The same branded Email addresses page on a phone."></ds-image>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>

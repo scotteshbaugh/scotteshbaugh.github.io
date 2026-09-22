@@ -326,6 +326,88 @@
   }
 }
 
+/* ---- Case Study Section + Layouts (Figma nodes 263:8048, 363:8124) ----
+   A content section below Context: Section Divider, then one or more
+   subsections. Each subsection is a Layout -- a 12-column grid that places
+   a Subhead, Figure Captions and Showcases. Figma's Layout variants
+   (Side by Side, Over on Over) are the presets below.
+
+   Markup order is reading order, with each caption right before its
+   showcase (Caption A, Showcase A, Caption B, Showcase B). On desktop the
+   grid places them; below 720px the grid drops to one column and they
+   stack in that order, so pairs stay together.
+
+   <section class="case-study-section">
+     <div class="section-divider">...</div>
+     <div class="case-study-section__subsections">
+       <div class="layout layout--side-by-side">
+         <div class="subhead layout__subhead">...</div>
+         <figcaption class="figure-caption layout__caption-a">...</figcaption>
+         <div class="showcase layout__showcase-a">...</div>
+         ...
+       </div>
+     </div>
+   </section>
+*/
+
+.case-study-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-1200);   /* 48px, divider to content */
+  width: 100%;
+}
+
+.case-study-section__subsections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-primitive-space-2400);   /* 96px between subsections */
+  width: 100%;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--size-primitive-space-600);    /* 24px, Space/600 -- one gap everywhere */
+  align-items: start;
+  width: 100%;
+}
+
+.layout .figure-caption {
+  max-width: var(--size-primitive-container-300); /* 240px, matches Figma's cap */
+}
+
+.layout__subhead { grid-column: 1 / span 9; grid-row: 1; }
+
+/* Side by Side -- two showcases next to each other, each with its caption
+   above. Column 6 is deliberately narrow (0.2fr): Bosco's call, copied
+   from Figma as-is. */
+.layout--side-by-side {
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr)) minmax(0, 0.2fr) repeat(6, minmax(0, 1fr));
+}
+.layout--side-by-side .layout__caption-a  { grid-column: 1 / span 4; grid-row: 2; }
+.layout--side-by-side .layout__showcase-a { grid-column: 1 / span 5; grid-row: 3; }
+.layout--side-by-side .layout__caption-b  { grid-column: 7 / span 4; grid-row: 2; }
+.layout--side-by-side .layout__showcase-b { grid-column: 7 / span 5; grid-row: 3; }
+
+/* Over on Over -- two showcases stacked in the middle 7 columns, caption
+   beside the second one. */
+.layout--over-on-over .layout__showcase-a { grid-column: 3 / span 7; grid-row: 2; }
+.layout--over-on-over .layout__showcase-b { grid-column: 3 / span 7; grid-row: 3; }
+.layout--over-on-over .layout__caption-b  { grid-column: 10 / span 2; grid-row: 3; }
+
+@media (max-width: 719px) {
+  .layout,
+  .layout--side-by-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .layout > * {
+    grid-column: 1 !important;  /* beats every preset's placement */
+    grid-row: auto !important;
+  }
+}
+
 /* ---- Case Study Context row (Figma node 31:1143) ----
    The Context section's own local grouping: the Section Divider above,
    plus a two-column row pairing a <ds-pullout> with the numbered

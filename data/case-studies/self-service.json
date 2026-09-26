@@ -1,35 +1,98 @@
 {
   "slug": "self-service",
+
   "intro": {
-    "title": "Self-service portal",
-    "subtitle": "A cross-device self-service experience, shaped by administrator settings for an IAM platform.",
-    "meta": [
+    "caseStudyHeader": {
+      "heading": "Self-service portal",
+      "body": "A cross-device self-service experience, shaped by administrator settings for an IAM platform."
+    },
+    "summary": [
+      { "label": "Goal", "description": "The capability needed to be configurable, brandable, and balance consumer-grade usability with enterprise requirements." },
+      { "label": "Outcomes", "description": "The platform now has a self-service experience aligned with its capabilities and supports complex configuration without compromising usability." },
+      { "label": "Role", "description": "I led the design for the Self-Service experience and two upstream application areas that it relied on." },
+      { "label": "Client and scope", "description": "The internal client for this project was Thales’ Identity and Access Management (IAM) organization. The engagement intermittently across 11 months in 2025." }
+    ]
+  },
+
+  "context": {
+    "sectionDivider": "Context",
+    "pulloutLayout": {
+      "pullout": {
+        "statement": "How might we design a better way for admins to configure a self-service experience?"
+      },
+      "list": [
+        "IAM platforms perform many functions and Self-service is a foundational element.",
+        "Out-of-the-box self-service experiences are often limited in functionality and lag in usability.",
+        "Customers tend to build their own, but are left with the burden of maintaining them.",
+        "The vision was to make the self-service experience highly configurable and consumer grade."
+      ]
+    }
+  },
+
+  "solution": {
+    "sectionDivider": "Solution",
+    "subsections": [
       {
-        "label": "Goal",
-        "text": "The capability needed to be configurable, brandable, and balance consumer-grade usability with enterprise requirements."
+        "subhead": "Admins can configure experiences to meet their organization’s security needs",
+        "figureCaptions": [
+          {
+            "captionTitle": "Admin experience",
+            "captionBody": "Admins define which attributes appear on a user's profile and how users can interact with them."
+          },
+          {
+            "captionTitle": "End user experience",
+            "captionBody": "End users, such as employees and customers, experience the results of an admin's profile configuration choices."
+          }
+        ]
       },
       {
-        "label": "Outcomes",
-        "text": "The platform now has a self-service experience aligned with its capabilities and supports complex configuration without compromising usability."
+        "subhead": "Admins customize and end users receive a branded cross-device experience",
+        "figureCaptions": [
+          {
+            "captionTitle": "Minimal branding with big impact",
+            "captionBody": "Token-based theming provides impactful branding while keeping admin configuration minimal."
+          }
+        ]
       },
       {
-        "label": "Role",
-        "text": "I led the design for the Self-Service experience and two upstream application areas that it relied on."
-      },
-      {
-        "label": "Client and scope",
-        "text": "The internal client for this project was Thales' Identity and Access Management (IAM) organization. The engagement intermittently across 11 months in 2025."
+        "subhead": "End users navigate standardized security workflows",
+        "figureCaptions": [
+          {
+            "captionTitle": "End user last passkey removal flow",
+            "captionBody": "This flow is based on the FIDO alliance’s standard and adapted for our platform."
+          }
+        ]
       }
     ]
   },
-  "context": {
-    "eyebrow": "Context",
-    "question": "How might we design a better way for admins to configure a self-service experience?",
-    "points": [
-      "IAM platforms perform many functions and Self-service is a foundational element.",
-      "Out-of-the-box self-service experiences are often limited in functionality and lag in usability.",
-      "Customers tend to build their own, but are left with the burden of maintaining them.",
-      "The vision was to make the self-service experience highly configurable and consumer grade."
-    ]
+
+  "process": {
+    "sectionDivider": "Process",
+    "pulloutLayout": {
+      "pullout": {
+        "statement": "The most complex challenge was to design a configurable user profile",
+        "description": "This was complex because flexible profile configuration had to comply with SCIM 2.0 requirements while also integrating with legacy platform components."
+      },
+      "button": {
+        "label": "Read the full case study",
+        "href": ""
+      }
+    }
+  },
+
+  "outcomes": {
+    "sectionDivider": "Outcomes",
+    "pulloutLayout": {
+      "pullout": {
+        "quote": "“In a space where scope was poorly defined across four product areas, Scott delivered a coherent solution through close collaboration with PM, architecture, and engineering.”",
+        "attribution": "—Design manager"
+      },
+      "list": [
+        "Self-Service was a dormant capability with unclear requirements and dependencies",
+        "I drove commitment and delivered a flexible, usable self-service experience",
+        "I extended theming, enabled full branded experiences across the platform",
+        "I introduced workflows and components for our platform’s growing complexity"
+      ]
+    }
   }
 }

@@ -1,0 +1,52 @@
+{
+  "slug": "",
+
+  "intro": {
+    "caseStudyHeader": {
+      "heading": "",
+      "body": ""
+    },
+    "summary": [
+      { "label": "Goal", "description": "" },
+      { "label": "Outcomes", "description": "" },
+      { "label": "Role", "description": "" },
+      { "label": "Client and scope", "description": "" }
+    ]
+  },
+
+  "context": {
+    "sectionDivider": "Context",
+    "pulloutLayout": {
+      "pullout": { "statement": "" },
+      "list": []
+    }
+  },
+
+  "solution": {
+    "sectionDivider": "Solution",
+    "subsections": [
+      {
+        "subhead": "",
+        "figureCaptions": [
+          { "captionTitle": "", "captionBody": "" }
+        ]
+      }
+    ]
+  },
+
+  "process": {
+    "sectionDivider": "Process",
+    "pulloutLayout": {
+      "pullout": { "statement": "", "description": "" },
+      "button": { "label": "", "href": "" }
+    }
+  },
+
+  "outcomes": {
+    "sectionDivider": "Outcomes",
+    "pulloutLayout": {
+      "pullout": { "quote": "", "attribution": "" },
+      "list": []
+    }
+  }
+}

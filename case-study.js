@@ -36,15 +36,18 @@ async function renderCaseStudy() {
     return;
   }
 
-  renderCaseStudyHeader(data.intro);
-  renderSummary(data.intro.meta);
+  renderCaseStudyHeader(data.intro.caseStudyHeader);
+  renderSummary(data.intro.summary);
   renderContext(data.context);
 }
 
-function renderCaseStudyHeader(intro) {
-  document.querySelector(".case-study-header__heading").textContent = intro.title;
-  document.querySelector(".case-study-header__body").textContent = intro.subtitle;
-  document.title = `${intro.title} — Scott Eshbaugh`;
+// Keys mirror the Figma layer/component names (Case Study Header, Summary
+// Item, Pullout, Section Divider ...) so the JSON reads like the layer tree
+// -- see data/case-studies/_template.json.
+function renderCaseStudyHeader(caseStudyHeader) {
+  document.querySelector(".case-study-header__heading").textContent = caseStudyHeader.heading;
+  document.querySelector(".case-study-header__body").textContent = caseStudyHeader.body;
+  document.title = `${caseStudyHeader.heading} — Scott Eshbaugh`;
 }
 
 // ds-summary's slots are fixed (goal/outcome/role/client-scope) and keyed
@@ -60,9 +63,9 @@ const SUMMARY_SLOT_BY_LABEL = {
   "Client and scope": "client-scope",
 };
 
-function renderSummary(meta) {
+function renderSummary(summaryItems) {
   const summary = document.querySelector("ds-summary");
-  for (const { label, text } of meta) {
+  for (const { label, description } of summaryItems) {
     const slotName = SUMMARY_SLOT_BY_LABEL[label];
     if (!slotName) {
       console.warn(`Unknown summary label "${label}" -- no matching ds-summary slot`);
@@ -70,22 +73,22 @@ function renderSummary(meta) {
     }
     const span = document.createElement("span");
     span.slot = slotName;
-    span.textContent = text;
+    span.textContent = description;
     summary.append(span);
   }
 }
 
 function renderContext(context) {
-  document.querySelector(".section-divider__label").textContent = context.eyebrow;
+  document.querySelector(".section-divider__label").textContent = context.sectionDivider;
 
   const pullout = document.querySelector("ds-pullout");
   const header = document.createElement("span");
   header.slot = "header";
-  header.textContent = context.question;
+  header.textContent = context.pulloutLayout.pullout.statement;
   pullout.append(header);
 
   const listItem = document.querySelector("ds-list-item");
-  appendListItems(listItem, context.points);
+  appendListItems(listItem, context.pulloutLayout.list);
 }
 
 renderCaseStudy();

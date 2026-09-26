@@ -41,6 +41,7 @@ body {
   color: var(--color-text-default-default);
 }
 
+/* bp: medium */
 @media (min-width: 720px) {
   .content__intro-heading {
     font-size: var(--typography-heading-size-2);
@@ -48,6 +49,7 @@ body {
   }
 }
 
+/* bp: expanded */
 @media (min-width: 960px) {
   .content__intro-heading {
     font-size: var(--typography-heading-size-1);

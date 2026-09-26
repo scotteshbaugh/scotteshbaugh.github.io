@@ -32,6 +32,7 @@ const SOURCE_PATH = path.join(__dirname, 'source', 'figma-variables.json');
 const TOKENS_OUT = path.join(__dirname, 'tokens.json');
 const CSS_OUT = path.join(ROOT, 'css', 'tokens.css');
 const BREAKPOINTS_OUT = path.join(ROOT, 'components', 'breakpoints.js');
+const CSS_DIR = path.join(ROOT, 'css');
 
 // Which Figma variable collection maps to which DTCG group path.
 // Add an entry here whenever a new collection (Size, Typography, etc.) gets exported.
@@ -220,6 +221,83 @@ function resolveNumericValue(tokensRoot, dottedPath) {
   }
   return typeof value === 'number' ? value : undefined;
 }
+
+// Rewrites the breakpoint numbers inside css/*.css media queries from the
+// same Breakpoints tokens the components get.
+//
+// Why this exists: a web component can import breakpoints.js and drop the
+// number into its own <style>, but a plain .css file can't import
+// anything, and a custom property is not allowed inside an @media
+// condition. So the numbers in those files were typed by hand, which put
+// every CSS pattern (Pullout Layout, Showcase, the page container, the
+// home page) off the token chain -- change a breakpoint in Figma and
+// those files would quietly keep the old number.
+//
+// The fix is a build-time copy, not a runtime one: each media query is
+// marked with the breakpoint it uses, and this writes the current value
+// next to the marker. The shipped CSS stays plain, static and
+// import-free; only the authoring step changes.
+//
+//   /* bp: medium */
+//   @media (min-width: 720px) { ... }        -> min-width: <medium>
+//
+//   /* bp: below medium */
+//   @media (max-width: 719px) { ... }        -> max-width: <medium - 1>
+//
+// "below <name>" is the range under that breakpoint, so it writes one
+// pixel less -- the two never overlap. An unmarked media query is left
+// alone and reported, so a new one can't drift unnoticed.
+function writeCssBreakpoints(tokensRoot) {
+  const names = ['compact', 'medium', 'expanded', 'spacious'];
+  const bp = Object.fromEntries(names.map((n) => [n, resolveNumericValue(tokensRoot, `size.breakpoints.${n}`)]));
+  if (names.some((n) => typeof bp[n] !== 'number')) {
+    console.warn('Skipping css breakpoints -- Breakpoints tokens not found in this export.');
+    return;
+  }
+
+  const MARKED = /\/\* bp: (below )?([a-z]+) \*\/(\s*)@media \((min|max)-width: (\d+)px\)/g;
+  const ANY_MEDIA = /@media \((?:min|max)-width: \d+px\)/g;
+  const problems = [];
+  let filesChanged = 0;
+  let queries = 0;
+
+  for (const file of fs.readdirSync(CSS_DIR).filter((f) => f.endsWith('.css') && f !== 'tokens.css')) {
+    const full = path.join(CSS_DIR, file);
+    const before = fs.readFileSync(full, 'utf8');
+    let marked = 0;
+
+    const after = before.replace(MARKED, (whole, below, name, gap, dir, current) => {
+      marked += 1;
+      if (!(name in bp)) {
+        problems.push(`${file}: unknown breakpoint "${name}" in a bp marker`);
+        return whole;
+      }
+      const wantDir = below ? 'max' : 'min';
+      if (dir !== wantDir) {
+        problems.push(`${file}: /* bp: ${below || ''}${name} */ sits above a ${dir}-width query (expected ${wantDir}-width)`);
+        return whole;
+      }
+      const value = below ? bp[name] - 1 : bp[name];
+      queries += 1;
+      return `/* bp: ${below || ''}${name} */${gap}@media (${dir}-width: ${value}px)`;
+    });
+
+    const total = (before.match(ANY_MEDIA) || []).length;
+    if (total > marked) problems.push(`${file}: ${total - marked} media query/queries without a bp marker -- left as typed`);
+
+    if (after !== before) {
+      fs.writeFileSync(full, after);
+      filesChanged += 1;
+    }
+  }
+
+  if (problems.length) {
+    console.warn('CSS breakpoints:');
+    problems.forEach((p) => console.warn('  - ' + p));
+  }
+  console.log(`css breakpoints: ${queries} media quer${queries === 1 ? 'y' : 'ies'} on the token chain (${filesChanged} file(s) rewritten)`);
+}
+
 
 // Regenerates components/breakpoints.js from the resolved Breakpoints
 // tokens (Figma: Size > Breakpoints/Compact, Medium, Expanded, Spacious --
@@ -429,6 +507,7 @@ function main() {
     console.warn('');
   }
   writeBreakpointsFile(tokensRoot);
+  writeCssBreakpoints(tokensRoot);
 
   console.log(`primitive tokens: ${primitiveCount}`);
   console.log(`semantic tokens: ${semanticCount}`);

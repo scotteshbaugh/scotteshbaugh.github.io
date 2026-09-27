@@ -20,6 +20,7 @@
 import "./components/summary.js";
 import "./components/pullout.js";
 import "./components/list.js";
+import "./components/image.js";
 import { buildList } from "./components/build-list.js";
 
 const slug = location.pathname.split("/").pop().replace(/\.html$/, "");
@@ -36,9 +37,12 @@ async function renderCaseStudy() {
     return;
   }
 
-  renderCaseStudyHeader(data.intro.caseStudyHeader);
-  renderSummary(data.intro.summary);
+  renderCaseStudyHeader(data.caseStudyHeader);
+  renderSummary(data.summary);
   renderContext(data.context);
+  renderSolution(data.solution);
+  renderProcess(data.process);
+  renderOutcomes(data.outcomes);
 }
 
 // Keys mirror the Figma layer/component names (Case Study Header, Summary
@@ -51,12 +55,12 @@ function renderCaseStudyHeader(caseStudyHeader) {
 }
 
 // ds-summary's slots are fixed (goal/outcome/role/client-scope) and keyed
-// here by label text, not by array position -- meta's order in the JSON
+// here by each item's title, not by array position -- the summary order in the JSON
 // is only for a human reading the file (see the Goal/Outcomes/Role/Client
 // and scope reorder Bosco asked for across every case study), it has
 // never driven what shows up where on screen. ds-summary's own
 // grid-template-areas control the actual visual order per breakpoint.
-const SUMMARY_SLOT_BY_LABEL = {
+const SUMMARY_SLOT_BY_TITLE = {
   "Goal": "goal",
   "Outcomes": "outcome",
   "Role": "role",
@@ -65,10 +69,10 @@ const SUMMARY_SLOT_BY_LABEL = {
 
 function renderSummary(summaryItems) {
   const summary = document.querySelector("ds-summary");
-  for (const { label, description } of summaryItems) {
-    const slotName = SUMMARY_SLOT_BY_LABEL[label];
+  for (const { title, description } of summaryItems) {
+    const slotName = SUMMARY_SLOT_BY_TITLE[title];
     if (!slotName) {
-      console.warn(`Unknown summary label "${label}" -- no matching ds-summary slot`);
+      console.warn(`Unknown summary title "${title}" -- no matching ds-summary slot`);
       continue;
     }
     const span = document.createElement("span");
@@ -79,15 +83,110 @@ function renderSummary(summaryItems) {
 }
 
 function renderContext(context) {
-  document.querySelector(".section-divider__label").textContent = context.sectionDivider;
-
   const pullout = document.querySelector("ds-pullout");
-  const header = document.createElement("span");
-  header.slot = "header";
-  header.textContent = context.pulloutLayout.pullout.statement;
-  pullout.append(header);
+  const statement = document.createElement("span");
+  statement.slot = "header";
+  statement.textContent = context.statement;
+  pullout.append(statement);
 
-  buildList(document.querySelector("ds-list"), context.pulloutLayout.list);
+  buildList(document.querySelector("ds-list"), context.list);
+}
+
+// The Solution section's arrangement lives in the page markup, written
+// from Figma: which layout each subsection uses, which showcase is a
+// single image and which is split into panels, and each panel's span.
+// This only fills that markup in with the case study's own words and
+// image paths from its JSON.
+//
+// The two are matched by position and by letter: the nth subsection in
+// the JSON fills the nth .layout in the page, and showcase "A" fills
+// .layout__caption-a and .layout__showcase-a -- the same letters the
+// Figma layers use, so a caption can't end up beside the wrong picture.
+// A showcase's images fill its panels in order.
+function renderSolution(solution) {
+  const section = document.querySelector(".case-study-section");
+  if (!section || !solution) return;
+
+  const layouts = section.querySelectorAll(".layout");
+  const subsections = solution.subsections ?? [];
+  if (subsections.length !== layouts.length) {
+    console.warn(`Solution: ${subsections.length} subsection(s) in the JSON, ${layouts.length} in the page markup`);
+  }
+
+  subsections.forEach((subsection, i) => {
+    const layout = layouts[i];
+    if (!layout) return;
+
+    const heading = layout.querySelector(".subhead__heading");
+    if (heading) heading.textContent = subsection.subhead ?? "";
+
+    for (const showcase of subsection.showcases ?? []) {
+      const letter = (showcase.showcase ?? "a").toLowerCase();
+
+      const caption = layout.querySelector(`.layout__caption-${letter}`);
+      if (caption) {
+        caption.querySelector(".figure-caption__title").textContent = showcase.captionTitle ?? "";
+        caption.querySelector(".figure-caption__body").textContent = showcase.captionBody ?? "";
+      } else if (showcase.captionTitle || showcase.captionBody) {
+        console.warn(`Solution: showcase ${letter.toUpperCase()} has a caption, but the page markup has no .layout__caption-${letter}`);
+      }
+
+      const slots = layout.querySelectorAll(`.layout__showcase-${letter} img`);
+      const images = showcase.images ?? [];
+      if (images.length !== slots.length) {
+        console.warn(`Solution: showcase ${letter.toUpperCase()} has ${images.length} image(s) in the JSON, ${slots.length} in the page markup`);
+      }
+      images.forEach((image, n) => {
+        const img = slots[n];
+        if (!img) return;
+        img.src = image.src;
+        img.alt = image.alt ?? "";
+      });
+    }
+  });
+}
+
+// Process and Outcomes are both a Pullout Layout, so they share a shape:
+// a statement or quote on the left, and its support on the right.
+function renderProcess(process) {
+  if (!process) return;
+  const section = [...document.querySelectorAll(".case-study-section")]
+    .find((s) => s.querySelector(".section-divider__label")?.textContent === "Process");
+  if (!section) return;
+
+  const pullout = section.querySelector("ds-pullout");
+  const statement = document.createElement("span");
+  statement.slot = "header";
+  statement.textContent = process.statement;
+  pullout.append(statement);
+
+  section.querySelector(".pullout-layout__description").textContent = process.description ?? "";
+
+  const action = section.querySelector(".pullout-layout__action");
+  if (process.button?.label) {
+    action.querySelector("span").textContent = process.button.label;
+    action.href = process.button.href || "#";
+  } else {
+    action.remove();
+  }
+}
+
+function renderOutcomes(outcomes) {
+  if (!outcomes) return;
+  const section = [...document.querySelectorAll(".case-study-section")]
+    .find((s) => s.querySelector(".section-divider__label")?.textContent === "Outcomes");
+  if (!section) return;
+
+  const pullout = section.querySelector("ds-pullout");
+  const quote = document.createElement("span");
+  quote.slot = "header";
+  quote.textContent = outcomes.quote;
+  const attribution = document.createElement("span");
+  attribution.slot = "attribution";
+  attribution.textContent = outcomes.attribution;
+  pullout.append(quote, attribution);
+
+  buildList(section.querySelector("ds-list"), outcomes.list ?? []);
 }
 
 renderCaseStudy();

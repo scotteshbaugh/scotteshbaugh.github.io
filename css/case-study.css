@@ -41,6 +41,7 @@
   color: var(--color-text-default-default);
 }
 
+/* bp: medium */
 @media (min-width: 720px) {
   /* 720/960 here match breakpoints.js's BREAKPOINTS.medium/expanded --
      this file is plain CSS (not a JS template literal), so it can't
@@ -51,6 +52,7 @@
   }
 }
 
+/* bp: expanded */
 @media (min-width: 960px) {
   .case-study-header__heading {
     font-size: var(--typography-heading-size-1);
@@ -333,6 +335,7 @@
    Plain CSS can't read breakpoints.js, so 720 and 1600 are repeated here
    by hand. Panels keep their split at every width -- only the showcases
    themselves stack on Compact (see .layout). */
+/* bp: below spacious */
 @media (max-width: 1599px) {
   .showcase {
     padding: var(--size-primitive-space-600);  /* 24px, Space/600 */
@@ -340,6 +343,7 @@
   }
 }
 
+/* bp: below medium */
 @media (max-width: 719px) {
   .showcase {
     padding: var(--size-primitive-space-400);  /* 16px, Space/400 */
@@ -347,8 +351,129 @@
   }
 }
 
+/* bp: below spacious */
 @media (max-width: 1599px) {
   .showcase--single { padding: 0; }
+}
+
+/* ---- Pullout Layout (Figma node 433:31094) ----
+   A statement on the left with its support on the right: the repeatable
+   shape behind the Context, Outcome and Process sections. Figma's
+   Property variants (Context, Outcome, Process) are content presets, not
+   separate rules -- all three are this one grid, so code only needs the
+   shape.
+
+   Medium and up: a 12-column grid. The pullout takes columns 1-5, its
+   support takes 6-11, and column 12 stays open so the support never runs
+   to the page's edge. Compact: one column, pullout first, 32px apart.
+
+   720 below is Breakpoints/Medium (see components/breakpoints.js),
+   repeated here by hand like every other plain CSS file in this codebase
+   -- only the web components can read the generated value.
+
+   The support side is whatever backs the statement up -- a numbered
+   <ds-list-item>, a .showcase, or nothing at all.
+
+   <div class="pullout-layout">
+     <div class="pullout-layout__pullout">
+       <ds-pullout><span slot="header">Statement...</span></ds-pullout>
+     </div>
+     <ds-list-item class="pullout-layout__support" layout="stack"
+                   variant="primary" numbered>...</ds-list-item>
+   </div>
+
+   Process adds a description under the statement and an action below
+   both, which is what .pullout-layout__statement and
+   .pullout-layout__action are for:
+
+   <div class="pullout-layout__pullout">
+     <div class="pullout-layout__statement">
+       <ds-pullout><span slot="header">Statement...</span></ds-pullout>
+       <p class="pullout-layout__description">Description</p>
+     </div>
+     <a class="pullout-layout__action" href="...">Button</a>
+   </div>
+*/
+
+.pullout-layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--size-primitive-space-600); /* 24px, Space/600 */
+  align-items: start;
+  width: 100%;
+}
+
+.pullout-layout__pullout {
+  grid-column: 1 / span 5;
+  max-width: var(--size-primitive-container-1200); /* 960px -- caps the
+    statement's measure on very wide screens, the same job the list's own
+    800px cap does. Below Spacious the five columns are narrower than
+    this, so it only engages on a very wide page. */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-800); /* 32px -- statement group to action */
+}
+
+.pullout-layout__support {
+  grid-column: 6 / span 6;
+}
+
+/* A list caps at Container/1000 (800px) -- past that a line of body text
+   gets too long to read comfortably. A showcase has no cap: it's a
+   picture, so it keeps filling its six columns. */
+ds-list-item.pullout-layout__support {
+  max-width: var(--size-primitive-container-1000);
+}
+
+/* Statement and description read as one block, so they sit 8px apart --
+   the same pairing gap Pullout uses between a quote and its attribution. */
+.pullout-layout__statement {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--size-primitive-space-200); /* 8px, Space/200 */
+  width: 100%;
+}
+
+.pullout-layout__description {
+  margin: 0;
+  font-family: var(--typography-body-font-family), sans-serif;
+  font-size: var(--typography-body-body-size-1);
+  line-height: var(--typography-body-body-line-height-1);
+  font-weight: 400;
+  color: var(--color-text-default-default);
+}
+
+/* Provisional: there is no Button component yet, in Figma or here -- the
+   Process variant draws one locally (node 489:32001). These are that
+   frame's values, nothing more: no variants, sizes or states. When a real
+   Button exists, this rule goes away and the markup uses it instead. */
+.pullout-layout__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-primitive-space-200);
+  padding: var(--size-primitive-space-300); /* 12px, Space/300 */
+  border: var(--size-primitive-stroke-25) solid var(--color-border-brand-default);
+  border-radius: var(--size-primitive-radius-200);
+  background: var(--color-background-brand-default);
+  font-family: var(--typography-button-font-family), sans-serif;
+  font-size: var(--typography-button-size);
+  color: var(--color-text-brand-on-brand);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* bp: below medium */
+@media (max-width: 719px) {
+  .pullout-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--size-primitive-space-800); /* 32px, Space/800 */
+  }
+  .pullout-layout > * {
+    grid-column: 1;
+  }
 }
 
 /* ---- Case Study Section + Layouts (Figma nodes 263:8048, 363:8124) ----
@@ -422,6 +547,7 @@
 .layout--over-on-over .layout__showcase-b { grid-column: 3 / span 7; grid-row: 3; }
 .layout--over-on-over .layout__caption-b  { grid-column: 10 / span 2; grid-row: 3; }
 
+/* bp: below medium */
 @media (max-width: 719px) {
   .layout,
   .layout--side-by-side {
@@ -480,6 +606,7 @@
     list column's measure, matching Figma's List instance in this row. */
 }
 
+/* bp: below medium */
 @media (max-width: 719px) {
   .case-study-context__grid {
     /* Figma doesn't define a Compact/Medium variant of this row yet -- a

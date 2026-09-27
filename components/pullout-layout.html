@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pullout Layout preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/case-study.css">
+<script type="module" src="pullout.js"></script>
+<script type="module" src="list-item.js"></script>
+<script type="module" src="image.js"></script>
+<style>
+  /* preview-page-only styling, not part of the pattern */
+  /* No body padding: the demos sit in the real page container (.content
+     from css/layout.css), so the gutters here are the page's own --
+     32px on Compact, 48 from Medium, 96 on Spacious. */
+  body { margin: 0; background: #ffffff; font-family: sans-serif; }
+  h2.demo { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 56px 0 16px; font-weight: 400; }
+  h2.demo:first-of-type { margin-top: 0; }
+  .note { max-width: 800px; margin: 0; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<main class="content">
+<p class="note">Pullout Layout is a plain CSS pattern (css/case-study.css), not a web component. Figma's Context, Outcome and Process variants are content presets of the same grid — pullout in columns 1–5, support in 6–11. Resize below 720px to see it stack.</p>
+
+
+<h2 class="demo">Context -- statement with a numbered list</h2>
+<div class="pullout-layout">
+  <div class="pullout-layout__pullout">
+    <ds-pullout>
+      <span slot="header">How might we design a better way for admins to configure a self-service experience?</span>
+    </ds-pullout>
+  </div>
+  <ds-list-item class="pullout-layout__support" layout="stack" variant="primary" numbered>
+    IAM platforms perform many functions and Self-service is a foundational element.
+    <span slot="item-2">Out-of-the-box self-service experiences are often limited in functionality and lag in usability.</span>
+    <span slot="item-3">Customers tend to build their own, but are left with the burden of maintaining them.</span>
+    <span slot="item-4">The vision was to make the self-service experience highly configurable and consumer grade.</span>
+  </ds-list-item>
+</div>
+
+<h2 class="demo">Outcome -- quote with a numbered list</h2>
+<div class="pullout-layout">
+  <div class="pullout-layout__pullout">
+    <ds-pullout type="quote">
+      <span slot="header">In a space where scope was poorly defined across four product areas, Scott delivered a coherent solution through close collaboration with PM, architecture, and engineering.</span>
+      <span slot="attribution">Design manager</span>
+    </ds-pullout>
+  </div>
+  <ds-list-item class="pullout-layout__support" layout="stack" variant="primary" numbered>
+    Self-Service was a dormant capability with unclear requirements and dependencies.
+    <span slot="item-2">I drove commitment and delivered a flexible, usable self-service experience.</span>
+    <span slot="item-3">I extended theming, enabling full branded experiences across the platform.</span>
+    <span slot="item-4">I introduced workflows and components for our platform's growing complexity.</span>
+  </ds-list-item>
+</div>
+
+<h2 class="demo">Process -- statement, description and an action, with a showcase</h2>
+<div class="pullout-layout">
+  <div class="pullout-layout__pullout">
+    <div class="pullout-layout__statement">
+      <ds-pullout>
+        <span slot="header">The most complex challenge was to design a configurable user profile</span>
+      </ds-pullout>
+      <p class="pullout-layout__description">This was complex because flexible profile configuration had to comply with SCIM 2.0 requirements while also integrating with legacy platform components.</p>
+    </div>
+    <a class="pullout-layout__action" href="#">Button</a>
+  </div>
+  <div class="showcase showcase--single pullout-layout__support">
+    <ds-image><img src="../assets/self-service/03-solution-01a-configuration-admin-user.png" width="4320" height="3966" alt="Self-service settings in the admin console, showing a table of profile attributes."></ds-image>
+  </div>
+</div>
+
+<h2 class="demo">Statement on its own -- no support side</h2>
+<div class="pullout-layout">
+  <div class="pullout-layout__pullout">
+    <div class="pullout-layout__statement">
+      <ds-pullout>
+        <span slot="header">The most complex challenge was to design a configurable user profile</span>
+      </ds-pullout>
+      <p class="pullout-layout__description">This was complex because flexible profile configuration had to comply with SCIM 2.0 requirements while also integrating with legacy platform components.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+</body>
+</html>

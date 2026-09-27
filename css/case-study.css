@@ -541,6 +541,13 @@ ds-list.pullout-layout__support {
 .layout--side-by-side .layout__caption-b  { grid-column: 7 / span 4; grid-row: 2; }
 .layout--side-by-side .layout__showcase-b { grid-column: 7 / span 5; grid-row: 3; }
 
+/* Single -- one showcase in the middle 7 columns, its caption beside it
+   on the right. Figma's Subsection Layout variant "Single, Captions=Right
+   side" (node 426:30881). The caption sits at the showcase's bottom edge,
+   as the Self-service page places it, not at its top. */
+.layout--single .layout__showcase-a { grid-column: 3 / span 7; grid-row: 2; }
+.layout--single .layout__caption-a  { grid-column: 10 / span 3; grid-row: 2; align-self: end; }
+
 /* Over on Over -- two showcases stacked in the middle 7 columns, caption
    beside the second one. */
 .layout--over-on-over .layout__showcase-a { grid-column: 3 / span 7; grid-row: 2; }

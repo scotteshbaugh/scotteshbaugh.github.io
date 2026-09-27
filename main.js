@@ -5,11 +5,11 @@
 // rather than being duplicated into main.html card by card.
 //
 // Loaded as an ES module -- pulls in ds-card-case-study, which in turn
-// imports ds-tag/ds-divider/ds-card-image/ds-list-item, so this one script tag
+// imports ds-tag/ds-divider/ds-card-image/ds-list, so this one script tag
 // is all main.html needs for both the card component and this page logic.
 
 import "./components/card-case-study.js";
-import { appendListItems } from "./components/build-list-item.js";
+import { buildList } from "./components/build-list.js";
 
 const LIST_SELECTOR = ".case-studies__cards";
 const DATA_URL = "data/case-studies.json";
@@ -79,7 +79,7 @@ function buildCardElement(study) {
     card.append(outcome);
   }
 
-  card.append(buildListItem("meta", [study.year, ...(study.role ?? [])]));
+  card.append(buildSlottedList("meta", [study.year, ...(study.role ?? [])]));
 
   const image = document.createElement("ds-card-image");
   image.slot = "image";
@@ -90,19 +90,18 @@ function buildCardElement(study) {
   card.append(image);
 
   if (study.descriptors?.length) {
-    card.append(buildListItem("descriptors", study.descriptors));
+    card.append(buildSlottedList("descriptors", study.descriptors));
   }
 
   return card;
 }
 
-// Builds a <ds-list-item> for the given slot name from a list of strings
-// -- see components/build-list-item.js for how the strings map onto the
-// element's own slots.
-function buildListItem(slotName, items) {
-  const listItem = document.createElement("ds-list-item");
-  listItem.slot = slotName;
-  return appendListItems(listItem, items);
+// Builds a <ds-list> for the given slot name from a list of strings --
+// see components/build-list.js.
+function buildSlottedList(slotName, items) {
+  const list = document.createElement("ds-list");
+  list.slot = slotName;
+  return buildList(list, items);
 }
 
 renderCaseStudies();

@@ -11,7 +11,7 @@
 // for everything this deviates from the Figma "Summary" component.
 //
 // Why the four fields are fixed slots instead of a generic repeatable list:
-// unlike ds-list-item (which holds 1-3 arbitrary short items), this
+// unlike ds-list (which holds any number of short items), this
 // component's fields are a fixed, named schema meant to stay consistent
 // across every case study on the site -- Goal/Outcome/Role/Client and
 // scope, always with those labels. The labels themselves live in this

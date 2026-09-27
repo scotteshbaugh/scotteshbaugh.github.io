@@ -378,8 +378,8 @@
      <div class="pullout-layout__pullout">
        <ds-pullout><span slot="header">Statement...</span></ds-pullout>
      </div>
-     <ds-list-item class="pullout-layout__support" layout="stack"
-                   variant="primary" numbered>...</ds-list-item>
+     <ds-list class="pullout-layout__support" layout="stack"
+              variant="primary" numbered>...</ds-list>
    </div>
 
    Process adds a description under the statement and an action below
@@ -422,7 +422,7 @@
 /* A list caps at Container/1000 (800px) -- past that a line of body text
    gets too long to read comfortably. A showcase has no cap: it's a
    picture, so it keeps filling its six columns. */
-ds-list-item.pullout-layout__support {
+ds-list.pullout-layout__support {
   max-width: var(--size-primitive-container-1000);
 }
 

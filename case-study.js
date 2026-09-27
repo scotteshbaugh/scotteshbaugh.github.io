@@ -19,8 +19,8 @@
 
 import "./components/summary.js";
 import "./components/pullout.js";
-import "./components/list-item.js";
-import { appendListItems } from "./components/build-list-item.js";
+import "./components/list.js";
+import { buildList } from "./components/build-list.js";
 
 const slug = location.pathname.split("/").pop().replace(/\.html$/, "");
 const DATA_URL = `data/case-studies/${slug}.json`;
@@ -87,8 +87,7 @@ function renderContext(context) {
   header.textContent = context.pulloutLayout.pullout.statement;
   pullout.append(header);
 
-  const listItem = document.querySelector("ds-list-item");
-  appendListItems(listItem, context.pulloutLayout.list);
+  buildList(document.querySelector("ds-list"), context.pulloutLayout.list);
 }
 
 renderCaseStudy();

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>List preview</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<script type="module" src="list.js"></script>
+<style>
+  /* preview-page-only styling, not part of the component */
+  body { margin: 0; padding: 32px; background: #ffffff; font-family: sans-serif; }
+  h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: #6f6f6f; margin: 40px 0 12px; font-weight: 400; }
+  h2:first-of-type { margin-top: 0; }
+  .note { max-width: 720px; margin: 0 0 32px; padding: 12px 16px; background: #f4f4f4; border-radius: 4px; font-size: 13px; color: #525252; line-height: 1.5; }
+  .col { max-width: 480px; }
+</style>
+</head>
+<body>
+
+<p class="note">List holds any number of List Items, puts the rules between them, and sets their style, direction and numbering. The items themselves only carry their text.</p>
+
+<h2>Row — 1, 2, 3, 4 items</h2>
+<ds-list><ds-list-item>2019&ndash;2021</ds-list-item></ds-list>
+<ds-list>
+  <ds-list-item>2019&ndash;2021</ds-list-item>
+  <ds-list-item>Senior Product Designer</ds-list-item>
+</ds-list>
+<ds-list>
+  <ds-list-item>2019&ndash;2021</ds-list-item>
+  <ds-list-item>Senior Product Designer</ds-list-item>
+  <ds-list-item>IBM</ds-list-item>
+</ds-list>
+<ds-list>
+  <ds-list-item>2019&ndash;2021</ds-list-item>
+  <ds-list-item>Senior Product Designer</ds-list-item>
+  <ds-list-item>IBM</ds-list-item>
+  <ds-list-item>Austin, TX</ds-list-item>
+</ds-list>
+
+<h2>Stack</h2>
+<div class="col">
+  <ds-list layout="stack">
+    <ds-list-item>IBM</ds-list-item>
+    <ds-list-item>Staff Product Designer</ds-list-item>
+    <ds-list-item>Austin, TX</ds-list-item>
+  </ds-list>
+</div>
+
+<h2>Stack, primary, numbered — a case study's points</h2>
+<div class="col">
+  <ds-list layout="stack" variant="primary" numbered>
+    <ds-list-item>IAM platforms perform many functions and Self-service is a foundational element.</ds-list-item>
+    <ds-list-item>Out-of-the-box self-service experiences are often limited in functionality and lag in usability.</ds-list-item>
+    <ds-list-item>Customers tend to build their own, but are left with the burden of maintaining them.</ds-list-item>
+    <ds-list-item>The vision was to make the self-service experience highly configurable and consumer grade.</ds-list-item>
+  </ds-list>
+</div>
+
+<h2>Six items — no cap</h2>
+<div class="col">
+  <ds-list layout="stack" variant="primary" numbered>
+    <ds-list-item>One</ds-list-item>
+    <ds-list-item>Two</ds-list-item>
+    <ds-list-item>Three</ds-list-item>
+    <ds-list-item>Four</ds-list-item>
+    <ds-list-item>Five</ds-list-item>
+    <ds-list-item>Six</ds-list-item>
+  </ds-list>
+</div>
+
+<h2>Row, primary</h2>
+<ds-list variant="primary">
+  <ds-list-item>Item</ds-list-item>
+  <ds-list-item>Item</ds-list-item>
+  <ds-list-item>Item</ds-list-item>
+</ds-list>
+
+</body>
+</html>

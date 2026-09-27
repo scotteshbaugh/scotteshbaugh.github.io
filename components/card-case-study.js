@@ -35,10 +35,10 @@
 //   header       the case study title (e.g. an <h3>, or bare text)
 //   description  the short teaser under the title
 //   outcome      the longer result/story text, under the divider
-//   meta         a <ds-list-item> (e.g. year + role) -- see breakpoint
+//   meta         a <ds-list> (e.g. year + role) -- see breakpoint
 //                note above for where it renders
 //   image        a <ds-card-image> with its <img>
-//   descriptors  a <ds-list-item> of short tags under the image
+//   descriptors  a <ds-list> of short tags under the image
 //
 // Usage:
 //   <ds-card-case-study>
@@ -47,17 +47,17 @@
 //     <h3 slot="header">Case study title</h3>
 //     <p slot="description">One-line teaser.</p>
 //     <p slot="outcome">The fuller outcome and story.</p>
-//     <ds-list-item slot="meta">
+//     <ds-list slot="meta">
 //       2019–2021
 //       <span slot="item-2">Senior Product Designer</span>
-//     </ds-list-item>
+//     </ds-list>
 //     <ds-card-image slot="image">
 //       <img src="cover.jpg" alt="…">
 //     </ds-card-image>
-//     <ds-list-item slot="descriptors">
+//     <ds-list slot="descriptors">
 //       B2B SaaS
 //       <span slot="item-2">Healthcare</span>
-//     </ds-list-item>
+//     </ds-list>
 //   </ds-card-case-study>
 //
 // Loaded as an ES module (type="module") -- this file imports its own
@@ -65,7 +65,7 @@
 // tag.js/divider.js/card-image.js/list-item.js don't need their own <script>
 // tags too. This card's own shadow DOM only creates <ds-divider>
 // elements directly, but every real usage also slots in <ds-tag>,
-// <ds-card-image>, and <ds-list-item> -- importing all four here means one
+// <ds-card-image>, and <ds-list> -- importing all four here means one
 // script tag is enough to get everything the card needs, instead of a
 // page listing four separate tags in the right order.
 
@@ -73,7 +73,7 @@ import { BREAKPOINTS, QUERY_EXPANDED, QUERY_MEDIUM_ONLY } from "./breakpoints.js
 import "./tag.js";
 import "./divider.js";
 import "./card-image.js";
-import "./list-item.js";
+import "./list.js";
 
 const CARD_TEMPLATE = /* html */ `
 <style>

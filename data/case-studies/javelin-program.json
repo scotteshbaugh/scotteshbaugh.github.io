@@ -31,7 +31,143 @@
     ]
   },
   "solution": {
-    "subsections": []
+    "subsections": [
+      {
+        "subhead": "The seller's 12-week Javelin Program journey",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Selection and onboarding",
+            "captionBody": "Over 3–4 meetings, our team brings together a cohort. We introduce the program, design thinking and identify a client goal."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Activation workshop",
+            "captionBody": "Over 3 days, we develop their design thinking skills and identify new behaviors to adopt in the context of their client goal."
+          },
+          {
+            "showcase": "C",
+            "captionTitle": "Remote coaching",
+            "captionBody": "Over 8 weeks, coaches hold weekly remote coaching sessions with the team to progress them toward their client goal and new behaviors."
+          },
+          {
+            "showcase": "D",
+            "captionTitle": "Equipping for success",
+            "captionBody": "Over one meeting, we hold a retrospective with each team and set new goals they own moving forward."
+          }
+        ]
+      },
+      {
+        "subhead": "The program's first phase was selection and onboarding",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Gaining stakeholder buy-in",
+            "captionBody": "Securing the managing director's sponsorship was critical to the program's success, so we tailored our message to resonate."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Structure earned trust",
+            "captionBody": "This internal timeline shows the coordination used to prepare sellers for kickoff. The structured rollout built trust and improved adoption."
+          }
+        ]
+      },
+      {
+        "subhead": "The program's second phase was a three-day activation workshop",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Designing behavior change",
+            "captionBody": "Sales teams left the workshop with achievable ways to change their behavior, tools, and work environment."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Applied design thinking education",
+            "captionBody": "Even in sales, design thinking's ability to visualize and democratize perspectives helped teams align and consider new ideas."
+          }
+        ]
+      },
+      {
+        "subhead": "The program's third phase was remote coaching",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Providing coaching structure",
+            "captionBody": "Coaches owned their approach to design thinking adoption, but we provided structure to keep them moving."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "New remote ways of working",
+            "captionBody": "Tools like Mural enabled remote collaboration at scale and showed design thinking could happen anywhere, which was novel in 2018."
+          }
+        ]
+      },
+      {
+        "subhead": "The program's final phase was equipping for success",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Credentialed in design thinking",
+            "captionBody": "At the end of the program, participants were eligible for a Co-Creator badge, a significant milestone recognizing their design thinking abilities."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Reflection and new goal setting",
+            "captionBody": "This template guided offboarding, supporting reflection, gathering feedback, and setting new goals."
+          }
+        ]
+      },
+      {
+        "subhead": "A design decision we made was to close the distance between learning and use",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "The Client Goal made it real",
+            "captionBody": "It was identified during onboarding, explored in the workshop, and advanced through remote coaching."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Fitting design thinking to sales",
+            "captionBody": "Our understanding of seller workflows let us tailor design thinking activities and mindsets to their daily work."
+          }
+        ]
+      },
+      {
+        "subhead": "A design decision we made was to set a big goal and break it into effortless steps",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Prioritizing and tracking",
+            "captionBody": "Focusing on one key behavior set a clear priority and prevented overwhelm, while tracking improved adoption through self-regulation."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Finding the cues for action",
+            "captionBody": "Every habit needs a prompt. We helped sellers identify the right moments, clarifying when to act, not just what to do."
+          },
+          {
+            "showcase": "C",
+            "captionTitle": "Coaches made heavy work lighter",
+            "captionBody": "Coaches created a zone of proximal development by removing barriers and modeling the behaviors in practice."
+          }
+        ]
+      },
+      {
+        "subhead": "A design decision we made was to scale by using existing organizational supports",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Enterprise Design Thinking badges",
+            "captionBody": "The badging platform bootstrapped sellers during the program and provided a pathway for growth after the program."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Teamwork makes the dream work",
+            "captionBody": "A global coaching network and cohort leaders embedded within each region were the backbone of our program."
+          }
+        ]
+      }
+    ]
   },
   "process": {
     "statement": "",
@@ -42,8 +178,14 @@
     }
   },
   "outcomes": {
-    "quote": "",
-    "attribution": "",
-    "list": []
+    "quote": "For us this is more about culture and methods than about process. It helps us to change the DNA of our team towards client centricity.",
+    "attribution": "IBM Managing Director, European car manufacturer",
+    "list": [
+      "The program grew steadily and won the support of key sales leaders.",
+      "Over 90% of IBM's most prominent sales teams voluntarily engaged in this program.",
+      "Teams increased their design thinking maturity by 42% through the program.",
+      "We influenced over $1.2B dollars across 233 opportunities from 57 accounts.",
+      "Sellers described better client relationships and deeper opportunities."
+    ]
   }
 }

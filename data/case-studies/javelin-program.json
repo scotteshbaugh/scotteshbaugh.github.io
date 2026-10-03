@@ -137,18 +137,18 @@
         "showcases": [
           {
             "showcase": "A",
+            "captionTitle": "Coaches made heavy work lighter",
+            "captionBody": "Coaches created a zone of proximal development by removing barriers and modeling the behaviors in practice."
+          },
+          {
+            "showcase": "B",
             "captionTitle": "Prioritizing and tracking",
             "captionBody": "Focusing on one key behavior set a clear priority and prevented overwhelm, while tracking improved adoption through self-regulation."
           },
           {
-            "showcase": "B",
+            "showcase": "C",
             "captionTitle": "Finding the cues for action",
             "captionBody": "Every habit needs a prompt. We helped sellers identify the right moments, clarifying when to act, not just what to do."
-          },
-          {
-            "showcase": "C",
-            "captionTitle": "Coaches made heavy work lighter",
-            "captionBody": "Coaches created a zone of proximal development by removing barriers and modeling the behaviors in practice."
           }
         ]
       },
@@ -181,11 +181,10 @@
     "quote": "For us this is more about culture and methods than about process. It helps us to change the DNA of our team towards client centricity.",
     "attribution": "IBM Managing Director, European car manufacturer",
     "list": [
-      "The program grew steadily and won the support of key sales leaders.",
-      "Over 90% of IBM's most prominent sales teams voluntarily engaged in this program.",
-      "Teams increased their design thinking maturity by 42% through the program.",
-      "We influenced over $1.2B dollars across 233 opportunities from 57 accounts.",
-      "Sellers described better client relationships and deeper opportunities."
+      "Design thinking had reached every part of IBM except sales",
+      "I built the learning objectives and habits that fit how sellers actually work",
+      "We coached IBM's top 80 client account teams over a 12-week program",
+      "The program influenced $1.2B in revenue and remains a template for similar efforts"
     ]
   }
 }

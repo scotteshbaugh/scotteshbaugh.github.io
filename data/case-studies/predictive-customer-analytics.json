@@ -31,19 +31,52 @@
     ]
   },
   "solution": {
-    "subsections": []
+    "subsections": [
+      {
+        "subhead": "Begin analyses with starting points",
+        "showcases": []
+      },
+      {
+        "subhead": "Monitor and identify customers",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Customer scorecard",
+            "captionBody": ""
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Section of the Attrition lens",
+            "captionBody": ""
+          }
+        ]
+      },
+      {
+        "subhead": "Manually edit customer lists with rules",
+        "showcases": []
+      },
+      {
+        "subhead": "Export to many platforms",
+        "showcases": []
+      }
+    ]
   },
   "process": {
-    "statement": "",
-    "description": "",
+    "statement": "The biggest challenge was convincing stakeholders to evolve PCA’s core workflow to match user needs.",
+    "description": "Stakeholders initially favored a conventional file-management model, while research revealed a cyclical analytical workflow. The resulting workspace connected customer lists with the analysis workflow, enabling analysts to move bidirectionally between understanding and shaping the lists.",
     "button": {
-      "label": "",
+      "label": "Read the full case study",
       "href": ""
     }
   },
   "outcomes": {
     "quote": "",
     "attribution": "",
-    "list": []
+    "list": [
+      "PCA started as a market need with no defined user experience",
+      "I brought it from initial framing to a limited release with clients",
+      "I drove alignment across product, research and engineering to keep it moving",
+      "PCA merged into Watson Marketing Insights, later sold and spun out as Acoustic"
+    ]
   }
 }

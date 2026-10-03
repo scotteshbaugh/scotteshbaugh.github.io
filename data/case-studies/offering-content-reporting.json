@@ -31,7 +31,61 @@
     ]
   },
   "solution": {
-    "subsections": []
+    "subsections": [
+      {
+        "subhead": "Offering Content Dashboard user flow",
+        "showcases": []
+      },
+      {
+        "subhead": "I made the decision to integrate reporting with the Content+ experience to drive adoption of the dashboard and reduce mental models.",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Offering Profile overview",
+            "captionBody": "Offering team members switch to the dashboard from the Offering Profile"
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Offering Dashboard overview",
+            "captionBody": "The Offering Profile and Dashboard share layout and navigation patterns."
+          }
+        ]
+      },
+      {
+        "subhead": "To drive adoption of healthy offering management behavior, I used the reporting experience to communicate rules set by governance in addition to persuasive design patterns that stir up intrinsic motivators.",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Alerts",
+            "captionBody": "Alerts drive Offering team members toward urgent actions that need resolution."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Benchmarking",
+            "captionBody": "Offering teams will be motivated to be similar to or compete with their peers."
+          }
+        ]
+      },
+      {
+        "subhead": "To be efficient with an Offering team's focus, I prioritized showing conclusions first then providing evidence second using various visual design principles.",
+        "showcases": []
+      },
+      {
+        "subhead": "To provide deeper insight that guides offering lifecycle activities, I used rich usage data, qualitative feedback, and offered it in real time.",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Helpfulness",
+            "captionBody": "Offering teams can understand how an artifact’s helpfulness is trending."
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Quotes",
+            "captionBody": "Sorely missing, Offering teams can start to understand the underlying reasons for their content’s performance."
+          }
+        ]
+      }
+    ]
   },
   "process": {
     "statement": "",
@@ -44,6 +98,11 @@
   "outcomes": {
     "quote": "",
     "attribution": "",
-    "list": []
+    "list": [
+      "Offering teams had no view of how their content was used or valued",
+      "I led research that surfaced who updates offering content and why",
+      "I designed an alert-based dashboard that nudges teams to resolve outdated content",
+      "I delivered a feedback loop that shows teams the organization’s sentiment"
+    ]
   }
 }

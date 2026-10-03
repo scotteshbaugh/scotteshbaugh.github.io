@@ -31,7 +31,35 @@
     ]
   },
   "solution": {
-    "subsections": []
+    "subsections": [
+      {
+        "subhead": "Offering Content Report user flow: An offering leader receives an email from IBM Services Offering Management inviting them to check out their offering's Quarter in Review report. Upon arriving at the Home view, they can see their Offering's score across three dimensions: usage, health and performance. As they move through each dimension, they are prompted to explore the data in more detail and provided next best actions they can take to improve each dimension. Upon returning back to the Home view, they can share the report with their team.",
+        "showcases": []
+      },
+      {
+        "subhead": "Design Decision: I used scoring to bring context to data and peer benchmarking to drive behavior change.",
+        "showcases": [
+          {
+            "showcase": "A",
+            "captionTitle": "Scoring on landing page (A)",
+            "captionBody": ""
+          },
+          {
+            "showcase": "B",
+            "captionTitle": "Benchmarking on Usage page (B)",
+            "captionBody": ""
+          }
+        ]
+      },
+      {
+        "subhead": "Design Decision: The report's executive-level audience drove the data density to be light and data visualizations to be concise and impactful.",
+        "showcases": []
+      },
+      {
+        "subhead": "Design Decision: I scaled the voice of Offering Management and pushed teams towards lifecycle activities by providing next best steps (A).",
+        "showcases": []
+      }
+    ]
   },
   "process": {
     "statement": "",
@@ -42,8 +70,13 @@
     }
   },
   "outcomes": {
-    "quote": "",
-    "attribution": "",
-    "list": []
+    "quote": "“I am thrilled to see a report of this nature, every quarter. It not only helps me to assess the progress made, it also helps to focus on area of improvements.”",
+    "attribution": "—IBM Services Offering Leader",
+    "list": [
+      "We piloted the report with four offering teams six weeks after design started",
+      "76% of users returned within the week and 44% downloaded the full report",
+      "Stakeholders approved scaling it from 4 Offerings to 11, then 28 by August 2020",
+      "I carried its reporting patterns into Content+, the new content management system"
+    ]
   }
 }

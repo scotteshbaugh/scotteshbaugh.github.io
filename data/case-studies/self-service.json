@@ -101,7 +101,7 @@
             "captionBody": "This flow is based on the FIDO alliance’s standard and adapted for our platform.",
             "images": [
               {
-                "src": "assets/self-service/ss-03-solution-03d-passkey-flow-composite.png",
+                "src": "assets/self-service/ss-03-solution-03a-passkey-flow-composite.png",
                 "alt": "Three steps of removing a last passkey: the passkey list, the warning that removing it leaves no sign-in method, and the confirmation screen."
               }
             ]

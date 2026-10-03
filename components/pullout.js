@@ -26,11 +26,15 @@
 //          "quote": header slot wrapped in curly quotes, plus an
 //          attribution slot prefixed with an em dash.
 //
-// Responsive header size: mobile default is Heading 4 (smaller), stepping
-// up to Heading 3 at Medium and staying there through Expanded -- same
-// single-breakpoint mobile-only swap as card-case-study.js's own
-// slot[name="header"]. Figma now states this explicitly: Pullout has a
-// Device property (Desktop | Mobile) alongside Type.
+// Responsive header size, per Figma's Breakpoint property (Compact |
+// Medium and up), which the type also changes:
+//
+//   statement   Heading 5 on Compact, Heading 3 from Medium up
+//   quote       Heading 5 on Compact, Heading 4 from Medium up
+//
+// A quote runs smaller than a statement at the same breakpoint: it
+// carries an attribution under it and usually more words, so the pair
+// reads as one block rather than competing with the section heading.
 //
 // Slots:
 //   header        the statement or quote text (required, both variants)
@@ -64,10 +68,10 @@ const PULLOUT_TEMPLATE = /* html */ `
   .pullout__header {
     margin: 0;
     font-family: var(--typography-heading-font-family), sans-serif;
-    /* Mobile: Heading 4 -- Figma Pullout Device=Mobile.
-       Tablet/Desktop step up to Heading 3 (Device=Desktop) below. */
-    font-size: var(--typography-heading-size-4);
-    line-height: var(--typography-heading-line-height-4);
+    /* Compact: Heading 5, both types. Medium and up steps each type up
+       to its own size below. */
+    font-size: var(--typography-heading-size-5);
+    line-height: var(--typography-heading-line-height-5);
     /* No font-weight token here on purpose -- FF Good Pro Wide only has
        one weight registered (500/Medium) in fonts.css, same reasoning
        Tag and Summary's labels document for themselves. */
@@ -75,9 +79,14 @@ const PULLOUT_TEMPLATE = /* html */ `
   }
 
   @media (min-width: ${BREAKPOINTS.medium}px) {
-    .pullout__header {
+    :host([type="statement"]) .pullout__header {
       font-size: var(--typography-heading-size-3);
       line-height: var(--typography-heading-line-height-3);
+    }
+
+    :host([type="quote"]) .pullout__header {
+      font-size: var(--typography-heading-size-4);
+      line-height: var(--typography-heading-line-height-4);
     }
   }
 

@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/case-study.css">
 <script type="module" src="case-study.js"></script>
+<script type="module" src="components/divider.js"></script>
+<script type="module" src="components/image.js"></script>
+<script type="module" src="components/icon.js"></script>
 </head>
 <body>
 
@@ -40,6 +43,169 @@
     <div class="case-study-context__grid">
       <ds-pullout></ds-pullout>
       <ds-list layout="stack" variant="primary" numbered></ds-list>
+
+    </div>
+  </section>
+  <!-- Solution. The arrangement lives here, from Figma (page node 568:22410):
+       which layout each subsection uses, which showcase is single and
+       which is split, and each panel's span. The words and image paths
+       come from data/case-studies/javelin-program.json, matched up by
+       subsection order and showcase letter. -->
+  <section class="case-study-section">
+    <div class="section-divider">
+      <p class="section-divider__label">Solution</p>
+      <ds-divider size="medium"></ds-divider>
+    </div>
+
+    <div class="case-study-section__subsections">
+
+      <!-- 01 Subsection -- Single, Four Above -->
+      <div class="layout layout--single-four-above">
+        <div class="subhead layout__subhead">
+          <ds-divider emphasis="strong"></ds-divider>
+          <h2 class="subhead__heading"></h2>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-a">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-a">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+        <div class="figure-caption layout__caption-b">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+        <div class="figure-caption layout__caption-c">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+        <div class="figure-caption layout__caption-d">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+      </div>
+
+      <!-- 02 Subsection -- Side by Side, Below -->
+      <div class="layout layout--side-by-side-below">
+        <div class="subhead layout__subhead">
+          <ds-divider emphasis="strong"></ds-divider>
+          <h2 class="subhead__heading"></h2>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-a">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-a">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+
+        <!-- Figma: Showcase 2 / 6/6 / Vertical -- two panels, one above the other -->
+        <div class="showcase layout__showcase-b">
+          <div class="showcase__panel"><ds-image><img alt=""></ds-image></div>
+          <div class="showcase__panel"><ds-image><img alt=""></ds-image></div>
+        </div>
+        <div class="figure-caption layout__caption-b">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+      </div>
+
+      <!-- 03 Subsection -- One over Two, Beside -->
+      <div class="layout layout--one-over-two-beside">
+        <div class="subhead layout__subhead">
+          <ds-divider emphasis="strong"></ds-divider>
+          <h2 class="subhead__heading"></h2>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-a">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-a">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-b">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-b">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-c">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-c">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+      </div>
+
+      <!-- 04 Subsection -- Side by Side, Above and Below -->
+      <div class="layout layout--side-by-side-above-and-below">
+        <div class="subhead layout__subhead">
+          <ds-divider emphasis="strong"></ds-divider>
+          <h2 class="subhead__heading"></h2>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-a">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-a">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+
+        <div class="showcase showcase--single layout__showcase-b">
+          <ds-image><img alt=""></ds-image>
+        </div>
+        <div class="figure-caption layout__caption-b">
+          <p class="figure-caption__title"></p>
+          <p class="figure-caption__body"></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Process (Figma node 568:22423). Pullout Layout: statement,
+       description and the action on the left; a showcase on the right,
+       still empty in Figma. -->
+  <section class="case-study-section">
+    <div class="section-divider">
+      <p class="section-divider__label">Process</p>
+      <ds-divider size="medium"></ds-divider>
+    </div>
+    <div class="pullout-layout">
+      <div class="pullout-layout__pullout">
+        <div class="pullout-layout__statement">
+          <ds-pullout></ds-pullout>
+          <p class="pullout-layout__description"></p>
+        </div>
+        <a class="pullout-layout__action" href="">
+          <span></span>
+          <ds-icon name="external-link" size="16"></ds-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcome (Figma page node 568:22410). Pullout Layout: the quote and its
+       attribution on the left, the numbered points on the right. -->
+  <section class="case-study-section">
+    <div class="section-divider">
+      <p class="section-divider__label">Outcome</p>
+      <ds-divider size="medium"></ds-divider>
+    </div>
+    <div class="pullout-layout">
+      <div class="pullout-layout__pullout">
+        <ds-pullout type="quote"></ds-pullout>
+      </div>
+      <ds-list class="pullout-layout__support" layout="stack" variant="primary" numbered></ds-list>
     </div>
   </section>
 </main>

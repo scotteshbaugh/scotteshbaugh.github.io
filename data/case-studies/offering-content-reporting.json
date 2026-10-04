@@ -33,11 +33,11 @@
   "solution": {
     "subsections": [
       {
-        "subhead": "Offering Content Dashboard user flow",
+        "subhead": "Offering teams receive alerts and use summaries to identify gaps in their offering content and organizational reach.",
         "showcases": []
       },
       {
-        "subhead": "I made the decision to integrate reporting with the Content+ experience to drive adoption of the dashboard and reduce mental models.",
+        "subhead": "The report integrates with the offering profile to drive adoption of the dashboard and reduce mental models.",
         "showcases": [
           {
             "showcase": "A",
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "subhead": "To drive adoption of healthy offering management behavior, I used the reporting experience to communicate rules set by governance in addition to persuasive design patterns that stir up intrinsic motivators.",
+        "subhead": "The report communicates rules set by governance and uses persuasive design patterns to stir up intrinsic motivators.",
         "showcases": [
           {
             "showcase": "A",
@@ -67,11 +67,11 @@
         ]
       },
       {
-        "subhead": "To be efficient with an Offering team's focus, I prioritized showing conclusions first then providing evidence second using various visual design principles.",
+        "subhead": "The report prioritizes showing conclusions first then providing evidence second using various visual design principles.",
         "showcases": []
       },
       {
-        "subhead": "To provide deeper insight that guides offering lifecycle activities, I used rich usage data, qualitative feedback, and offered it in real time.",
+        "subhead": "The report combines rich usage data and qualitative feedback to guide offering lifecycle activities in real time.",
         "showcases": [
           {
             "showcase": "A",

@@ -177,14 +177,22 @@ function renderOutcomes(outcomes) {
     .find((s) => s.querySelector(".section-divider__label")?.textContent === "Outcomes");
   if (!section) return;
 
-  const pullout = section.querySelector("ds-pullout");
-  const quote = document.createElement("span");
-  quote.slot = "header";
-  quote.textContent = outcomes.quote;
-  const attribution = document.createElement("span");
-  attribution.slot = "attribution";
-  attribution.textContent = outcomes.attribution;
-  pullout.append(quote, attribution);
+  // Not every case study has a quote -- Figma's Pullout Layout has a Show
+  // Quote property for this. Without one the pullout cell comes out of the
+  // row entirely, and the CSS moves the list to the left edge.
+  const pulloutCell = section.querySelector(".pullout-layout__pullout");
+  if (outcomes.quote) {
+    const pullout = pulloutCell.querySelector("ds-pullout");
+    const quote = document.createElement("span");
+    quote.slot = "header";
+    quote.textContent = outcomes.quote;
+    const attribution = document.createElement("span");
+    attribution.slot = "attribution";
+    attribution.textContent = outcomes.attribution;
+    pullout.append(quote, attribution);
+  } else {
+    pulloutCell.remove();
+  }
 
   buildList(section.querySelector("ds-list"), outcomes.list ?? []);
 }

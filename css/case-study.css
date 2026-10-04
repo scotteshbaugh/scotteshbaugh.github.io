@@ -372,7 +372,9 @@
    -- only the web components can read the generated value.
 
    The support side is whatever backs the statement up -- a numbered
-   <ds-list-item>, a .showcase, or nothing at all.
+   <ds-list-item>, a .showcase, or nothing at all. The pullout side is
+   optional too: an Outcome with no quote drops it (Figma's Show Quote),
+   and the support then starts at the left edge.
 
    <div class="pullout-layout">
      <div class="pullout-layout__pullout">
@@ -417,6 +419,17 @@
 
 .pullout-layout__support {
   grid-column: 6 / span 6;
+}
+
+/* Figma: Show Quote off. With no pullout the support is the only thing in
+   the row, so it moves to the left edge and keeps its six columns (and a
+   list keeps its 800px cap below). Scoped to medium and up so it never
+   outranks the one-column rule for Compact at the bottom of this block. */
+/* bp: medium and up */
+@media (min-width: 720px) {
+  .pullout-layout > .pullout-layout__support:first-child {
+    grid-column: 1 / span 6;
+  }
 }
 
 /* A list caps at Container/1000 (800px) -- past that a line of body text

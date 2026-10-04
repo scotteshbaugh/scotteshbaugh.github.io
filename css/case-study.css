@@ -495,18 +495,19 @@ ds-list.pullout-layout__support {
    a Subhead, Figure Captions and Showcases. Figma's Layout variants
    (Side by Side, Over on Over) are the presets below.
 
-   Markup order is reading order, with each caption right before its
-   showcase (Caption A, Showcase A, Caption B, Showcase B). From Medium up the
-   grid places them; below 720px the grid drops to one column and they
-   stack in that order, so pairs stay together.
+   Markup order is reading order, matching the layer order in Figma:
+   Subhead first, then each showcase followed by its caption (Showcase A,
+   Caption A, Showcase B, Caption B) -- image first, then its context. From
+   Medium up the grid places them; below 720px the grid drops to one column
+   and they stack in that order, so pairs stay together.
 
    <section class="case-study-section">
      <div class="section-divider">...</div>
      <div class="case-study-section__subsections">
        <div class="layout layout--side-by-side">
          <div class="subhead layout__subhead">...</div>
-         <figcaption class="figure-caption layout__caption-a">...</figcaption>
          <div class="showcase layout__showcase-a">...</div>
+         <figcaption class="figure-caption layout__caption-a">...</figcaption>
          ...
        </div>
      </div>

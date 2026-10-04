@@ -33,87 +33,33 @@
   "solution": {
     "subsections": [
       {
-        "subhead": "The seller's 12-week Javelin Program journey",
+        "subhead": "The seller’s 12-week Javelin Program journey",
         "showcases": [
           {
             "showcase": "A",
             "captionTitle": "Selection and onboarding",
-            "captionBody": "Over 3–4 meetings, our team brings together a cohort. We introduce the program, design thinking and identify a client goal."
+            "captionBody": "Sellers join the program, learn the design thinking approach, and identify a client goal.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-01a-program-overview.jpg",
+                "alt": "A collage from the program: a cheering group in a workshop room, people adding sticky notes to a wall, and a video call with a shared whiteboard."
+              }
+            ]
           },
           {
             "showcase": "B",
             "captionTitle": "Activation workshop",
-            "captionBody": "Over 3 days, we develop their design thinking skills and identify new behaviors to adopt in the context of their client goal."
+            "captionBody": "Sellers advance their client goal, apply design thinking, and set behavior-change goals."
           },
           {
             "showcase": "C",
             "captionTitle": "Remote coaching",
-            "captionBody": "Over 8 weeks, coaches hold weekly remote coaching sessions with the team to progress them toward their client goal and new behaviors."
+            "captionBody": "Over 8 weeks, coaches help sellers progress their client goal and develop new behaviors."
           },
           {
             "showcase": "D",
             "captionTitle": "Equipping for success",
-            "captionBody": "Over one meeting, we hold a retrospective with each team and set new goals they own moving forward."
-          }
-        ]
-      },
-      {
-        "subhead": "The program's first phase was selection and onboarding",
-        "showcases": [
-          {
-            "showcase": "A",
-            "captionTitle": "Gaining stakeholder buy-in",
-            "captionBody": "Securing the managing director's sponsorship was critical to the program's success, so we tailored our message to resonate."
-          },
-          {
-            "showcase": "B",
-            "captionTitle": "Structure earned trust",
-            "captionBody": "This internal timeline shows the coordination used to prepare sellers for kickoff. The structured rollout built trust and improved adoption."
-          }
-        ]
-      },
-      {
-        "subhead": "The program's second phase was a three-day activation workshop",
-        "showcases": [
-          {
-            "showcase": "A",
-            "captionTitle": "Designing behavior change",
-            "captionBody": "Sales teams left the workshop with achievable ways to change their behavior, tools, and work environment."
-          },
-          {
-            "showcase": "B",
-            "captionTitle": "Applied design thinking education",
-            "captionBody": "Even in sales, design thinking's ability to visualize and democratize perspectives helped teams align and consider new ideas."
-          }
-        ]
-      },
-      {
-        "subhead": "The program's third phase was remote coaching",
-        "showcases": [
-          {
-            "showcase": "A",
-            "captionTitle": "Providing coaching structure",
-            "captionBody": "Coaches owned their approach to design thinking adoption, but we provided structure to keep them moving."
-          },
-          {
-            "showcase": "B",
-            "captionTitle": "New remote ways of working",
-            "captionBody": "Tools like Mural enabled remote collaboration at scale and showed design thinking could happen anywhere, which was novel in 2018."
-          }
-        ]
-      },
-      {
-        "subhead": "The program's final phase was equipping for success",
-        "showcases": [
-          {
-            "showcase": "A",
-            "captionTitle": "Credentialed in design thinking",
-            "captionBody": "At the end of the program, participants were eligible for a Co-Creator badge, a significant milestone recognizing their design thinking abilities."
-          },
-          {
-            "showcase": "B",
-            "captionTitle": "Reflection and new goal setting",
-            "captionBody": "This template guided offboarding, supporting reflection, gathering feedback, and setting new goals."
+            "captionBody": "Teams reflect on their progress and set goals they own moving forward."
           }
         ]
       },
@@ -123,12 +69,28 @@
           {
             "showcase": "A",
             "captionTitle": "The Client Goal made it real",
-            "captionBody": "It was identified during onboarding, explored in the workshop, and advanced through remote coaching."
+            "captionBody": "It was identified during onboarding, explored in the workshop, and advanced through remote coaching.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-02a-dd1-client-goal.png",
+                "alt": "A workshop slide with two Client Goal examples: a police department that needs a better way to deliver real-time information to officers in the field, and a financial services company that needs to grow how many customers use cashless payments."
+              }
+            ]
           },
           {
             "showcase": "B",
             "captionTitle": "Fitting design thinking to sales",
-            "captionBody": "Our understanding of seller workflows let us tailor design thinking activities and mindsets to their daily work."
+            "captionBody": "Our understanding of seller workflows let us tailor design thinking activities and mindsets to their daily work.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-02b-dd1-sales-entry-points.png",
+                "alt": "A diagram titled \"Opportunity entry points\", grouping where sales opportunities begin: pushes, pulls, trusted partnerships and influencers."
+              },
+              {
+                "src": "assets/javelin-program/jav-03-solution-02c-dd1-seller-guidance.png",
+                "alt": "A workshop slide titled \"Frame the problem space\", with As-is and To-be columns and key activities such as problem statements and empathy maps."
+              }
+            ]
           }
         ]
       },
@@ -138,17 +100,35 @@
           {
             "showcase": "A",
             "captionTitle": "Coaches made heavy work lighter",
-            "captionBody": "Coaches created a zone of proximal development by removing barriers and modeling the behaviors in practice."
+            "captionBody": "Coaches created a zone of proximal development by removing barriers and modeling the behaviors in practice.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-06b-dd2-coach-meeting.jpg",
+                "alt": "A video call with one participant laughing in the main window, four more in a row above, and notes on key habits in the chat panel."
+              }
+            ]
           },
           {
             "showcase": "B",
             "captionTitle": "Prioritizing and tracking",
-            "captionBody": "Focusing on one key behavior set a clear priority and prevented overwhelm, while tracking improved adoption through self-regulation."
+            "captionBody": "Focusing on one key behavior set a clear priority and prevented overwhelm, while tracking improved adoption through self-regulation.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-06b-dd2-key-behavior.jpg",
+                "alt": "Two people at a whiteboard pointing to a hand-drawn radar chart and a habits timeline marked in two-week steps, surrounded by sticky-note maps."
+              }
+            ]
           },
           {
             "showcase": "C",
             "captionTitle": "Finding the cues for action",
-            "captionBody": "Every habit needs a prompt. We helped sellers identify the right moments, clarifying when to act, not just what to do."
+            "captionBody": "Every habit needs a prompt. We helped sellers identify the right moments, clarifying when to act, not just what to do.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-06b-dd2-design-thinking-opportunities.jpg",
+                "alt": "A flip-chart sheet titled \"Restlessly re-invent sales cycle\", with sticky notes in Japanese and English grouped by sales stage and red voting dots on the top issues."
+              }
+            ]
           }
         ]
       },
@@ -158,12 +138,24 @@
           {
             "showcase": "A",
             "captionTitle": "Enterprise Design Thinking badges",
-            "captionBody": "The badging platform bootstrapped sellers during the program and provided a pathway for growth after the program."
+            "captionBody": "The badging platform bootstrapped sellers during the program and provided a pathway for growth after the program.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-06b-dd3-badges.png",
+                "alt": "Five IBM Enterprise Design Thinking badges: Practitioner, Co-Creator, Coach, Advocate and Leader."
+              }
+            ]
           },
           {
             "showcase": "B",
             "captionTitle": "Teamwork makes the dream work",
-            "captionBody": "A global coaching network and cohort leaders embedded within each region were the backbone of our program."
+            "captionBody": "A global coaching network and cohort leaders embedded within each region were the backbone of our program.",
+            "images": [
+              {
+                "src": "assets/javelin-program/jav-03-solution-06b-dd3-coaches.jpg",
+                "alt": "A group of people posing and waving in front of an IBM Studios sign."
+              }
+            ]
           }
         ]
       }

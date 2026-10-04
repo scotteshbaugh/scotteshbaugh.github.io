@@ -56,13 +56,13 @@ function renderCaseStudyHeader(caseStudyHeader) {
 
 // ds-summary's slots are fixed (goal/outcome/role/client-scope) and keyed
 // here by each item's title, not by array position -- the summary order in the JSON
-// is only for a human reading the file (see the Goal/Outcomes/Role/Client
+// is only for a human reading the file (see the Outcome/Goal/Role/Client
 // and scope reorder Bosco asked for across every case study), it has
 // never driven what shows up where on screen. ds-summary's own
 // grid-template-areas control the actual visual order per breakpoint.
 const SUMMARY_SLOT_BY_TITLE = {
   "Goal": "goal",
-  "Outcomes": "outcome",
+  "Outcome": "outcome",
   "Role": "role",
   "Client and scope": "client-scope",
 };

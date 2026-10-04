@@ -1,24 +1,24 @@
 {
   "caseStudyHeader": {
-    "heading": "Content+ Offering Content Dashboard",
+    "heading": "Offering Content Reporting",
     "body": "A dashboard for service offering teams that provides visibility into their offering's readiness and consultant usage."
   },
   "summary": [
     {
-      "title": "Goal",
-      "description": "The dashboard aimed to help service offering teams manage the lifecycle of their Offering and integrate them into a new content management system, Content+."
+      "title": "Outcome",
+      "description": "I delivered a high-fidelity prototype that articulated a new governance model and provided qualitative feedback for the first time."
     },
     {
-      "title": "Client and scope",
-      "description": "The internal client for this project was a cross-functional team representing IBM Services and lasted 4 months in 2020."
+      "title": "Goal",
+      "description": "The dashboard aimed to help service offering teams manage the lifecycle of their Offering and integrate them into a new content management system, Content+."
     },
     {
       "title": "Role",
       "description": "I owned the reporting dashboard and my biggest contribution was building out its interface."
     },
     {
-      "title": "Outcomes",
-      "description": "I delivered a high-fidelity prototype that articulated a new governance model and provided qualitative feedback for the first time."
+      "title": "Client and scope",
+      "description": "The internal client for this project was a cross-functional team representing IBM Services and lasted 4 months in 2020."
     }
   ],
   "context": {
@@ -27,7 +27,7 @@
       "Consultants needed fresh, calibrated content for client opportunities, but what offering teams provided was often outdated or inconsistently maintained.",
       "Offering teams lacked centralized, sufficient data to understand how their content was actually being used.",
       "Offering teams lacked the incentives and feedback loops to prioritize improving their content over time.",
-      "The vision was to extend how teams manage their offering's lifecycle -- tracking, strategizing, and evolving their content based on real feedback."
+      "The vision was to extend how teams manage their offering's lifecycle — tracking, strategizing, and evolving their content based on real feedback."
     ]
   },
   "solution": {

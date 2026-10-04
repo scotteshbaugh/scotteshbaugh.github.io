@@ -104,11 +104,11 @@
     ]
   },
   "process": {
-    "statement": "The biggest challenge was convincing stakeholders to evolve PCA’s core workflow to match user needs.",
+    "statement": "The biggest challenge was convincing stakeholders to match the product’s workflow with user needs.",
     "description": "Stakeholders initially favored a conventional file-management model, while research revealed a cyclical analytical workflow. The resulting workspace connected customer lists with the analysis workflow, enabling analysts to move bidirectionally between understanding and shaping the lists.",
     "button": {
-      "label": "Read the full case study",
-      "href": ""
+      "label": "Request the full case study",
+      "href": "https://www.linkedin.com/in/scott-eshbaugh-45489725/"
     }
   },
   "outcomes": {

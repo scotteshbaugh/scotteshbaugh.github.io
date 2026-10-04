@@ -34,7 +34,17 @@
     "subsections": [
       {
         "subhead": "Begin analyses with starting points",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/predictive-customer-analytics/pca-03-solution-01a-main.png",
+                "alt": "The home screen: a bubble chart of high attrition audiences with one list selected on the left, and a grid of recent customer lists on the right."
+              }
+            ]
+          }
+        ]
       },
       {
         "subhead": "Monitor and identify customers",
@@ -42,22 +52,54 @@
           {
             "showcase": "A",
             "captionTitle": "Customer scorecard",
-            "captionBody": ""
+            "captionBody": "",
+            "images": [
+              {
+                "src": "assets/predictive-customer-analytics/pca-03-solution-02a-identity-customer-scorecard.png",
+                "alt": "The Customer scorecard for a list: six rolling seven-day averages, including customers, attrition and CLTV, beside a line chart of customers over time."
+              }
+            ]
           },
           {
             "showcase": "B",
             "captionTitle": "Section of the Attrition lens",
-            "captionBody": ""
+            "captionBody": "",
+            "images": [
+              {
+                "src": "assets/predictive-customer-analytics/pca-03-solution-02b-identify-attrition-lens.png",
+                "alt": "The Attrition lens, \"High risk customers by segment\": a bubble chart of attrition score by customer lifetime value, with three written insights on the right."
+              }
+            ]
           }
         ]
       },
       {
         "subhead": "Manually edit customer lists with rules",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/predictive-customer-analytics/pca-03-solution-03a-edit.png",
+                "alt": "The Edit view: a list of rules such as age, city and education on the left, and a bar chart of customers by age with the 30 to 50 range highlighted."
+              }
+            ]
+          }
+        ]
       },
       {
         "subhead": "Export to many platforms",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/predictive-customer-analytics/pca-03-solution-04a-export.png",
+                "alt": "The Export view, \"Select a destination\", with four options: share via UBX, publish to IBM Marketing Cloud, save basic data to desktop, or save all data to desktop."
+              }
+            ]
+          }
+        ]
       }
     ]
   },

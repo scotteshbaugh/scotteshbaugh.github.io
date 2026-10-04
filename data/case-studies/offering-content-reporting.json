@@ -34,7 +34,17 @@
     "subsections": [
       {
         "subhead": "Offering teams receive alerts and use summaries to identify gaps in their offering content and organizational reach.",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/offering-content-reporting/ocr-03-solution-01a-dashboard-flow-composite.png",
+                "alt": "Four dashboard screens joined by flow lines: the Offering Profile overview, the Offering Report overview with its alert counts, an artifact detail view for a non-compliant engagement model, and the offering profile's activity view."
+              }
+            ]
+          }
+        ]
       },
       {
         "subhead": "The report integrates with the offering profile to drive adoption of the dashboard and reduce mental models.",
@@ -42,7 +52,13 @@
           {
             "showcase": "A",
             "captionTitle": "Offering Profile overview",
-            "captionBody": "Offering team members switch to the dashboard from the Offering Profile"
+            "captionBody": "Offering team members switch to the dashboard from the Offering Profile",
+            "images": [
+              {
+                "src": "assets/offering-content-reporting/ocr-03-solution-02a-profile-report-switch-composite.png",
+                "alt": "The Offering Profile overview and the Offering Report overview side by side, with a line joining the Dashboard button on one to the Profile button on the other."
+              }
+            ]
           },
           {
             "showcase": "B",
@@ -57,7 +73,13 @@
           {
             "showcase": "A",
             "captionTitle": "Alerts",
-            "captionBody": "Alerts drive Offering team members toward urgent actions that need resolution."
+            "captionBody": "Alerts drive Offering team members toward urgent actions that need resolution.",
+            "images": [
+              {
+                "src": "assets/offering-content-reporting/ocr-03-solution-03a-alerts-workflow-composite.png",
+                "alt": "An alert on the Offering Profile and an alert on the Offering Report both lead to the same artifact detail view, which warns that the engagement model is non-compliant and will be removed in 34 days."
+              }
+            ]
           },
           {
             "showcase": "B",
@@ -68,7 +90,17 @@
       },
       {
         "subhead": "The report prioritizes showing conclusions first then providing evidence second using various visual design principles.",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/offering-content-reporting/ocr-03-solution-04a-ced-framework-composite.png",
+                "alt": "Two report sections enlarged beside their full pages: ecosystem activity for organic discovery, and the artifact helpfulness score. Each opens with a large percentage change, followed by trend charts."
+              }
+            ]
+          }
+        ]
       },
       {
         "subhead": "The report combines rich usage data and qualitative feedback to guide offering lifecycle activities in real time.",
@@ -76,7 +108,13 @@
           {
             "showcase": "A",
             "captionTitle": "Helpfulness",
-            "captionBody": "Offering teams can understand how an artifact’s helpfulness is trending."
+            "captionBody": "Offering teams can understand how an artifact’s helpfulness is trending.",
+            "images": [
+              {
+                "src": "assets/offering-content-reporting/ocr-03-solution-05a-helpfulness-section-composite.png",
+                "alt": "The artifact detail view with its lower half enlarged: a helpfulness score that is down 29%, and a \"What users are saying\" panel with a calendar of feedback and a quote from a consultant."
+              }
+            ]
           },
           {
             "showcase": "B",

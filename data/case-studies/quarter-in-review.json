@@ -34,7 +34,17 @@
     "subsections": [
       {
         "subhead": "Offering leaders start with their Offering’s scores across usage, health, and performance, then explore deeper insights and next best actions.",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/quarter-in-review/qir-03-solution-01a-report-flow.png",
+                "alt": "Four report screens joined by flow lines: a landing page with the offering's three scores, then a page each for usage, health and performance, ending with a link back to the start."
+              }
+            ]
+          }
+        ]
       },
       {
         "subhead": "Scoring brings context to data and peer benchmarking drives behavior change.",
@@ -42,22 +52,54 @@
           {
             "showcase": "A",
             "captionTitle": "Scoring on landing page",
-            "captionBody": ""
+            "captionBody": "",
+            "images": [
+              {
+                "src": "assets/quarter-in-review/qir-03-solution-02a-scoring.png",
+                "alt": "The report's landing page for the Cloud Modernization Application offering, Q4 2019, with three scores: Usage: Poor, Health: Average, Performance: Good."
+              }
+            ]
           },
           {
             "showcase": "B",
             "captionTitle": "Benchmarking on Usage page",
-            "captionBody": ""
+            "captionBody": "",
+            "images": [
+              {
+                "src": "assets/quarter-in-review/qir-03-solution-02b-scoring.png",
+                "alt": "The Usage page, headed \"7% of your page views result in an artifact download, 8% below the average Strategic Offering\", comparing the offering's 981 page views with the offering average of 1,167."
+              }
+            ]
           }
         ]
       },
       {
         "subhead": "The report’s executive-level audience called for concise, impactful visualizations.",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/quarter-in-review/qir-03-solution-03a-data-density.png",
+                "alt": "The Performance page beside an enlarged detail of its signings-to-pipeline chart: two triangles showing $8M of signings against a $35M pipeline for the Consumer industry, and $11M against $85M for North America."
+              }
+            ]
+          }
+        ]
       },
       {
         "subhead": "The report scales the voice of Offering Management and pushed teams towards lifecycle activities.",
-        "showcases": []
+        "showcases": [
+          {
+            "showcase": "A",
+            "images": [
+              {
+                "src": "assets/quarter-in-review/qir-03-solution-04a-health-next-steps.png",
+                "alt": "The Health page beside an enlarged detail of its Incomplete section, which lists the artifacts still to develop next to guidance and links for updating them."
+              }
+            ]
+          }
+        ]
       }
     ]
   },

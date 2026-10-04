@@ -492,8 +492,8 @@ ds-list.pullout-layout__support {
 /* ---- Case Study Section + Layouts (Figma nodes 263:8048, 363:8124) ----
    A content section below Context: Section Divider, then one or more
    subsections. Each subsection is a Layout -- a 12-column grid that places
-   a Subhead, Figure Captions and Showcases. Figma's Layout variants
-   (Side by Side, Over on Over) are the presets below.
+   a Subhead, Figure Captions and Showcases. Each variant of Figma's
+   Subsection Layout is one preset below.
 
    Markup order is reading order, matching the layer order in Figma:
    Subhead first, then each showcase followed by its caption (Showcase A,
@@ -504,7 +504,7 @@ ds-list.pullout-layout__support {
    <section class="case-study-section">
      <div class="section-divider">...</div>
      <div class="case-study-section__subsections">
-       <div class="layout layout--side-by-side">
+       <div class="layout layout--side-by-side-above">
          <div class="subhead layout__subhead">...</div>
          <div class="showcase layout__showcase-a">...</div>
          <figcaption class="figure-caption layout__caption-a">...</figcaption>
@@ -543,35 +543,143 @@ ds-list.pullout-layout__support {
 
 .layout__subhead { grid-column: 1 / span 9; grid-row: 1; }
 
-/* Side by Side -- two showcases next to each other, each with its caption
-   above. Column 6 is deliberately narrow (0.2fr): Bosco's call, copied
-   from Figma as-is. */
-.layout--side-by-side {
+/* ---- Layout presets ----
+   One class per variant of Figma's Subsection Layout (node 363:8124),
+   named Layout + Captions the way the variant reads in Figma:
+   "Layout=Single, Captions=Two Below" is .layout--single-two-below.
+
+   Layout says how the showcases are arranged. Captions says where the
+   captions sit: None, Above, Below, Beside -- with "Two" when one showcase
+   has two captions.
+
+   Columns, rows and top/bottom alignment are copied from each variant.
+   A caption fills the columns it is given, up to the 240px cap. */
+
+/* Single, None (node 560:14915) -- one wide showcase, no captions.
+
+   <div class="layout layout--single-none">
+     subhead, showcase-a
+   </div> */
+.layout--single-none .layout__showcase-a { grid-column: 2 / span 10; grid-row: 2; }
+
+/* Single, Beside (node 426:30881) -- one showcase in the middle 7 columns,
+   its caption beside it on the right, at the showcase's bottom edge.
+
+   <div class="layout layout--single-beside">
+     subhead, showcase-a, caption-a
+   </div> */
+.layout--single-beside .layout__showcase-a { grid-column: 3 / span 7;  grid-row: 2; }
+.layout--single-beside .layout__caption-a  { grid-column: 10 / span 3; grid-row: 2; align-self: end; }
+
+/* Single, Two Beside (node 665:55738) -- one showcase with both captions in
+   a column on its right: Caption A at the showcase's top edge, Caption B at
+   its bottom edge. Figma holds the two captions in a "Captions" frame as
+   tall as the showcase; .layout__captions is that frame.
+
+   <div class="layout layout--single-two-beside">
+     subhead, showcase-a,
+     <div class="layout__captions"> caption-a, caption-b </div>
+   </div> */
+.layout--single-two-beside .layout__showcase-a { grid-column: 2 / span 9;  grid-row: 2; }
+.layout--single-two-beside .layout__captions   { grid-column: 11 / span 2; grid-row: 2; align-self: stretch; }
+
+.layout__captions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--size-primitive-space-600);  /* 24px, so the pair never touch when stacked */
+}
+
+/* Single, Above and Below (node 665:55625) -- one wide showcase, Caption B
+   above its right edge, Caption A under its left edge.
+
+   <div class="layout layout--single-above-and-below">
+     subhead, showcase-a, caption-a, caption-b
+   </div> */
+.layout--single-above-and-below .layout__caption-b  { grid-column: 10 / span 2; grid-row: 2; align-self: end; }
+.layout--single-above-and-below .layout__showcase-a { grid-column: 2 / span 10; grid-row: 3; }
+.layout--single-above-and-below .layout__caption-a  { grid-column: 2 / span 2;  grid-row: 4; }
+
+/* Single, Two Below (node 665:55554) -- one wide showcase, Caption A under
+   its left edge, Caption B under its right.
+
+   <div class="layout layout--single-two-below">
+     subhead, showcase-a, caption-a, caption-b
+   </div> */
+.layout--single-two-below .layout__showcase-a { grid-column: 2 / span 10; grid-row: 2; }
+.layout--single-two-below .layout__caption-a  { grid-column: 2 / span 2;  grid-row: 3; }
+.layout--single-two-below .layout__caption-b  { grid-column: 10 / span 2; grid-row: 3; }
+
+/* Side by Side, Above (node 363:8123) -- two showcases next to each other,
+   each with its caption above. Column 6 is deliberately narrow (0.2fr):
+   Bosco's call, copied from Figma as-is.
+
+   <div class="layout layout--side-by-side-above">
+     subhead, showcase-a, caption-a, showcase-b, caption-b
+   </div> */
+.layout--side-by-side-above {
   grid-template-columns:
     repeat(5, minmax(0, 1fr)) minmax(0, 0.2fr) repeat(6, minmax(0, 1fr));
 }
-.layout--side-by-side .layout__caption-a  { grid-column: 1 / span 4; grid-row: 2; }
-.layout--side-by-side .layout__showcase-a { grid-column: 1 / span 5; grid-row: 3; }
-.layout--side-by-side .layout__caption-b  { grid-column: 7 / span 4; grid-row: 2; }
-.layout--side-by-side .layout__showcase-b { grid-column: 7 / span 5; grid-row: 3; }
+.layout--side-by-side-above .layout__caption-a  { grid-column: 1 / span 4; grid-row: 2; }
+.layout--side-by-side-above .layout__showcase-a { grid-column: 1 / span 5; grid-row: 3; }
+.layout--side-by-side-above .layout__caption-b  { grid-column: 7 / span 4; grid-row: 2; }
+.layout--side-by-side-above .layout__showcase-b { grid-column: 7 / span 5; grid-row: 3; }
 
-/* Single -- one showcase in the middle 7 columns, its caption beside it
-   on the right. Figma's Subsection Layout variant "Single, Captions=Right
-   side" (node 426:30881). The caption sits at the showcase's bottom edge,
-   as the Self-service page places it, not at its top. */
-.layout--single .layout__showcase-a { grid-column: 3 / span 7; grid-row: 2; }
-.layout--single .layout__caption-a  { grid-column: 10 / span 3; grid-row: 2; align-self: end; }
+/* Side by Side, Below (node 664:55009) -- a wide showcase on the left and
+   a narrower one on the right, each with its caption underneath. Showcase A
+   sits at the bottom of the row, Showcase B at the top.
 
-/* Over on Over -- two showcases stacked in the middle 7 columns, caption
-   beside the second one. */
-.layout--over-on-over .layout__showcase-a { grid-column: 3 / span 7; grid-row: 2; }
-.layout--over-on-over .layout__showcase-b { grid-column: 3 / span 7; grid-row: 3; }
-.layout--over-on-over .layout__caption-b  { grid-column: 10 / span 2; grid-row: 3; }
+   <div class="layout layout--side-by-side-below">
+     subhead, showcase-a, caption-a, showcase-b, caption-b
+   </div> */
+.layout--side-by-side-below .layout__showcase-a { grid-column: 1 / span 6; grid-row: 2; align-self: end; }
+.layout--side-by-side-below .layout__caption-a  { grid-column: 1 / span 4; grid-row: 3; }
+.layout--side-by-side-below .layout__showcase-b { grid-column: 9 / span 4; grid-row: 2; }
+.layout--side-by-side-below .layout__caption-b  { grid-column: 9 / span 4; grid-row: 3; }
+
+/* Side by Side, Above and Below (node 665:55433) -- two equal showcases at
+   the far left and far right. Caption A sits above Showcase A, Caption B
+   below Showcase B.
+
+   <div class="layout layout--side-by-side-above-and-below">
+     subhead, showcase-a, caption-a, showcase-b, caption-b
+   </div> */
+.layout--side-by-side-above-and-below .layout__caption-a  { grid-column: 1 / span 4; grid-row: 2; }
+.layout--side-by-side-above-and-below .layout__showcase-a { grid-column: 1 / span 5; grid-row: 3; }
+.layout--side-by-side-above-and-below .layout__showcase-b { grid-column: 8 / span 5; grid-row: 3; align-self: end; }
+.layout--side-by-side-above-and-below .layout__caption-b  { grid-column: 8 / span 2; grid-row: 4; }
+
+/* Over on Over, Beside (node 401:27306) -- two showcases stacked in the
+   middle 7 columns, caption beside the second one.
+
+   <div class="layout layout--over-on-over-beside">
+     subhead, showcase-a, showcase-b, caption-b
+   </div> */
+.layout--over-on-over-beside .layout__showcase-a { grid-column: 3 / span 7;  grid-row: 2; }
+.layout--over-on-over-beside .layout__showcase-b { grid-column: 3 / span 7;  grid-row: 3; }
+.layout--over-on-over-beside .layout__caption-b  { grid-column: 10 / span 2; grid-row: 3; }
+
+/* One over Two, Beside (node 665:55283) -- Showcase A on its own row with
+   its caption beside it, then Showcases B and C on the next row, each with
+   its caption on its right. B and its caption sit at the bottom of that
+   row, C and its caption at the top.
+
+   <div class="layout layout--one-over-two-beside">
+     subhead, showcase-a, caption-a, showcase-b, caption-b,
+     showcase-c, caption-c
+   </div> */
+.layout--one-over-two-beside .layout__showcase-a { grid-column: 1 / span 5;  grid-row: 2; align-self: end; }
+.layout--one-over-two-beside .layout__caption-a  { grid-column: 6 / span 3;  grid-row: 2; }
+.layout--one-over-two-beside .layout__showcase-b { grid-column: 1 / span 4;  grid-row: 3; align-self: end; }
+.layout--one-over-two-beside .layout__caption-b  { grid-column: 5 / span 2;  grid-row: 3; align-self: end; }
+.layout--one-over-two-beside .layout__showcase-c { grid-column: 8 / span 3;  grid-row: 3; }
+.layout--one-over-two-beside .layout__caption-c  { grid-column: 11 / span 2; grid-row: 3; }
 
 /* bp: below medium */
 @media (max-width: 719px) {
   .layout,
-  .layout--side-by-side {
+  .layout--side-by-side-above {
     grid-template-columns: minmax(0, 1fr);
   }
   .layout > * {

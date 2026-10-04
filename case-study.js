@@ -144,9 +144,25 @@ function renderSolution(solution) {
       });
     }
   });
+
+  // Figma's Figure Caption has Show Title and Show Body, and some
+  // captions aren't written yet. Whatever the JSON left empty comes out
+  // of the page: an empty line, a caption with neither part, and the
+  // captions column if nothing is left in it.
+  for (const layout of layouts) {
+    for (const part of layout.querySelectorAll(".figure-caption__title, .figure-caption__body")) {
+      if (!part.textContent.trim()) part.remove();
+    }
+    for (const caption of layout.querySelectorAll(".figure-caption")) {
+      if (!caption.children.length) caption.remove();
+    }
+    for (const captions of layout.querySelectorAll(".layout__captions")) {
+      if (!captions.children.length) captions.remove();
+    }
+  }
 }
 
-// Process and Outcomes are both a Pullout Layout, so they share a shape:
+// Process and Outcome are both a Pullout Layout, so they share a shape:
 // a statement or quote on the left, and its support on the right.
 function renderProcess(process) {
   if (!process) return;
@@ -160,12 +176,27 @@ function renderProcess(process) {
   statement.textContent = process.statement;
   pullout.append(statement);
 
-  section.querySelector(".pullout-layout__description").textContent = process.description ?? "";
+  // Not every case study has a description yet. Without one the line
+  // comes out, so the statement sits straight above the action.
+  const description = section.querySelector(".pullout-layout__description");
+  if (process.description) {
+    description.textContent = process.description;
+  } else {
+    description.remove();
+  }
 
+  // The action leaves the site (a PDF, or LinkedIn), which is what its
+  // external-link icon says -- so it opens in a new tab.
   const action = section.querySelector(".pullout-layout__action");
   if (process.button?.label) {
     action.querySelector("span").textContent = process.button.label;
-    action.href = process.button.href || "#";
+    if (process.button.href) {
+      action.href = process.button.href;
+      action.target = "_blank";
+      action.rel = "noopener";
+    } else {
+      action.href = "#";
+    }
   } else {
     action.remove();
   }
@@ -174,7 +205,7 @@ function renderProcess(process) {
 function renderOutcomes(outcomes) {
   if (!outcomes) return;
   const section = [...document.querySelectorAll(".case-study-section")]
-    .find((s) => s.querySelector(".section-divider__label")?.textContent === "Outcomes");
+    .find((s) => s.querySelector(".section-divider__label")?.textContent === "Outcome");
   if (!section) return;
 
   // Not every case study has a quote -- Figma's Pullout Layout has a Show

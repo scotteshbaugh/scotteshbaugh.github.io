@@ -549,8 +549,8 @@ ds-list.pullout-layout__support {
    "Layout=Single, Captions=Two Below" is .layout--single-two-below.
 
    Layout says how the showcases are arranged. Captions says where the
-   captions sit: None, Above, Below, Beside -- with "Two" when one showcase
-   has two captions.
+   captions sit: None, Above, Below, Beside -- with "Two" or "Four" when
+   one showcase has that many captions.
 
    Columns, rows and top/bottom alignment are copied from each variant.
    A caption fills the columns it is given, up to the 240px cap. */
@@ -590,7 +590,19 @@ ds-list.pullout-layout__support {
   gap: var(--size-primitive-space-600);  /* 24px, so the pair never touch when stacked */
 }
 
-/* Single, Above and Below (node 665:55625) -- one wide showcase, Caption B
+/* Single, Four Above (node 665:55625) -- one full-width showcase with four
+   captions in a row above it.
+
+   <div class="layout layout--single-four-above">
+     subhead, showcase-a, caption-a, caption-b, caption-c, caption-d
+   </div> */
+.layout--single-four-above .layout__caption-a  { grid-column: 1 / span 2;  grid-row: 2; }
+.layout--single-four-above .layout__caption-b  { grid-column: 4 / span 2;  grid-row: 2; }
+.layout--single-four-above .layout__caption-c  { grid-column: 7 / span 2;  grid-row: 2; }
+.layout--single-four-above .layout__caption-d  { grid-column: 10 / span 2; grid-row: 2; }
+.layout--single-four-above .layout__showcase-a { grid-column: 1 / span 12; grid-row: 3; }
+
+/* Single, Above and Below (node 727:59518) -- one wide showcase, Caption B
    above its right edge, Caption A under its left edge.
 
    <div class="layout layout--single-above-and-below">

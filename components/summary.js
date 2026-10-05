@@ -1,6 +1,6 @@
 // <ds-summary> — Summary web component
 //
-// The "at a glance" key-fact grid for a case study: Goal / Outcome / Role /
+// The "at a glance" key-fact grid for a case study: Outcome / Goal / Role /
 // Client and scope, each a label + description pair. Every value comes from
 // css/tokens.css custom properties, inherited through the shadow boundary --
 // no hardcoded colors, sizes, or heights here.
@@ -13,11 +13,13 @@
 // Why the four fields are fixed slots instead of a generic repeatable list:
 // unlike ds-list (which holds any number of short items), this
 // component's fields are a fixed, named schema meant to stay consistent
-// across every case study on the site -- Goal/Outcome/Role/Client and
+// across every case study on the site -- Outcome/Goal/Role/Client and
 // scope, always with those labels. The labels themselves live in this
 // file, not in consumer markup, because they're part of the template, not
-// per-instance content. Field ORDER differs by breakpoint (Outcome leads
-// on Expanded; Goal leads on Medium/Compact) -- confirmed against Figma.
+// per-instance content. Field ORDER is the same at every breakpoint:
+// Outcome, Goal, Role, Client and scope -- Bosco's call, and what all
+// three of Figma's Summary variants show. Only the arrangement changes
+// (one row, 2x2, one column).
 //
 // Why CSS Grid with named grid-areas instead of flexbox + <ds-divider>
 // elements (which is what the Figma component itself uses, and what the
@@ -32,13 +34,13 @@
 // The fix used here: each field is a grid item placed by name via
 // grid-template-areas (same technique as the .left grid in
 // card-case-study.js, which relocates its Year/Role meta item the same
-// way), so reordering fields per breakpoint never touches the DOM.
+// way), so rearranging fields per breakpoint never touches the DOM.
 //
 // Divider lines: drawn as their own grid items (.summary-divider-1/2/3),
 // not as borders on the fields. An earlier version drew each divider as a
 // border owned by the field(s) next to it -- on Medium's 2x2, that meant
-// the vertical rule (owned by Outcome/Client and scope) and the horizontal
-// rule (owned by Goal/Outcome) were two independently-positioned border
+// the vertical rule (owned by Goal/Client and scope) and the horizontal
+// rule (owned by Outcome/Goal) were two independently-positioned border
 // segments that never actually touched, leaving a visible disconnected
 // "elbow" at the crossing instead of a clean "+". A border can only run
 // along the edge of the box that draws it -- it has no way to continue
@@ -74,20 +76,15 @@
 //
 // Breakpoints (imported from breakpoints.js, the site's real device
 // breakpoints -- not arbitrary):
-//   < 720px          Compact   -- single column, stacked Goal, Outcome,
+//   < 720px          Compact   -- single column, stacked Outcome, Goal,
 //                                 Role, Client and scope. Horizontal rule
 //                                 between each
-//   720px - 959px    Medium   -- 2x2: Goal/Outcome on top, Role/Client and
+//   720px - 959px    Medium   -- 2x2: Outcome/Goal on top, Role/Client and
 //                                 scope below. Vertical rule between the
 //                                 two columns, horizontal rule between the
 //                                 two rows
-//   >= 960px         Expanded  -- single row, Outcome first: Outcome,
-//                                 Goal, Role, Client and scope. Vertical
-//                                 rule between each. Outcome leads here
-//                                 (unlike Medium/Compact) because Expanded
-//                                 shows all 4 as one simultaneous row --
-//                                 confirmed against Figma's Expanded
-//                                 variant, not a leftover mismatch.
+//   >= 960px         Expanded  -- single row: Outcome, Goal, Role, Client
+//                                 and scope. Vertical rule between each.
 //
 // Slots:
 //   goal           the goal text
@@ -131,9 +128,9 @@ const SUMMARY_TEMPLATE = /* html */ `
       auto var(--gutter)
       auto;
     grid-template-areas:
-      "goal"
-      "."
       "outcome"
+      "."
+      "goal"
       "."
       "role"
       "."
@@ -142,23 +139,22 @@ const SUMMARY_TEMPLATE = /* html */ `
 
   @media ${QUERY_MEDIUM_ONLY} {
     :host {
-      /* 2x2: Goal/Outcome paired above Role/Client and scope, so the
-         goal->outcome (problem->result) pair reads as a unit before the
+      /* 2x2: Outcome/Goal paired above Role/Client and scope, so the
+         result and the problem it answered read as a unit before the
          supporting/credibility pair below it. The middle column/row are
          gutter tracks the two dividers below are placed into. */
       grid-template-columns: 1fr var(--gutter) 1fr;
       grid-template-rows: auto var(--gutter) auto;
       grid-template-areas:
-        "goal . outcome"
-        ".    . .       "
-        "role . client-scope";
+        "outcome . goal"
+        ".       . .   "
+        "role    . client-scope";
     }
   }
 
   @media ${QUERY_EXPANDED} {
     :host {
-      /* Outcome leads on Expanded -- all 4 fields show as one simultaneous
-         row here, unlike Medium/Compact's paired/stacked layouts. Every
+      /* All 4 fields in one row, Outcome first as at every size. Every
          other column is a gutter track for one of the 3 vertical
          dividers. */
       grid-template-columns:
@@ -288,13 +284,13 @@ const SUMMARY_TEMPLATE = /* html */ `
     color: var(--color-text-default-secondary);
   }
 </style>
-<div class="summary-item summary-item--goal">
-  <span class="summary-item__label">Goal</span>
-  <slot name="goal"></slot>
-</div>
 <div class="summary-item summary-item--outcome">
   <span class="summary-item__label">Outcome</span>
   <slot name="outcome"></slot>
+</div>
+<div class="summary-item summary-item--goal">
+  <span class="summary-item__label">Goal</span>
+  <slot name="goal"></slot>
 </div>
 <div class="summary-item summary-item--role">
   <span class="summary-item__label">Role</span>

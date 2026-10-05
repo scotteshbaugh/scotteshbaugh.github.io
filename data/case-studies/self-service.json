@@ -115,7 +115,7 @@
     "description": "This was complex because flexible profile configuration had to comply with SCIM 2.0 requirements while also integrating with legacy platform components.",
     "button": {
       "label": "Read the full case study",
-      "href": "assets/casestudies/ss-casestudy.pdf"
+      "href": "assets/documents/ss-casestudy_eshbaugh_2026-09.pdf"
     }
   },
   "outcomes": {

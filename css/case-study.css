@@ -103,7 +103,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   /* Bound to a real token, Text/Default/Secondary -- the landing page's
-     own Section Divider (main.html) reuses this exact class, not a
+     own Section Divider (index.html) reuses this exact class, not a
      separate hardcoded overline anymore. */
   color: var(--color-text-default-secondary);
 }

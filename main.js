@@ -2,11 +2,11 @@
 //
 // Builds the case studies list from data/case-studies.json instead of
 // hand-authored markup, so the case study content lives in one JSON file
-// rather than being duplicated into main.html card by card.
+// rather than being duplicated into index.html card by card.
 //
 // Loaded as an ES module -- pulls in ds-card-case-study, which in turn
 // imports ds-tag/ds-divider/ds-card-image/ds-list, so this one script tag
-// is all main.html needs for both the card component and this page logic.
+// is all index.html needs for both the card component and this page logic.
 
 import "./components/card-case-study.js";
 import { buildList } from "./components/build-list.js";

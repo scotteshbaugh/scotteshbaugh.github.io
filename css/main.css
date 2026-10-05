@@ -9,11 +9,6 @@
    Case Studies, Cards, Section Divider) rather than inventing new ones —
    Figma's naming takes precedence over whatever code used to call these. */
 
-body {
-  margin: 0;
-  background: var(--color-background-default-secondary);
-}
-
 /* ---- Intro (Figma node 140:3038, "Intro") ---- */
 
 .content__intro {

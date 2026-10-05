@@ -17,6 +17,15 @@
    (alongside every component's own breakpoints.js import) this number has
    to be kept in sync by hand if the Figma token ever changes. */
 
+/* The page itself (Figma's "Main" frame). Every page sits on the same
+   canvas: no browser margin, so the Top Navigation runs edge to edge, and
+   Background/Default/Secondary behind everything. It lives here, not in a
+   page's own stylesheet, so a page gets it just by linking this file. */
+body {
+  margin: 0;
+  background: var(--color-background-default-secondary);
+}
+
 .content {
   box-sizing: border-box;
   display: flex;

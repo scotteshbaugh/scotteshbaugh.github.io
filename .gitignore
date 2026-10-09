@@ -1,2 +1,6 @@
 .fuse_hidden*
 .DS_Store
+
+# Private application data
+data/resume/coverletter.json
+data/resume/application-questions.md

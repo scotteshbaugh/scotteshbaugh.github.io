@@ -131,8 +131,8 @@ def convert_resume(md):
 def convert_coverletter(md):
     args = []
     for title, body in blocks(strip_comments(md), "###"):
-        _, paras, _, _ = parse_body(body)
-        args.append({"claim": title, "proofPoint": " ".join(paras)})
+        fields, paras, _, _ = parse_body(body)
+        args.append({**fields, "claim": title, "proofPoint": " ".join(paras)})  # fields = topic
     return {"arguments": args}
 
 
